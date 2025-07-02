@@ -1,0 +1,116 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  
+}
+
+variables
+{
+   // Number of signals
+  const int NUM_SIG = 11;
+
+  // -----------------------------------------------------------------
+  // 1) Define your valid/invalid code for each of the 11 signals
+  //    (fill in with your actual in-range / out-of-range values)
+  // -----------------------------------------------------------------
+  long validVal[NUM_SIG] = {
+    0,  // WheelSpeedFLValidStat    (in-range)
+    0,  // WheelSpeedFRValidStat
+    0,  // WheelSpeedRLValidStat
+    0,  // WheelSpeedRRValidStat
+    0,  // VSMStatus (CH2CAN)
+    0,  // VSMStatus (CH1CAN)
+    50, // VehSpeedCalcStat         (a “normal” speed)
+    3,  // PrimBrkSysStat
+    2,  // SecBrkSysStat
+    0,  // LongAccFlt
+    0   // LatAccFlt
+  };
+  long invalidVal[NUM_SIG] = {
+    2,    // WheelSpeedFLValidStat  (out of {0,1})
+    2,    // WheelSpeedFRValidStat
+    2,    // WheelSpeedRLValidStat
+    2,    // WheelSpeedRRValidStat
+    255,  // VSMStatus (CH2CAN)     (out of 0–15)
+    255,  // VSMStatus (CH1CAN)
+    -1,   // VehSpeedCalcStat       (invalid float)
+    8,    // PrimBrkSysStat         (out of 0–7)
+    8,    // SecBrkSysStat
+    66000, // LongAccFlt
+    66000  // LatAccFlt
+  };
+
+  // -----------------------------------------------------------------
+  // 2) Message handles (must match your CANdb definitions)
+  //    These messages are assumed to be configured as "Periodic"
+  //    in the CANoe database—so assigning a new signal value here
+  //    will automatically be sent on the next cycle.
+  // -----------------------------------------------------------------
+  message CHASSIS2CAN::MKC1_FrntWhlSpd_Info   mkcFront;
+  message CHASSIS2CAN::MKC1_RrWhlSpd_Info     mkcRear;
+  message CHASSIS2CAN::VCU_VSMInfo            vcu2;
+  message CHASSIS1CAN::VCU_VSMInfo            vcu1;
+  message CHASSIS2CAN::MKC1_VehMvmntInfo      mkcVeh;
+  message CHASSIS2CAN::MKC1_BrakeInfo1        mkcPrBrk;
+  message CHASSIS1CAN::MK100_SecBrkInfo       mkcSecBrk;
+  message CHASSIS2CAN::MKC1_IMUInfo           mkcImu;
+
+  
+
+}
+
+MainTest()
+{
+  //Send maneuver
+  
+  TC_SendAllCombinations(); // FI
+  
+  
+}
+
+
+void sendCombination(int comboIndex)
+  {
+    int i, bit, val;
+    for (i = 0; i < NUM_SIG; i++)
+    {
+      bit = (comboIndex >> i) & 1;
+      val = bit ? invalidVal[i] : validVal[i];
+
+      // assign into the right signal
+      switch (i)
+      {
+        case  0: $CHASSIS2CAN::MKC1_FrntWhlSpd_Info::WheelSpeedFLValidStat = val; break;
+        case  1: $CHASSIS2CAN::MKC1_FrntWhlSpd_Info::WheelSpeedFRValidStat = val; break;
+        case  2: $CHASSIS2CAN::MKC1_RrWhlSpd_Info::WheelSpeedRLValidStat  = val; break;
+        case  3: $CHASSIS2CAN::MKC1_RrWhlSpd_Info::WheelSpeedRRValidStat  = val; break;
+        case  4: $CHASSIS2CAN::VCU_VSMInfo ::VSMStatus                = val; break;
+        case  5: $CHASSIS1CAN::VCU_VSMInfo::VSMStatus                = val; break;
+        case  6: $CHASSIS2CAN::MKC1_VehMvmntInfo::VehSpeedCalcStat       = val; break;
+        case  7: $CHASSIS2CAN::MKC1_BrakeInfo1::PrimaryBrkSysStat       = val; break;
+        case  8: $CHASSIS1CAN::MK100_SecBrkInfo::SecBrkSysStat       = val; break;
+        case  9: $CHASSIS2CAN::MKC1_IMUInfo::LongAccFlt             = val; break;
+        case 10: $CHASSIS2CAN::MKC1_IMUInfo::LatAccFlt              = val; break;
+      }
+    }
+  }
+
+  testcase TC_SendAllCombinations()
+  {
+    int idx;
+    for (idx = 0; idx < (1 << NUM_SIG); idx++)
+    {
+      sendCombination(idx);
+      // if you need to wait a bit so the DUT has time to react,
+      // you could add: $delay(1);  // 1 ms
+    }
+    write("Finished sending %d combinations", 1 << NUM_SIG);
+    
+    testISCSAngle();// TEST FUNCTION: Test ISCS pinion angle value delta 
+  }
+  
+  
+  testfunction testISCSAngle()
+  {
+    
+  }

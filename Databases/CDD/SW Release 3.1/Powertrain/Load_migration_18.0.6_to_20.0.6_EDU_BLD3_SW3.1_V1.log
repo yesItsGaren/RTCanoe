@@ -1,0 +1,40 @@
+Encoding: iso-8859-1
+Detected dtd version 18.0.6
+VCANdelaPersistorImpl::GetFileVersion: DTD version '18.0.6' detected
+Detected dtd version 18.0.6
+VCANdelaPersistorImpl::GetFileVersion: DTD version '18.0.6' detected
+Loading 'E:\RBS\SW Rel #3.1\Holon_LabCar_Configuration_3_0_1\CDD\SW Release 3.1\Powertrain\EDU_BLD3_SW3.1_V1.cdd'...
+  dtd version: file 18.0.6, program 20.0.6
+Document supports the languages (en-US)
+Document contains the uptodate languages (en-US)
+Template: Vector UDS
+  template data loaded
+Loaded Snapshot records and data
+Loaded Extended data
+Start loading event data model
+  variant 'Base_Variant' loaded
+Document version: EDU_BLD3_SW3.1_V1
+Done loading.
+Editor consistency check of document. This may take a while, please be patient...
+Warning: Text table data type 'Operational Mode' contains 1 entries without any assigned text.
+Warning: The range of data type 'Motor Control Torque Value' intersects with an invalid value range.
+Warning: The range of data type 'Motor Control Speed Value' intersects with an invalid value range.
+Warning: Text table data type 'Operational Mode Command' contains 1 entries without any assigned text.
+Warning: Text table data type 'Operational State Command' contains 1 entries without any assigned text.
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Unidentified ComParam CanFdDataBaudrate
+ComParamMan: Unidentified ComParam CanFdDataTSeg1
+ComParamMan: Unidentified ComParam CanFdDataTSeg2
+ComParamMan: Unidentified ComParam CanFdDataSjw
+ComParamMan: Unidentified ComParam TSeg1
+ComParamMan: Unidentified ComParam TSeg2
+ComParamMan: Unidentified ComParam Sjw
+ComParamMan: Unidentified ComParam CanFdHandling
+ComParamMan: Unidentified ComParam CanFdBrsHandling
+ComParamMan: Unidentified ComParam CanFdMaxDlc
+ComParamMan: Unidentified ComParam AutoP2Handling
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+Checking service prefixes in base variant "Base_Variant" ... OK
+Document is consistent regarding editor checks.

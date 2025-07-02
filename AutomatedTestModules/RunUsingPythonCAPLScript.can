@@ -1,0 +1,47 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+
+void MainTest() 
+{
+  TC_GenerateSteeringReport();
+  TC_NewTestCase1() ;
+  TC_NewTestCase2() ;
+  testWaitForTimeout(5000);
+}
+
+
+testCase TC_GenerateSteeringReport() 
+{
+  testStep("TC0","Generate steering report...");
+  testStepPass("Report generated successfully.");
+}
+
+
+testCase TC_NewTestCase1() 
+{
+  testStep("TC1","Generate steering report 1...");
+  TF_testFunction();
+  testStepPass("Report generated successfully.");
+}
+
+
+
+testCase TC_NewTestCase2() 
+{
+  testStep("TC2","Generate steering report 2...");
+  TF_testFunction();
+  testStepFail("Report generation failed.");
+}
+
+testfunction TF_testFunction()
+{
+  testStep("TF","Test Function");
+}

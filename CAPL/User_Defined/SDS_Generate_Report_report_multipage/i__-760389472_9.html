@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TG_003_Steering_0TC</title>
+    <script type="text/javascript">
+      function showTimestamp(timestamp){top.LogFile.showTimestamp(timestamp);}
+    </script>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="multipage.css">
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td class="UpCell">
+            <a href="Frame_Report.html">Go up</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tr>
+        <td class="TestcaseHeadingNegativeResult">
+          <big class="Heading3">1 <a name="i__-760389472_9">TG_003_Steering_0TC</a>: Failed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_1">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-04-24 08:55:47</td>
+            <td class="CellNoColor">(logging timestamp    9.903170)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-04-24 08:55:57</td>
+            <td class="CellNoColor" nowrap>(logging timestamp   19.903170)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="DefineCell">   9.903170</td>
+            <td class="NumberCell">Validate AUTO Mode</td>
+            <td class="DefaultCell">Starting Sequence with 100ms rate</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">Steering Test</td>
+            <td class="DefaultCell">Step 0: Set mission and reset acc counter</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Valid_CtrlSteeringPinionAng_Pri: expected=1, actual=1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: AccelDecelReqPriValidStat == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr id="i__-760389472_55">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: GearchangeReqPri != 1</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr id="i__-760389472_65">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: VehStandStillReqPri != 2</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: VehStandStillReqValidityPri == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: SDSSlfCheckStatus_Pri == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: CurrentSDSModeStat_Pri == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: DestReachedStat_Pri == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: LaneChangeStat_Pri == 0</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr id="i__-760389472_125">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: MissionProgressStat_Pri != 5</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: MRMStatPri == 0</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: SDSRequest_Pri == 0</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS1</td>
+            <td class="DefaultCell">Primary: TeleOpReqStat_Pri == 2</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: Valid_CtrlSteeringPinionAng_Sec == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: AccelDecelReqSecValidStat == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr id="i__-760389472_185">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: GearchangeReq_Sec != 1</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr id="i__-760389472_195">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: VehStandStillReqSec != 2</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: VehStandStillReqValiditySec == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr id="i__-760389472_215">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: CurrentSDSModeStat_Sec != 4</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: DestReachedStat_Sec == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: LaneChangeStat_Sec == 0</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr id="i__-760389472_245">
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: MissionProgressStat_Sec != 5</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: MRMStatSec == 0</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: ParkingProcessStat_Sec == 0</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">SDS2</td>
+            <td class="DefaultCell">Secondary: TeleOpReqStat_Sec == 2</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">RampStatus == 0 (Retracted)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">CloudStartStopChargingRequest == 0 (No Charging Req)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">ControlCenterStartupRequest == 0 (Vehicle Off)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">RequestRemoteDiagnosticMode == 0 (Inactive)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">StatusProviderGo == 1 (Go Ahead with Mission)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">StatusCloudDataOpertn == 0 (DataTransfer_NotInprogress)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">RemoteChargingRequest == 0 (No Charging Req)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">StatusTelematicsConnectivity == 0 (Default)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">WakeUpIformation == 1 (WakeUp SMS Received)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">RemoteStartUpShutdownReq == 0 (Default)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">TCUSignalStrength == 4 (Good)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">DoorStatus == 0 (Closed)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">DoorEmgReleaseStatus == 0 (No Emergency Release)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">CrashDetectionSysErrLvl == 0 (No Fault)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">CrashDetectedStat == 0 (No Crash)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.003170</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">StatusTelematicsErrLvl == 0 (No Fault)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.103170</td>
+            <td class="NumberCell">Steering Test</td>
+            <td class="DefaultCell">Step 1: Set Drive/Auto</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.103170</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">GearchangeReqPri == 1</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr id="i__-760389472_465">
+            <td class="DefineCell">  10.103170</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">VSMStatus (CHASSIS1CAN) != 3</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr id="i__-760389472_475">
+            <td class="DefineCell">  10.103170</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">VSMStatus (CHASSIS2CAN) != 3</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  10.203170</td>
+            <td class="NumberCell">Steering Test</td>
+            <td class="DefaultCell">Step 2: Accelerate to target Speed</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr id="i__-760389472_495">
+            <td class="DefineCell">  12.003170</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">VehStandStillReqPri != 0</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  19.103170</td>
+            <td class="NumberCell"> </td>
+            <td class="DefaultCell">Setting Interval points and Maximum steering angle</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  19.203170</td>
+            <td class="NumberCell">Steering Test</td>
+            <td class="DefaultCell">Step 3: Steer per test values (300 values in total) evrey 100ms</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">  19.903170</td>
+            <td class="NumberCell">Resume reason</td>
+            <td class="DefaultCell">Elapsed time=10000ms (max=10000ms)</td>
+            <td class="DefaultCell">-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

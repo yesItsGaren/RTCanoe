@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<testmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.vector-informatik.de/CANoe/TestModule/1.8"
+ xsi:schemaLocation="http://www.vector-informatik.de/CANoe/TestModule/1.8 testmodule.xsd"
+ title="Start" version="1.0">
+   <sut>
+      <info>
+         <name>Functions</name>
+         <description>This is just a demo test specification that serves as an example.</description>
+      </info>
+   </sut>
+   <testgroup title="Check Stability and Gearchange Status">
+      <testcase ident="Test Gearchange and VSM Status">
+         <initialize title="Initialize VSM Status" wait="1500">
+            <cansignal name="CHASSIS2CAN::VCU_VSMInfo::VSMStatus">1</cansignal>
+            <cansignal name="CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri">0</cansignal>
+         </initialize>
+         <statechange wait="4000" title="Monitor VSM and Gearchange Status">
+            <in>
+               <cansignal name="CHASSIS2CAN::VCU_VSMInfo::VSMStatus">0</cansignal>
+               <cansignal name="CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri">1</cansignal>
+            </in>
+            <expected>
+               <envvar name="EnvGearchangeStatus">1</envvar>
+            </expected>
+         </statechange>
+      </testcase>
+   </testgroup>
+</testmodule>

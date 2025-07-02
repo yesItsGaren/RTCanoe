@@ -1,0 +1,24 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "PowerTrainManeuver.CAN"
+}
+
+variables
+{
+  const long TC_TIMOUT = 28000;
+}
+
+
+void MainTest()
+{
+  TG_006_Powertrain_Takeover_AccP();
+}
+
+void TG_006_Powertrain_Takeover_AccP()
+{
+  resetVariables();
+  EXECUTED_MANEUVER = TG_006_PowerTrainTakover;
+  executeManeuver();
+  testWaitForTimeout(TC_TIMOUT);
+}

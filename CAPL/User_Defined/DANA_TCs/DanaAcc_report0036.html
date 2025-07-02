@@ -1,0 +1,1935 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>DANA_TestCases - Generated on </title>
+    <style type="text/css">
+      
+       
+      
+      @media screen
+      {
+        body
+        {
+          background-color: rgb(255, 255, 255);
+          font-family:      arial;
+        }
+      }
+  
+      
+      @media print
+      {
+        
+        body
+        {
+          background-color: rgb(255, 255, 255);
+          font-family:      arial;
+        }
+        
+        
+        a
+        {
+          text-decoration: none;
+        }
+        
+        
+        .HeadingTable, .SubHeadingTable, .GroupHeadingTable , .GroupEndTable
+        {
+          border-width: 2px;
+          border-style: solid;
+          border-color: rgb(150,150,150);
+        }
+        
+        .ResultBlockHeading
+        {
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(150,150,150);
+        }
+        
+        table.ResultTable, table.OverviewTable, table.CheckStatisticsTable
+        {
+          border-collapse: collapse;
+        }
+        
+        td.DefaultCell, td.DefineCell, td.NumberCell, td.NumberCellPositiveResult, td.NumberCellNegativeResult, 
+        td.NumberCellErrorResult, td.NumberCellInconclusiveResult, td.NumberCellNoneResult, td.NumberCellNoColor,
+        td.PositiveResultCell, td.NegativeResultCell, td.WarningCell, td.NoneResultCell, td.InconclusiveResultCell,
+        td.ErrorResultCell, th.TableHeadingCell
+        {
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(150,150,150);
+        }
+        
+        .PatternSeparator
+        {
+          
+          border-style: none;
+        }
+        
+        .PositiveResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .NegativeResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .NoneResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .InconclusiveResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .ErrorResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+
+        
+        .TestcaseHeadingDefaultResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .TestcaseHeadingPositiveResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        .TestcaseHeadingNegativeResult
+        {
+          
+          border-bottom: 2px solid;
+        }
+        
+        table.ScreenOnly, a.Undecorated, .LinkCell
+        {
+          display: none;
+        }
+      }
+      
+      a.Undecorated:hover 
+      {
+        color:red;
+      }
+      a.Undecorated
+      { 
+        text-decoration: none; 
+      }
+      
+      .NavStyle
+      {
+        background-color: rgb(220, 221, 222);
+      }
+      
+      td.LinkCell, td.UpCell
+      {
+        
+        width:              1px;
+        white-space:        nowrap;
+      }
+
+      
+      table
+      {
+        margin-bottom:    10px;
+        vertical-align:   top; 
+        border:           0;
+        border-spacing:   1px;
+        padding:          2px;
+      }
+      table.ScreenOnly
+      {
+        vertical-align: top; 
+        margin-bottom:  10px;
+      }
+      .NoMarginBottom
+      {
+        margin-bottom:    0px;
+      }
+      .HeadingTable
+      {
+        width:            100%;
+        text-align:       center;
+        margin-top:       15px;
+        margin-bottom:    30px;
+        margin-left:      auto;
+        margin-right:     auto;
+        background-color: rgb(220, 221, 222);
+      }
+      
+      .SubHeadingTable
+      {
+        width:            100%;
+        text-align:       center;
+        margin-top:       15px;
+        margin-bottom:    25px;
+        background-color: rgb(220, 221, 222);
+      }
+      
+      .GroupHeadingTable, .GroupEndTable
+      {
+        width:            100%;
+        text-align:       center;
+        margin-top:       15px;
+        padding-right:    20px;
+        background-color: rgb(220, 221, 222);
+      }
+      
+      .DefaultTable
+      {
+        padding:        0px;
+        border-spacing: 0px;
+      }
+      
+      .CheckStatisticsTable
+      {
+        margin-bottom: 8px;
+        padding-right:  20px;
+      }
+  
+      .OverviewTable
+      {
+        text-align:     left;
+      }
+      
+      .OverviewResultTable
+      {
+        width:          100%;
+        margin-bottom:  0px;
+        border-spacing: 0px;
+        padding:        0px;
+        text-align:     center;
+      }
+      
+      .ResultTable
+      {
+        width:          100%;
+        text-align:     left;
+        padding-right:  20px;
+      }
+      
+      .ResultTableInner
+      {
+        width:          100%;
+        text-align:     left;
+        padding-right:  0px;
+      }
+  
+      table.ResultTable td, table.ChildLinkTable td
+      {
+        vertical-align: top;
+      }
+      .ChildLinkTable
+      {
+        width:          1px;
+        text-align:     left;
+      }
+      .InfoTable
+      {
+        text-align:     left;
+        padding-right:  0px;
+        margin-bottom:  0px;
+        border-spacing: 0px;
+      }
+      .InfoTableExpand
+      {
+        width:          100%;
+        text-align:     left;
+        padding-right:  0px;
+        margin-bottom:  0px;
+        border-spacing: 0px;
+      }
+      .OverallResultTable
+      {
+        width:         50%;
+        text-align:    center;
+        margin-bottom: 20px;
+        margin-left:   auto;
+        margin-right:  auto;
+        font-weight:   bold;
+      }
+      
+      .TableHeadingCell
+      {
+        background-color: rgb(179, 179, 179);
+        font-family:      arial;
+        font-weight:      bold;
+        text-align:       center;
+      }
+  
+      .CellNoColor
+      {
+        text-align:     left;
+        vertical-align: top;
+      }   
+      
+      .DefineCell
+      {
+        background-color: rgb(179, 179, 179);
+        text-align:       left;
+      }
+      
+      .DefaultCell, .DefaultCellBold
+      {
+        background-color: rgb(229, 229, 229);
+        text-align:       left;
+      }
+      
+      .DefaultCellBold
+      {
+        font-weight:      bold;
+      }
+        
+      .NumberCell
+      {
+        background-color: rgb(229, 229, 229);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellNegativeResult
+      {
+        background-color: rgb(240, 0, 0);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellPositiveResult
+      {
+        background-color: rgb(25, 165, 88);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellNoneResult
+      {
+        background-color: rgb(105, 105, 105);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellInconclusiveResult
+      {
+        background-color: rgb(255, 165, 0);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellErrorResult
+      {
+        background-color: rgb(205, 0, 0);
+        text-align:       center;
+        min-width:        50px;
+      }
+      
+      .NumberCellNoColor
+      {        
+        text-align: center;
+      }
+      
+      .PositiveResultCell
+      {
+        background-color: rgb(25, 165, 88);
+      }
+    
+      .NegativeResultCell
+      {
+        background-color: rgb(240, 0, 0);
+      }
+      
+      .NoneResultCell
+      {
+        background-color: rgb(105, 105, 105);
+      }
+      
+      .InconclusiveResultCell
+      {
+        background-color: rgb(255, 165, 0);
+      }
+      
+      .ErrorResultCell
+      {
+        background-color: rgb(205, 0, 0);
+        white-space:        nowrap;
+      }
+
+      .WarningCell
+      {
+        background-color: rgb(255, 255, 0);
+      }
+
+      .TestcaseHeadingDefaultResult
+      {
+        background-color: rgb(179, 179, 179);
+      }
+      .TestcaseHeadingPositiveResult
+      {
+        background-color: rgb(25, 165, 88);
+      }      
+      .TestcaseHeadingNegativeResult
+      {
+        background-color: rgb(240, 0, 0);
+      }      
+      .TestcaseHeadingNoneResult
+      {
+        background-color: rgb(105, 105, 105);
+      }
+      .TestcaseHeadingInconclusiveResult
+      {
+        background-color: rgb(255, 165, 0);
+      }
+      .TestcaseHeadingErrorResult
+      {
+        background-color: rgb(205, 0, 0);
+      }
+      
+      .PatternSeparator
+      {
+        height: 0.2em;
+      }
+      
+      .NegativeResult
+      {
+        background-color: rgb(240, 0, 0);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .PositiveResult
+      {
+        background-color: rgb(25, 165, 88);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .NoneResult
+      {
+        background-color: rgb(105, 105, 105);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .InconclusiveResult
+      {
+        background-color: rgb(255, 165, 0);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      .ErrorResult
+      {
+        background-color: rgb(205, 0, 0);
+        text-align:       center;
+        font-weight:      bold;
+      }
+      
+      
+      
+      .Heading1
+      {
+        font-family: arial, sans-serif;
+        font-weight: bold;
+        font-size:   26px;
+      }
+      
+      .Heading2
+      {
+        font-family: arial, sans-serif;
+        font-weight: bold;
+        font-size:   20px;
+      }
+      
+      .Heading3
+      {
+        font-family:   arial, sans-serif;
+        font-weight:   bold;
+        font-size:     18px;
+        margin-bottom: 20px;
+        margin-top:    20px;
+      }
+      
+      .Heading4
+      {
+        font-family:   arial, sans-serif;
+        font-weight:   bold;
+        font-size:     16px;
+        margin-top:    10px;
+        margin-bottom: 10px;
+      }
+      
+      
+      img
+      {
+        Margin-bottom: 10px;
+        Margin-right:  10px;
+      }
+      
+      
+      p
+      {
+        Margin-bottom: 20px;
+      }
+      
+      
+      .DefaultTableBackground
+      {
+        background-color: rgb(229, 229, 229);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .NegativeResultBackground
+      {
+        background-color: rgb(240, 0, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .PositiveResultBackground
+      {
+        background-color: rgb(25, 165, 88);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .WarningResultBackground
+      {
+        background-color: rgb(255, 255, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .NoneResultBackground
+      {
+        background-color: rgb(105, 105, 105);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .InconclusiveResultBackground
+      {
+        background-color: rgb(255, 165, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .ErrorResultBackground
+      {
+        background-color: rgb(205, 0, 0);
+        border-spacing:   0px;
+        padding:          0px;
+      }
+      
+      .TestGroupHeadingBackground
+      {
+        background-color: rgb(179, 179, 179);
+      }
+    
+      
+      .Indentation
+      {
+        margin-left:  20px;
+      }
+    </style>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+  </head>
+  <body>
+    <a name="TOP"></a>
+    <table class="HeadingTable">
+      <tr>
+        <td>
+          <big class="Heading1">Report: DANA_TestCases</big>
+        </td>
+      </tr>
+    </table>
+    <center>
+      <table class="OverallResultTable">
+        <tr>
+          <td class="NegativeResult">Test failed</td>
+        </tr>
+      </table>
+    </center>
+    <a name="GeneralTestInfo"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">General Test Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">Test Engineer</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Windows Login Name: </td>
+            <td class="CellNoColor">arabk</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Setup</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Version: </td>
+            <td class="CellNoColor">CANoe.J1939.CAN.LIN.Ethernet /pro 17.5.5 (SP5)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Configuration: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\SDS_Manuever_Config.cfg</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database DCDCPvtCAN_DBCV9.0_Internal_SWV3.1: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\DCDCPvtCAN_DBCV9.0_Internal_SWV3.1.dbc (2025-04-22 09:18:48)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database PWTCAN2_DBCV9.0_Internal_SWV3.1: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\PWTCAN2_DBCV9.0_Internal_SWV3.1.dbc (2025-04-22 09:18:48)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database rt3kfull: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\rt3kfull.dbc (2025-04-22 09:18:48)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database Chassis1CAN_DBCV9.1_SWV3.1 on CHASSIS1CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\Chassis1CAN_DBCV9.1_SWV3.1.dbc (2025-03-20 11:08:30)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database Chassis2CAN_DBCV9.2_SWV3.1 on CHASSIS2CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\Chassis2CAN_DBCV9.2_SWV3.1.dbc (2025-05-14 17:40:50)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database PWTCAN1_DBCV9.3_SWV3.1 on PWT1CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\PWTCAN1_DBCV9.3_SWV3.1.dbc (2025-03-20 11:13:24)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of MK100: </td>
+            <td class="CellNoColor">Base_Variant, en-US, C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CGW1_BLD14_SW3.1_V1.cdd (CGW1_BLD14_SW3.1_V1, 2024-09-08 21:51:44+02:00)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of MKC1: </td>
+            <td class="CellNoColor">Base_Variant, en-US, C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CVS_BLD3_SW3.1_V3.cdd (CVS_BLD1_SW3.1_V3, 2024-09-02 19:44:22+02:00)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module Name: </td>
+            <td class="CellNoColor">DANA_TestCases</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module File: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\CAPL\User_Defined\DANA_TCs\DanaAcc.CAN</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Last modification of Test Module File: </td>
+            <td class="CellNoColor">2025-05-16, 09:28:32</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Windows Computer Name: </td>
+            <td class="CellNoColor">GARENWINTEC</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module J1939_IL: </td>
+            <td class="CellNoColor">J1939 Interaction Layer for CANoe, Version 17.5.5.0, C:\Program Files\Vector CANoe 17\Exec64\J1939_IL.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module CANoeILNLVector: </td>
+            <td class="CellNoColor">CANoe Interaction Layer NL (Vector) Version 3.30.131 (Jun 25 2024 10:27:06) , C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Exec32\CANoe_14_0\Exec64\CANoeILNLVector.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module CANoeILNLDefault: </td>
+            <td class="CellNoColor">CANoe Interaction Layer NL (Default) Version 3.30.113 (Feb 16 2023 15:35:06) , c:\ProgramData\Vector\AddOn Packages\Vector AddOn\vModules\CANoe_14_0\Exec64\CANoeILNLDefault.dll</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Hardware</div>
+      <div class="Indentation">
+        <div class="Heading4">CAN Channel Interfaces</div>
+        <div class="Indentation">
+          <table>
+            <tr>
+              <th class="TableHeadingCell">Channel</th>
+              <th class="TableHeadingCell">Device</th>
+              <th class="TableHeadingCell">Serial number</th>
+              <th class="TableHeadingCell">Driver DLL version</th>
+              <th class="TableHeadingCell">Driver version</th>
+            </tr>
+            <tr>
+              <td class="NumberCell">1</td>
+              <td class="NumberCell">VN8911</td>
+              <td class="NumberCell">8311</td>
+              <td class="NumberCell">25.10.18</td>
+              <td class="NumberCell">23.20.20</td>
+            </tr>
+            <tr>
+              <td class="NumberCell">2</td>
+              <td class="NumberCell">VN8911</td>
+              <td class="NumberCell">8311</td>
+              <td class="NumberCell">25.10.18</td>
+              <td class="NumberCell">23.20.20</td>
+            </tr>
+            <tr>
+              <td class="NumberCell">3</td>
+              <td class="NumberCell">VN8911</td>
+              <td class="NumberCell">8311</td>
+              <td class="NumberCell">25.10.18</td>
+              <td class="NumberCell">23.20.20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="Heading4">Logging and video recordings</div>
+      <div class="Indentation">
+        <table>
+          <th class="TableHeadingCell">Start Time</th>
+          <th class="TableHeadingCell">End Time</th>
+          <th class="TableHeadingCell">Logging/Video File</th>
+          <tr>
+            <td class="NumberCell">Active at test start</td>
+            <td class="NumberCell">Active at test end</td>
+            <td class="NumberCell" style="text-align:left">..\..\..\..\..\Downloads\SDS_Test_Traces\SDS_DANA_test_Penzing_2025-05-16_10-30-40.blf</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <a name="TestOverview"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">Test Overview</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <table class="DefaultTable">
+        <tr>
+          <td style="padding-right: 0.5em;" class="CellNoColor">Test begin: </td>
+          <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:12</td>
+          <td class="CellNoColor">(logging timestamp  273.109592)</td>
+        </tr>
+        <tr>
+          <td style="padding-right: 0.5em;" class="CellNoColor">Test end: </td>
+          <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:34</td>
+          <td class="CellNoColor" nowrap>(logging timestamp  295.109592)</td>
+        </tr>
+      </table>
+      <div class="Heading4">Statistics</div>
+      <div class="Indentation">
+        <table class="OverviewTable">
+          <tr>
+            <td class="DefineCell">Overall number of test cases </td>
+            <td class="NumberCell" width="60">5</td>
+            <td class="DefaultCell"></td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Executed test cases </td>
+            <td class="NumberCell">5</td>
+            <td class="DefaultCell">100% of all test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Not executed test cases </td>
+            <td class="NumberCell">0</td>
+            <td class="DefaultCell">0% of all test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Test cases passed </td>
+            <td class="NumberCellPositiveResult">3</td>
+            <td class="NumberCellPositiveResult">60% of executed test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Test cases failed </td>
+            <td class="NumberCellNegativeResult">2</td>
+            <td class="NumberCellNegativeResult">40% of executed test cases</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Case Results</div>
+      <div class="Indentation">
+        <table class="OverviewTable">
+          <tr>
+            <td class="DefineCell">1</td>
+            <td class="DefaultCell"></td>
+            <td class="DefaultCell">
+              <a href="#i__376693600_9">TC001_testGearchangeReqPrimary</a>
+            </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">2</td>
+            <td class="DefaultCell"></td>
+            <td class="DefaultCell">
+              <a href="#i__376693600_59">TC005_testVSMStatus</a>
+            </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">3</td>
+            <td class="DefaultCell"></td>
+            <td class="DefaultCell">
+              <a href="#i__376693600_138">TC004_verifyPWT1Signals</a>
+            </td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">4</td>
+            <td class="DefaultCell"></td>
+            <td class="DefaultCell">
+              <a href="#i__376693600_623">TC002_verifySDSPrimarySignals</a>
+            </td>
+            <td class="NegativeResultCell">
+              <a href="#i__376693600_699" onclick="showTC('4')">fail</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="DefineCell">5</td>
+            <td class="DefaultCell"></td>
+            <td class="DefaultCell">
+              <a href="#i__376693600_992">TC003_verifySDSSecondarySignals</a>
+            </td>
+            <td class="NegativeResultCell">
+              <a href="#i__376693600_1097" onclick="showTC('5')">fail</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <a name="TestModuleInfo"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td class="LinkCell">
+          <a class="Undecorated" id="lnk_" href="javascript:switchAll('',document.all['lnk_'].text)">[−]</a>
+        </td>
+        <td>
+          <div class="Heading2">Test Module Information</div>
+        </td>
+      </tr>
+    </table>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <big class="Heading2">Test Case Details</big>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class="LinkCell">
+          <a class="Undecorated" id="lnk_1" href="javascript:switchAll('1',document.all['lnk_1'].text)">[−]</a>
+        </td>
+        <td class="TestcaseHeadingPositiveResult">
+          <big class="Heading3">1 <a name="i__376693600_9">TC001_testGearchangeReqPrimary</a>: Passed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_1">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor">(logging timestamp  274.109592)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  274.109592)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">1. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri----------------------- ||    Result: Primary gear change request is active.---------------------- ||    Expected = D(1) ||    Actual = D(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td class="LinkCell">
+          <a class="Undecorated" id="lnk_2" href="javascript:switchAll('2',document.all['lnk_2'].text)">[−]</a>
+        </td>
+        <td class="TestcaseHeadingPositiveResult">
+          <big class="Heading3">2 <a name="i__376693600_59">TC005_testVSMStatus</a>: Passed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_2">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor">(logging timestamp  274.109592)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  274.109592)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">1. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::VCU_VSMInfo::VSMStatus------------------------------------------------------- ||    Result: Secondary VSMStatus matches expected.----------------------- ||    Expected = DRIVE AUTONOMUS state(3) ||    Actual = DRIVE AUTONOMUS state(3)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">2. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::VCU_VSMInfo::VSMStatus------------------------------------------------------- ||    Result: Primary VSMStatus matches expected.------------------------- ||    Expected = DRIVE AUTONOMUS state(3) ||    Actual = DRIVE AUTONOMUS state(3)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td class="LinkCell">
+          <a class="Undecorated" id="lnk_3" href="javascript:switchAll('3',document.all['lnk_3'].text)">[−]</a>
+        </td>
+        <td class="TestcaseHeadingPositiveResult">
+          <big class="Heading3">3 <a name="i__376693600_138">TC004_verifyPWT1Signals</a>: Passed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_3">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor">(logging timestamp  274.109592)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  274.109592)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">1. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::RCS_Ramp_status::RampStatus------------------------------------------------------ ||    Result: Ramp is retracted.------------------------------------------ ||    Expected = Retracted(0) ||    Actual = Retracted(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">2. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::CloudStartStopChargingRequest-------------------------------------- ||    Result: No charging request from cloud.----------------------------- ||    Expected =  No Charging Req(0) ||    Actual =  No Charging Req(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">3. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::ControlCenterStartupRequest---------------------------------------- ||    Result: Control center startup request is inactive.----------------- ||    Expected = Vehicle Off(0) ||    Actual = Vehicle Off(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">4. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::RequestRemoteDiagnosticMode---------------------------------------- ||    Result: Remote diagnostic mode is inactive.------------------------- ||    Expected = Inactive(0) ||    Actual = Inactive(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">5. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::StatusProviderGo--------------------------------------------------- ||    Result: Go ahead with mission is allowed.--------------------------- ||    Expected = Go Ahead with Mission(1) ||    Actual = Go Ahead with Mission(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">6. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::StatusCloudDataOpertn---------------------------------------------- ||    Result: Cloud data transfer is not in progress.--------------------- ||    Expected = DataTransfer_NotInprogress(0) ||    Actual = DataTransfer_NotInprogress(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">7. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::RemoteChargingRequest---------------------------------------------- ||    Result: No remote charging request.--------------------------------- ||    Expected = No Charging Req(0) ||    Actual = No Charging Req(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">8. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::StatusTelematicsConnectivity--------------------------------------- ||    Result: Telematics connectivity status is default.------------------ ||    Expected = Default (0) ||    Actual = Default (0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">9. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::WakeUpIformation--------------------------------------------------- ||    Result: WakeUp SMS received.---------------------------------------- ||    Expected = WakeUp SMS Received(1) ||    Actual = WakeUp SMS Received(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">10. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::RemoteStartUpShutdownReq------------------------------------------- ||    Result: No remote startup/shutdown request.------------------------- ||    Expected = Default(0) ||    Actual = Default(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">11. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_FuncReq2::TCUSignalStrength-------------------------------------------------- ||    Result: TCU signal strength is good.-------------------------------- ||    Expected = Good(4) ||    Actual = Good(4)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">12. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::DCS_Door_status::DoorStatus------------------------------------------------------ ||    Result: Doors are closed.------------------------------------------- ||    Expected = Closed(0) ||    Actual = Closed(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">13. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::DCS_Door_status::DoorEmgReleaseStatus-------------------------------------------- ||    Result: No emergency door release active.--------------------------- ||    Expected = No emergency release(0) ||    Actual = No emergency release(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">14. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::CDM_Crash_Info::CrashDetectionSysErrLvl------------------------------------------ ||    Result: No crash system error detected.----------------------------- ||    Expected = NoFault(0) ||    Actual = NoFault(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">15. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::CDM_Crash_Info::CrashDetectedStat------------------------------------------------ ||    Result: No crash detected.------------------------------------------ ||    Expected = No Crash(0) ||    Actual = No Crash(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">16. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">PWT1</td>
+            <td class="DefaultCell">Signal: PWT1CAN::TCU_Erro_Info::StatusTelematicsErrLvl-------------------------------------------- ||    Result: No telematics error detected.------------------------------- ||    Expected = No Fault (0) ||    Actual = No Fault (0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td class="LinkCell">
+          <a class="Undecorated" id="lnk_4" href="javascript:switchAll('4',document.all['lnk_4'].text)">[−]</a>
+        </td>
+        <td class="TestcaseHeadingNegativeResult">
+          <big class="Heading3">4 <a name="i__376693600_623">TC002_verifySDSPrimarySignals</a>: Failed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_4">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor">(logging timestamp  274.109592)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  274.109592)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">1. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPriValidStat-------------- ||    Result: Primary Accel/Decel validity request is set.---------------- ||    Expected = Valid(1) ||    Actual = Valid(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">2. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri----------------------- ||    Result: Primary gear change request is active.---------------------- ||    Expected = D(1) ||    Actual = D(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="NegativeResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">3. verifySignal: Failed</big>
+            </td>
+          </tr>
+          <tr id="i__376693600_699">
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqPri-------------------- ||    Result: Primary standstill request is not in 'Hold' state.---------- ||    Expected = Drive Off (2) ||    Actual = No Request(0)</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">4. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqValidityPri------------ ||    Result: Primary standstill request validity is confirmed.----------- ||    Expected = Valid(1) ||    Actual = Valid(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">5. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_SelfCheckInfo_Prim::SDSSlfCheckStatus_Pri------------------- ||    Result: Primary SDS self-check passed.------------------------------ ||    Expected = Normal Operation possible(1) ||    Actual = Normal Operation possible(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">6. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::CurrentSDSModeStat_Pri------------------------- ||    Result: Primary SDS mode is 'Active'.------------------------------- ||    Expected = SDS_StandBy(1) ||    Actual = SDS_StandBy(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">7. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::DestReachedStat_Pri---------------------------- ||    Result: Primary destination reached status is confirmed.------------ ||    Expected = Reached(1) ||    Actual = Reached(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">8. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::LaneChangeStat_Pri----------------------------- ||    Result: Primary lane change is not requested.----------------------- ||    Expected = Non Scheduled Start(0) ||    Actual = Non Scheduled Start(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">9. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri------------------------ ||    Result: Primary mission progress is set to Execution.--------------- ||    Expected = Mission Execution(5) ||    Actual = Mission Execution(5)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">10. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MRMStatPri------------------------------------- ||    Result: Primary MRM (Minimal Risk Maneuver) is inactive.------------ ||    Expected = Not Active(0) ||    Actual = Not Active(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">11. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::SDSRequest_Pri--------------------------------- ||    Result: Primary SDS request is not triggered.----------------------- ||    Expected = invalid(0) ||    Actual = invalid(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">12. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Primary</td>
+            <td class="DefaultCell">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::TeleOpReqStat_Pri------------------------------ ||    Result: Primary teleoperation request is in 'Confirmed' state.------ ||    Expected = No TeleOp Request Available(2) ||    Actual = No TeleOp Request Available(2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td class="LinkCell">
+          <a class="Undecorated" id="lnk_5" href="javascript:switchAll('5',document.all['lnk_5'].text)">[−]</a>
+        </td>
+        <td class="TestcaseHeadingNegativeResult">
+          <big class="Heading3">5 <a name="i__376693600_992">TC003_verifySDSSecondarySignals</a>: Failed</big>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation" id="div_5">
+      <div class="Indentation">
+        <table class="DefaultTable">
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case begin: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor">(logging timestamp  274.109592)</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 0.5em;" class="CellNoColor">Test case end: </td>
+            <td style="padding-right: 0.5em;" class="CellNoColor">2025-05-16 10:35:13</td>
+            <td class="CellNoColor" nowrap>(logging timestamp  274.109592)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Indentation"></div>
+      <table class="TestGroupHeadingBackground">
+        <tr>
+          <td>
+            <big class="Heading3">Main Part of Test Case</big>
+          </td>
+        </tr>
+      </table>
+      <div class="Indentation">
+        <table class="ResultTable">
+          <tr>
+            <th class="TableHeadingCell" width="1px">Timestamp</th>
+            <th class="TableHeadingCell" width="1px">Test Step</th>
+            <th class="TableHeadingCell" width="auto">Description</th>
+            <th class="TableHeadingCell" width="1px">Result</th>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">1. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec---- ||    Result: Secondary Steering Validity request is set.----------------- ||    Expected = Valid(1) ||    Actual = Valid(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">2. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSecValidStat------------- ||    Result: Secondary Accel/Decel validity request is set.-------------- ||    Expected = Valid(1) ||    Actual = Valid(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">3. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::GearchangeReq_Sec--------------------- ||    Result: Secondary gear change request is active.-------------------- ||    Expected = D(1) ||    Actual = D(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="NegativeResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">4. verifySignal: Failed</big>
+            </td>
+          </tr>
+          <tr id="i__376693600_1097">
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqSec------------------- ||    Result: Secondary standstill request is not in 'Hold' state.-------- ||    Expected = Drive Off (2) ||    Actual = No Request(0)</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">5. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqValiditySec----------- ||    Result: Secondary standstill request validity is confirmed.--------- ||    Expected = Valid(1) ||    Actual = Valid(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="NegativeResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">6. verifySignal: Failed</big>
+            </td>
+          </tr>
+          <tr id="i__376693600_1155">
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::CurrentSDSModeStat_Sec------------------------ ||    Result: Secondary SDS mode is not 'Standby'.------------------------ ||    Expected = SDS_Active_Main_Comfort(4) ||    Actual = SDS_StandBy(1)</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">7. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::DestReachedStat_Sec--------------------------- ||    Result: Secondary destination reached status is confirmed.---------- ||    Expected = Reached(1) ||    Actual = Reached(1)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">8. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::LaneChangeStat_Sec---------------------------- ||    Result: Secondary lane change is not requested.--------------------- ||    Expected = Non Scheduled Start(0) ||    Actual = Non Scheduled Start(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="NegativeResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">9. verifySignal: Failed</big>
+            </td>
+          </tr>
+          <tr id="i__376693600_1242">
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MissionProgressStat_Sec----------------------- ||    Result: Secondary mission progress is not at stage 5.--------------- ||    Expected = Mission Execution(5) ||    Actual = Mission accepted(3)</td>
+            <td class="NegativeResultCell">fail</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">10. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MRMStatSec------------------------------------ ||    Result: Secondary MRM (Minimal Risk Maneuver) is inactive.---------- ||    Expected = Not Active(0) ||    Actual = Not Active(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">11. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::ParkingProcessStat_Sec------------------------ ||    Result: Secondary parking process is inactive.---------------------- ||    Expected = Idle(0) ||    Actual = Idle(0)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+          <tr class="PositiveResultBackground">
+            <td style="text-indent: 20px;" class="ResultBlockHeading" colspan="4">
+              <big class="Heading4">12. verifySignal: Passed</big>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-indent: 20px;" class="DefineCell"> 274.109592</td>
+            <td class="NumberCell">SDS_Secondary</td>
+            <td class="DefaultCell">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::TeleOpReqStat_Sec----------------------------- ||    Result: Secondary teleoperation request is in 'Confirmed' state.---- ||    Expected = No TeleOp Request Available(2) ||    Actual = No TeleOp Request Available(2)</td>
+            <td class="PositiveResultCell">pass</td>
+          </tr>
+          <tr>
+            <td class="PatternSeparator" colspan="4"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">End of Report</div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

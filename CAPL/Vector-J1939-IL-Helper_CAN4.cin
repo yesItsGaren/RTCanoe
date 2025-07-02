@@ -1,0 +1,40 @@
+/*@@var:*/
+/* ------- Sendmodul --- begin generated Comment ----
+| CAPL include for CANoe J1939 IL models
+| Functionality is done in CANoe and IL directly
+   ---------- end generated Comment---- */
+
+variables
+{
+  const dword cILCAN4_NSToS = 1000000000;
+
+  // Internally used variables and timers:
+  dword   gILCAN4_BusContext = 0;
+}
+/*@@end*/
+
+void ILCAN4_OnInit()
+{
+  gILCAN4_BusContext = GetBusNameContext(gCAN4BusName);
+  if (gILCAN4_BusContext == 0)
+  {
+    write("[%.6f %NODE_NAME%] ERROR: cannot determine bus context of CAN bus '%s'!", TimeNowNS()/cILCAN4_NSToS, gCAN4BusName);
+  }
+}
+
+void ILCAN4_OnStart()
+{
+}
+
+void ILCAN4_Enable(int enable)
+{
+  SetBusContext(gILCAN4_BusContext);
+  if (enable == 0)
+  {
+    J1939ILControlStop();
+  }
+  else
+  {
+    J1939ILControlStart();
+  }
+}

@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="Input PWTCAN2_DBCV90_Internal_SWV31 VCU" Children="Controls">
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl293" ControlName="GroupBoxControl293" Children="Controls">
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl96" ControlName="PanelButtonControl96" Children="Controls">
+        <Property Name="Name">PanelButtonControl96</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,17</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU AirTempInfo.xvp</Property>
+        <Property Name="Text">TMC::AirTempInfo</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl97" ControlName="PanelButtonControl97" Children="Controls">
+        <Property Name="Name">PanelButtonControl97</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,38</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatCfg.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatCfg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl98" ControlName="PanelButtonControl98" Children="Controls">
+        <Property Name="Name">PanelButtonControl98</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,59</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatEcuCalNr.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatEcuCalNr</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl99" ControlName="PanelButtonControl99" Children="Controls">
+        <Property Name="Name">PanelButtonControl99</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,80</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatEcuCalVersNr.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatEcuCalVersNr</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl100" ControlName="PanelButtonControl100" Children="Controls">
+        <Property Name="Name">PanelButtonControl100</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,101</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatEcuSwNr.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatEcuSwNr</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl101" ControlName="PanelButtonControl101" Children="Controls">
+        <Property Name="Name">PanelButtonControl101</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,122</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatEcuSwVersNr.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatEcuSwVersNr</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl102" ControlName="PanelButtonControl102" Children="Controls">
+        <Property Name="Name">PanelButtonControl102</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,143</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatILim.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatILim</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl103" ControlName="PanelButtonControl103" Children="Controls">
+        <Property Name="Name">PanelButtonControl103</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,164</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatInfo.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatInfo</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl104" ControlName="PanelButtonControl104" Children="Controls">
+        <Property Name="Name">PanelButtonControl104</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,185</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatPermsnToCls.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatPermsnToCls</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl105" ControlName="PanelButtonControl105" Children="Controls">
+        <Property Name="Name">PanelButtonControl105</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,206</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatSox.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatSox</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl106" ControlName="PanelButtonControl106" Children="Controls">
+        <Property Name="Name">PanelButtonControl106</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,227</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatSts.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatSts</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl107" ControlName="PanelButtonControl107" Children="Controls">
+        <Property Name="Name">PanelButtonControl107</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,248</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatSysId.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatSysId</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl108" ControlName="PanelButtonControl108" Children="Controls">
+        <Property Name="Name">PanelButtonControl108</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,269</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatT.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatT</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl109" ControlName="PanelButtonControl109" Children="Controls">
+        <Property Name="Name">PanelButtonControl109</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,290</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatThermReq1.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatThermReq1</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl110" ControlName="PanelButtonControl110" Children="Controls">
+        <Property Name="Name">PanelButtonControl110</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,311</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatThermReq2.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatThermReq2</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl111" ControlName="PanelButtonControl111" Children="Controls">
+        <Property Name="Name">PanelButtonControl111</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,332</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatUCell.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatUCell</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl112" ControlName="PanelButtonControl112" Children="Controls">
+        <Property Name="Name">PanelButtonControl112</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,353</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatULim.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatULim</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl113" ControlName="PanelButtonControl113" Children="Controls">
+        <Property Name="Name">PanelButtonControl113</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,374</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatUMps.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatUMps</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl114" ControlName="PanelButtonControl114" Children="Controls">
+        <Property Name="Name">PanelButtonControl114</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,395</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU BatUSng.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::BatUSng</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl115" ControlName="PanelButtonControl115" Children="Controls">
+        <Property Name="Name">PanelButtonControl115</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,416</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU CoolantTempInfo.xvp</Property>
+        <Property Name="Text">TMC::CoolantTempInfo</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl116" ControlName="PanelButtonControl116" Children="Controls">
+        <Property Name="Name">PanelButtonControl116</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,437</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU DC1_VCU_01.xvp</Property>
+        <Property Name="Text">DCDC_1::DC1_VCU_01</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl117" ControlName="PanelButtonControl117" Children="Controls">
+        <Property Name="Name">PanelButtonControl117</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,458</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU DC1_VCU_02.xvp</Property>
+        <Property Name="Text">DCDC_1::DC1_VCU_02</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl118" ControlName="PanelButtonControl118" Children="Controls">
+        <Property Name="Name">PanelButtonControl118</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,479</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU DC1_VCU_03.xvp</Property>
+        <Property Name="Text">DCDC_1::DC1_VCU_03</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl119" ControlName="PanelButtonControl119" Children="Controls">
+        <Property Name="Name">PanelButtonControl119</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,500</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU DIAG_RESPONSE_DC1.xvp</Property>
+        <Property Name="Text">DCDC_1::DIAG_RESPONSE_DC1</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl120" ControlName="PanelButtonControl120" Children="Controls">
+        <Property Name="Name">PanelButtonControl120</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,521</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU NM_DCDC1.xvp</Property>
+        <Property Name="Text">DCDC_1::NM_DCDC1</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl121" ControlName="PanelButtonControl121" Children="Controls">
+        <Property Name="Name">PanelButtonControl121</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,542</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU TM_PowerManagementStatus.xvp</Property>
+        <Property Name="Text">TMC::TM_PowerManagementStatus</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl122" ControlName="PanelButtonControl122" Children="Controls">
+        <Property Name="Name">PanelButtonControl122</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,563</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU TM_Status_0.xvp</Property>
+        <Property Name="Text">TMC::TM_Status_0</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl123" ControlName="PanelButtonControl123" Children="Controls">
+        <Property Name="Name">PanelButtonControl123</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,584</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU TM_Status_1.xvp</Property>
+        <Property Name="Text">TMC::TM_Status_1</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl124" ControlName="PanelButtonControl124" Children="Controls">
+        <Property Name="Name">PanelButtonControl124</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,605</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU TM_Status_2.xvp</Property>
+        <Property Name="Text">TMC::TM_Status_2</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl125" ControlName="PanelButtonControl125" Children="Controls">
+        <Property Name="Name">PanelButtonControl125</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,626</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU UdsComRx_VIB_BMSStdAln.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::UdsComRx_VIB_BMSStdAln</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl126" ControlName="PanelButtonControl126" Children="Controls">
+        <Property Name="Name">PanelButtonControl126</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,647</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU UdsComRx_VIBFromPack1_1.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::UdsComRx_VIBFromPack1_1</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl127" ControlName="PanelButtonControl127" Children="Controls">
+        <Property Name="Name">PanelButtonControl127</Property>
+        <Property Name="Size">294,21</Property>
+        <Property Name="Location">5,668</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message RX PWTCAN2_DBCV90_Internal_SWV31 VCU UdsComRx_VIBFromPack1_2.xvp</Property>
+        <Property Name="Text">M_BMS_MVIG_PLUS::UdsComRx_VIBFromPack1_2</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl293</Property>
+      <Property Name="Size">304,694</Property>
+      <Property Name="Location">5,5</Property>
+      <Property Name="UseWindowsStyle">False</Property>
+      <Property Name="BackColor">255,255,255</Property>
+      <Property Name="Text">RX Messages of VCU</Property>
+      <Property Name="ForeColor">0,0,0</Property>
+    </Object>
+    <Property Name="Panel">Panel</Property>
+    <Property Name="Size">314,704</Property>
+    <Property Name="BackColor">255,255,255</Property>
+  </Object>
+</Panel>

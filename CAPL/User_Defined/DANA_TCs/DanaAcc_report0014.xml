@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<testmodule starttime="2025-05-15 14:41:01" timestamp=" 281.379266" verdicts="2_basic" measurementid="aeedc6c6-6803-4f33-9c52-c4f942df0d4a">
+  <testcase starttime="2025-05-15 14:41:02" timestamp=" 282.379266">
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri----------------------- ||    Result: Primary gear change request is active.---------------------- ||    Expected = D(1) ||    Actual = D(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <verdict time="2025-05-15 14:41:02" timestamp=" 282.379266" endtime="2025-05-15 14:41:02" endtimestamp=" 282.379266" result="pass" />
+    <title>TC001_testGearchangeReqPrimary</title>
+  </testcase>
+  <testcase starttime="2025-05-15 14:41:02" timestamp=" 282.379266">
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::VCU_VSMInfo::VSMStatus------------------------------------------------------- ||    Result: Secondary VSMStatus matches expected.----------------------- ||    Expected = DRIVE AUTONOMUS state(3) ||    Actual = DRIVE AUTONOMUS state(3)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::VCU_VSMInfo::VSMStatus------------------------------------------------------- ||    Result: Primary VSMStatus matches expected.------------------------- ||    Expected = DRIVE AUTONOMUS state(3) ||    Actual = DRIVE AUTONOMUS state(3)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <verdict time="2025-05-15 14:41:02" timestamp=" 282.379266" endtime="2025-05-15 14:41:02" endtimestamp=" 282.379266" result="pass" />
+    <title>TC005_testVSMStatus</title>
+  </testcase>
+  <testcase starttime="2025-05-15 14:41:02" timestamp=" 282.379266">
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::RCS_Ramp_status::RampStatus------------------------------------------------------ ||    Result: Ramp is retracted.------------------------------------------ ||    Expected = Retracted(0) ||    Actual = Retracted(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::CloudStartStopChargingRequest-------------------------------------- ||    Result: No charging request from cloud.----------------------------- ||    Expected =  No Charging Req(0) ||    Actual =  No Charging Req(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::ControlCenterStartupRequest---------------------------------------- ||    Result: Control center startup request is inactive.----------------- ||    Expected = Vehicle Off(0) ||    Actual = Vehicle Off(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::RequestRemoteDiagnosticMode---------------------------------------- ||    Result: Remote diagnostic mode is inactive.------------------------- ||    Expected = Inactive(0) ||    Actual = Inactive(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::StatusProviderGo--------------------------------------------------- ||    Result: Go ahead with mission is allowed.--------------------------- ||    Expected = Go Ahead with Mission(1) ||    Actual = Go Ahead with Mission(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::StatusCloudDataOpertn---------------------------------------------- ||    Result: Cloud data transfer is not in progress.--------------------- ||    Expected = DataTransfer_NotInprogress(0) ||    Actual = DataTransfer_NotInprogress(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::RemoteChargingRequest---------------------------------------------- ||    Result: No remote charging request.--------------------------------- ||    Expected = No Charging Req(0) ||    Actual = No Charging Req(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::StatusTelematicsConnectivity--------------------------------------- ||    Result: Telematics connectivity status is default.------------------ ||    Expected = Default (0) ||    Actual = Default (0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::WakeUpIformation--------------------------------------------------- ||    Result: WakeUp SMS received.---------------------------------------- ||    Expected = WakeUp SMS Received(1) ||    Actual = WakeUp SMS Received(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::RemoteStartUpShutdownReq------------------------------------------- ||    Result: No remote startup/shutdown request.------------------------- ||    Expected = Default(0) ||    Actual = Default(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_FuncReq2::TCUSignalStrength-------------------------------------------------- ||    Result: TCU signal strength is good.-------------------------------- ||    Expected = Good(4) ||    Actual = Good(4)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::DCS_Door_status::DoorStatus------------------------------------------------------ ||    Result: Doors are closed.------------------------------------------- ||    Expected = Closed(0) ||    Actual = Closed(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::DCS_Door_status::DoorEmgReleaseStatus-------------------------------------------- ||    Result: No emergency door release active.--------------------------- ||    Expected = No emergency release(0) ||    Actual = No emergency release(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::CDM_Crash_Info::CrashDetectionSysErrLvl------------------------------------------ ||    Result: No crash system error detected.----------------------------- ||    Expected = NoFault(0) ||    Actual = NoFault(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::CDM_Crash_Info::CrashDetectedStat------------------------------------------------ ||    Result: No crash detected.------------------------------------------ ||    Expected = No Crash(0) ||    Actual = No Crash(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="PWT1" result="pass">Signal: PWT1CAN::TCU_Erro_Info::StatusTelematicsErrLvl-------------------------------------------- ||    Result: No telematics error detected.------------------------------- ||    Expected = No Fault (0) ||    Actual = No Fault (0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <verdict time="2025-05-15 14:41:02" timestamp=" 282.379266" endtime="2025-05-15 14:41:02" endtimestamp=" 282.379266" result="pass" />
+    <title>TC004_verifyPWT1Signals</title>
+  </testcase>
+  <testcase starttime="2025-05-15 14:41:02" timestamp=" 282.379266">
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPriValidStat-------------- ||    Result: Primary Accel/Decel validity request is set.---------------- ||    Expected = Valid(1) ||    Actual = Valid(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri----------------------- ||    Result: Primary gear change request is active.---------------------- ||    Expected = D(1) ||    Actual = D(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="fail">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqPri-------------------- ||    Result: Primary standstill request is not in &apos;Hold&apos; state.---------- ||    Expected = Drive Off (2) ||    Actual = No Request(0)</teststep>
+      <result timestamp=" 282.379266" result="fail"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqValidityPri------------ ||    Result: Primary standstill request validity is confirmed.----------- ||    Expected = Valid(1) ||    Actual = Valid(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_SelfCheckInfo_Prim::SDSSlfCheckStatus_Pri------------------- ||    Result: Primary SDS self-check passed.------------------------------ ||    Expected = Normal Operation possible(1) ||    Actual = Normal Operation possible(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::CurrentSDSModeStat_Pri------------------------- ||    Result: Primary SDS mode is &apos;Active&apos;.------------------------------- ||    Expected = SDS_StandBy(1) ||    Actual = SDS_StandBy(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::DestReachedStat_Pri---------------------------- ||    Result: Primary destination reached status is confirmed.------------ ||    Expected = Reached(1) ||    Actual = Reached(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::LaneChangeStat_Pri----------------------------- ||    Result: Primary lane change is not requested.----------------------- ||    Expected = Non Scheduled Start(0) ||    Actual = Non Scheduled Start(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="fail">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri------------------------ ||    Result: Primary mission progress is not set to Execution.----------- ||    Expected = Mission Execution(5) ||    Actual = Mission accepted(3)</teststep>
+      <result timestamp=" 282.379266" result="fail"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MRMStatPri------------------------------------- ||    Result: Primary MRM (Minimal Risk Maneuver) is inactive.------------ ||    Expected = Not Active(0) ||    Actual = Not Active(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::SDSRequest_Pri--------------------------------- ||    Result: Primary SDS request is not triggered.----------------------- ||    Expected = invalid(0) ||    Actual = invalid(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Primary" result="pass">Signal: CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::TeleOpReqStat_Pri------------------------------ ||    Result: Primary teleoperation request is in &apos;Confirmed&apos; state.------ ||    Expected = No TeleOp Request Available(2) ||    Actual = No TeleOp Request Available(2)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <verdict time="2025-05-15 14:41:02" timestamp=" 282.379266" endtime="2025-05-15 14:41:02" endtimestamp=" 282.379266" result="fail" />
+    <title>TC002_verifySDSPrimarySignals</title>
+  </testcase>
+  <testcase starttime="2025-05-15 14:41:02" timestamp=" 282.379266">
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec---- ||    Result: Secondary Steering Validity request is set.----------------- ||    Expected = Valid(1) ||    Actual = Valid(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSecValidStat------------- ||    Result: Secondary Accel/Decel validity request is set.-------------- ||    Expected = Valid(1) ||    Actual = Valid(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::GearchangeReq_Sec--------------------- ||    Result: Secondary gear change request is active.-------------------- ||    Expected = D(1) ||    Actual = D(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="fail">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqSec------------------- ||    Result: Secondary standstill request is not in &apos;Hold&apos; state.-------- ||    Expected = Drive Off (2) ||    Actual = No Request(0)</teststep>
+      <result timestamp=" 282.379266" result="fail"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqValiditySec----------- ||    Result: Secondary standstill request validity is confirmed.--------- ||    Expected = Valid(1) ||    Actual = Valid(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="fail">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::CurrentSDSModeStat_Sec------------------------ ||    Result: Secondary SDS mode is not &apos;Standby&apos;.------------------------ ||    Expected = SDS_Active_Main_Comfort(4) ||    Actual = SDS_StandBy(1)</teststep>
+      <result timestamp=" 282.379266" result="fail"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::DestReachedStat_Sec--------------------------- ||    Result: Secondary destination reached status is confirmed.---------- ||    Expected = Reached(1) ||    Actual = Reached(1)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::LaneChangeStat_Sec---------------------------- ||    Result: Secondary lane change is not requested.--------------------- ||    Expected = Non Scheduled Start(0) ||    Actual = Non Scheduled Start(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="fail">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MissionProgressStat_Sec----------------------- ||    Result: Secondary mission progress is not at stage 5.--------------- ||    Expected = Mission Execution(5) ||    Actual = Mission accepted(3)</teststep>
+      <result timestamp=" 282.379266" result="fail"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MRMStatSec------------------------------------ ||    Result: Secondary MRM (Minimal Risk Maneuver) is inactive.---------- ||    Expected = Not Active(0) ||    Actual = Not Active(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::ParkingProcessStat_Sec------------------------ ||    Result: Secondary parking process is inactive.---------------------- ||    Expected = Idle(0) ||    Actual = Idle(0)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <testpattern timestamp=" 282.379266" name="verifySignal" type="testpattern">
+      <title>verifySignal</title>
+      <teststep timestamp=" 282.379266" level="0" type="user" ident="SDS_Secondary" result="pass">Signal: CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::TeleOpReqStat_Sec----------------------------- ||    Result: Secondary teleoperation request is in &apos;Confirmed&apos; state.---- ||    Expected = No TeleOp Request Available(2) ||    Actual = No TeleOp Request Available(2)</teststep>
+      <result timestamp=" 282.379266" result="pass"/>
+    </testpattern>
+    <verdict time="2025-05-15 14:41:02" timestamp=" 282.379266" endtime="2025-05-15 14:41:02" endtimestamp=" 282.379266" result="fail" />
+    <title>TC003_verifySDSSecondarySignals</title>
+  </testcase>
+  <verdict time="2025-05-15 14:41:02" timestamp=" 282.379266" endtime="2025-05-15 14:41:16" endtimestamp=" 296.379266" result="fail" />
+  <title>DANA_TestCases</title>
+  <testlogfiles>
+    <testlogfile file="..\..\..\..\..\Downloads\SDS_Test_Traces\SDS_DANA_test_Penzing_2025-05-15_14-36-20.blf" logbegin="Active at test start" logend="Active at test end" />
+  </testlogfiles>
+  <engineer>
+    <xinfo>
+      <name>Windows Login Name</name>
+      <description>arabk</description>
+    </xinfo>
+  </engineer>
+  <testsetup>
+    <xinfo>
+      <name>Version</name>
+      <description>CANoe.J1939.CAN.LIN.Ethernet /pro 17.5.5 (SP5)</description>
+    </xinfo>
+    <xinfo>
+      <name>Configuration</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\SDS_Manuever_Config.cfg</description>
+    </xinfo>
+    <xinfo>
+      <name>Database DCDCPvtCAN_DBCV9.0_Internal_SWV3.1</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\DCDCPvtCAN_DBCV9.0_Internal_SWV3.1.dbc (2025-04-22 09:18:48)</description>
+    </xinfo>
+    <xinfo>
+      <name>Database PWTCAN2_DBCV9.0_Internal_SWV3.1</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\PWTCAN2_DBCV9.0_Internal_SWV3.1.dbc (2025-04-22 09:18:48)</description>
+    </xinfo>
+    <xinfo>
+      <name>Database rt3kfull</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\rt3kfull.dbc (2025-04-22 09:18:48)</description>
+    </xinfo>
+    <xinfo>
+      <name>Database Chassis1CAN_DBCV9.1_SWV3.1 on CHASSIS1CAN</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\Chassis1CAN_DBCV9.1_SWV3.1.dbc (2025-03-20 11:08:30)</description>
+    </xinfo>
+    <xinfo>
+      <name>Database Chassis2CAN_DBCV9.2_SWV3.1 on CHASSIS2CAN</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\Chassis2CAN_DBCV9.2_SWV3.1.dbc (2025-05-14 17:40:50)</description>
+    </xinfo>
+    <xinfo>
+      <name>Database PWTCAN1_DBCV9.3_SWV3.1 on PWT1CAN</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\PWTCAN1_DBCV9.3_SWV3.1.dbc (2025-03-20 11:13:24)</description>
+    </xinfo>
+    <xinfo>
+      <name>Diagnostic Description of MK100</name>
+      <description>Base_Variant, en-US, C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CGW1_BLD14_SW3.1_V1.cdd (CGW1_BLD14_SW3.1_V1, 2024-09-08 21:51:44+02:00)</description>
+    </xinfo>
+    <xinfo>
+      <name>Diagnostic Description of MKC1</name>
+      <description>Base_Variant, en-US, C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CVS_BLD3_SW3.1_V3.cdd (CVS_BLD1_SW3.1_V3, 2024-09-02 19:44:22+02:00)</description>
+    </xinfo>
+    <xinfo>
+      <name>Test Module Name</name>
+      <description>DANA_TestCases</description>
+    </xinfo>
+    <xinfo>
+      <name>Test Module File</name>
+      <description>C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\CAPL\User_Defined\DANA_TCs\DanaAcc.CAN</description>
+    </xinfo>
+    <xinfo>
+      <name>Last modification of Test Module File</name>
+      <description>2025-05-15, 12:12:24</description>
+    </xinfo>
+    <xinfo>
+      <name>Windows Computer Name</name>
+      <description>GARENWINTEC</description>
+    </xinfo>
+    <xinfo>
+      <name>Nodelayer Module J1939_IL</name>
+      <description>J1939 Interaction Layer for CANoe, Version 17.5.5.0, C:\Program Files\Vector CANoe 17\Exec64\J1939_IL.dll</description>
+    </xinfo>
+    <xinfo>
+      <name>Nodelayer Module CANoeILNLVector</name>
+      <description>CANoe Interaction Layer NL (Vector) Version 3.30.131 (Jun 25 2024 10:27:06) , C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Exec32\CANoe_14_0\Exec64\CANoeILNLVector.dll</description>
+    </xinfo>
+    <xinfo>
+      <name>Nodelayer Module CANoeILNLDefault</name>
+      <description>CANoe Interaction Layer NL (Default) Version 3.30.113 (Feb 16 2023 15:35:06) , c:\ProgramData\Vector\AddOn Packages\Vector AddOn\vModules\CANoe_14_0\Exec64\CANoeILNLDefault.dll</description>
+    </xinfo>
+  </testsetup>
+  <hardware name="CAN Channel Interfaces" category="CategoryCANIF">
+    <xinfoset type="device">
+      <xinfoobject type="device">
+      <xinfo key="channel">
+        <name>Channel</name>
+        <description>1</description>
+      </xinfo>
+      <xinfo key="device">
+        <name>Device</name>
+        <description>VN8911</description>
+      </xinfo>
+      <xinfo key="serialnumber">
+        <name>Serial number</name>
+        <description>8311</description>
+      </xinfo>
+      <xinfo key="driverdllversion">
+        <name>Driver DLL version</name>
+        <description>25.10.18</description>
+      </xinfo>
+      <xinfo key="driverversion">
+        <name>Driver version</name>
+        <description>23.20.20</description>
+      </xinfo>
+      </xinfoobject>
+      <xinfoobject type="device">
+      <xinfo key="channel">
+        <name>Channel</name>
+        <description>2</description>
+      </xinfo>
+      <xinfo key="device">
+        <name>Device</name>
+        <description>VN8911</description>
+      </xinfo>
+      <xinfo key="serialnumber">
+        <name>Serial number</name>
+        <description>8311</description>
+      </xinfo>
+      <xinfo key="driverdllversion">
+        <name>Driver DLL version</name>
+        <description>25.10.18</description>
+      </xinfo>
+      <xinfo key="driverversion">
+        <name>Driver version</name>
+        <description>23.20.20</description>
+      </xinfo>
+      </xinfoobject>
+      <xinfoobject type="device">
+      <xinfo key="channel">
+        <name>Channel</name>
+        <description>3</description>
+      </xinfo>
+      <xinfo key="device">
+        <name>Device</name>
+        <description>VN8911</description>
+      </xinfo>
+      <xinfo key="serialnumber">
+        <name>Serial number</name>
+        <description>8311</description>
+      </xinfo>
+      <xinfo key="driverdllversion">
+        <name>Driver DLL version</name>
+        <description>25.10.18</description>
+      </xinfo>
+      <xinfo key="driverversion">
+        <name>Driver version</name>
+        <description>23.20.20</description>
+      </xinfo>
+      </xinfoobject>
+    </xinfoset>
+  </hardware>
+</testmodule>
+<!--footprint="b1724548b21276ef721748dcd827758f" version="1"-->

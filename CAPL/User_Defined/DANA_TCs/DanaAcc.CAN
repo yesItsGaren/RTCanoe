@@ -1,0 +1,404 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "testingSetSignals.CAN"
+}
+
+variables
+{
+  // Variables
+  int accCurrentState = 0;
+  int accElapsedtime = 0;
+  int EXECUTED_MANEUVER = 0;
+  float lastAccPriVal = 0;
+  float lastAccSecVal = 0;
+  
+  
+  //TC constants
+  const int SELECTED_GEAR_DRIVE = 1; // should be 1
+  const int SELECTED_GEAR_REVERSE = 0; 
+  
+  const float POS_ACCEL_VAL = 1.3;
+  const float MAX_POS_ACCEL_VAL = 2; // should be 6
+  const int STABILITY_TORQUE_IDLE = 0;
+  const int STABILITY_TORQUE_INCREASE = 1;
+  const int STABILITY_TORQUE_DECREASE = 2;
+  const float POS_REGEN_VAL = 2000;
+  const float POS_STABILITY_TARGET_TORQUE_VAL = 2000;
+  const int MKC1TrqTimerRate = 20;
+  
+  // TC Parameters
+  int SELECTED_GEAR = 0;
+  int STABILITY_TORQUE_DIRECTION = 0;
+  float REGEN_TARGET_TORQUE = 0;
+  float STABILITY_TARGET_TORQUE = 0;
+  float ACCEL_DECEL_REQ_PRI_VAL = 0;
+  float ACCEL_DECEL_REQ_SEC_VAL = 0;
+  
+  // Constants
+  const int accRate = 100;
+  const int SDS_Pres_Timer_Rate = 100;
+  const int PWT100TimerVal = 100;
+  const int PWT50TimerVal = 50;
+  const int SLEEP_VAL = 1;
+  const int PARK_VAL = 2;
+  const int AUTO_VAL = 3;
+  const int TC_TIMOUT = 22000;
+  
+  // Messages
+  message CHASSIS2CAN::CGW::SDS_Stability_Info_Sec Chass2SDSStabInfSec;
+  message CHASSIS1CAN::CGW2::SDS_Stability_Info_Prim Chass1SDSStabInfPrim;
+  message CHASSIS2CAN::MKC1::MKC1_TrqRedctnReq MKC1_Torque;
+
+  message PWT1CAN::CDM_Crash_Info PWT1CDMCrashInfo; // 50ms
+  message PWT1CAN::DCS_Door_status PWT1DoorStat; // 50ms
+  message PWT1CAN::RCS_Ramp_status PWT1RCSRampStatus; // 50ms
+  message PWT1CAN::TCU_Erro_Info PWT1TCUErrorInfo; // 100ms
+  message PWT1CAN::TCU_FuncReq2 PWT1TCUFuncReq; // 100ms
+  message PWT1CAN::BCM_Error_Info PWT1BCMErrInf; // 100ms
+  message PWT1CAN::ASS_Info PWT1AssInf; // 100ms
+  message PWT1CAN::ASS_Error_Info PWT1AssErr; //100ms
+  message PWT1CAN::VCU::VCU_FaultInfo PWT1VcuFaultInf; //100ms
+  message PWT1CAN::VCU_HVInfo PWT1VcuHvInf; //100ms
+  message PWT1CAN::VCU_Info PWT1VcuInf; //100ms
+  message PWT1CAN::IPC_Stat PWT1IpcStat; //100ms
+  message PWT1CAN::VCU_VSMInfo PWT1VcuVsmInf;  //100ms
+  message PWT1CAN::MK100_SecBrkInfo PWT1MK100SecBrkInf;
+  
+  // Timers
+  msTimer DANA_ACC_TIMER;
+  msTimer SDS_Pres_Timer;
+  msTimer MKC1TrqTimer;
+  
+  // enums
+  enum ACC_IO
+  {
+    STOP_ACC = 0,
+    START_ACC = 1
+  };
+  
+  enum DANA_ACC_MANEUVERS
+  {
+    DANA_NO_TORQUE,
+    DANA_TC001,
+    DANA_TC002,
+    DANA_TC003,
+    DANA_TC004,
+    DANA_TC005,
+    DANA_TC006,
+    DANA_TC007,
+    DANA_TC008,
+    DANA_TC009,
+    DANA_TC010,
+    DANA_TC011,
+    DANA_TC012,
+    DANA_TC013
+  };
+  
+}
+
+void MainTest()
+{
+  DANA_TC();
+}
+
+
+void DANA_TC()
+{
+  resetVariables();
+  EXECUTED_MANEUVER = @DANA_TCs::TC_Table;
+  executeManeuver();
+  testWaitForTimeout(TC_TIMOUT);
+}
+
+
+void executeManeuver()
+{
+  
+  int currentVCUState;
+  //currentVCUState = getSignal(CHASSIS2CAN::VCU_VSMInfo::VSMStatus);
+  currentVCUState = AUTO_VAL;
+  
+  if(currentVCUState == AUTO_VAL) // Check if we are in Autonomous mode and if a maneuver is not taking place
+  {
+    teststep("Validate AUTO Mode","Starting Sequence with 100ms rate");
+    setTimer(DANA_ACC_TIMER,accRate);
+  }
+  else
+  {
+    teststep("Validate AUTO Mode","Oops! Seems like you are not in Autonomous state.");
+    TestStepFail("FAIL: Vehicle not in AUTO mode.");
+  }
+}
+
+
+void resetVariables()
+{
+  accCurrentState = 0;
+  accElapsedtime = 0;
+  EXECUTED_MANEUVER = DANA_NO_TORQUE;
+}
+
+// State Machine
+on timer DANA_ACC_TIMER
+{
+
+  if (accElapsedtime <= 200) {
+    accElapsedtime++;
+    switch (accCurrentState) {
+      case 0: // Idle
+        write("Case 0: Starting acceleration profile...");
+        $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 5; // in progress
+        if (accElapsedtime == 10) {
+          accCurrentState = 1;
+          TC001_testGearchangeReqPrimary(SELECTED_GEAR_DRIVE);
+          TC005_testVSMStatus(AUTO_VAL);
+          TC004_verifyPWT1Signals();
+          TC002_verifySDSPrimarySignals();
+          TC003_verifySDSSecondarySignals();
+          
+        }
+        setTimer(DANA_ACC_TIMER, accRate); // Start 1-second timer
+        break;
+     
+      case 1: // Acceleration Phase (1s to 6s)
+        if (accElapsedtime == 130) {
+          write("Case 1: Stopping ...");
+          EXECUTED_MANEUVER = DANA_NO_TORQUE;
+          accelerateToSpeed();
+          accCurrentState = 2;
+        }
+        else
+        {
+          write("Case 1: Accelerating ...");
+          accelerateToSpeed();
+        }
+        setTimer(DANA_ACC_TIMER, accRate); // Start 1-second timer
+        break;
+     
+      case 2: // Maintain Speed (6s to 10s)
+        write("Case 2: Acceleration Stopped !!");
+        // Keep speed constant after acceleration phase
+        if (accElapsedtime >= 100) {
+          accCurrentState = 3; // Move to end state
+        }
+        setTimer(DANA_ACC_TIMER, accRate); // Start 1-second timer
+        break;
+     
+      case 3: // End Simulation
+        write("Case 3: Stopping acc timer");
+        $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 7;
+        $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 3; // Mission accepted
+        cancelTimer(DANA_ACC_TIMER);
+        accElapsedtime = 0;
+        accCurrentState = 0;
+        break;
+    }
+  }
+}
+
+
+void accelerateToSpeed()
+{    
+  switch(EXECUTED_MANEUVER)
+  {
+  case DANA_NO_TORQUE:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = 0;
+      ACCEL_DECEL_REQ_SEC_VAL = 0;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+    
+    case DANA_TC001:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL + 0.3;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+      
+    case DANA_TC002:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL - 0.3;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+    
+    case DANA_TC003:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL + 0.3;
+      ACCEL_DECEL_REQ_SEC_VAL = - POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+      
+    case DANA_TC004:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = - (POS_ACCEL_VAL - 0.3);
+      ACCEL_DECEL_REQ_SEC_VAL =  POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+      
+    case DANA_TC005:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = - (POS_ACCEL_VAL + 0.3);
+      ACCEL_DECEL_REQ_SEC_VAL = - POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+    
+    case DANA_TC006:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = - (POS_ACCEL_VAL - 0.3);
+      ACCEL_DECEL_REQ_SEC_VAL = - POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+    
+    case DANA_TC007:
+      SELECTED_GEAR = SELECTED_GEAR_REVERSE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = MAX_POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = MAX_POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+      
+    case DANA_TC008:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_IDLE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = - POS_REGEN_VAL;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+      
+    case DANA_TC009:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_INCREASE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+      
+    case DANA_TC010:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_INCREASE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = POS_STABILITY_TARGET_TORQUE_VAL;
+      break;
+    
+    case DANA_TC011:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_DECREASE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = - POS_STABILITY_TARGET_TORQUE_VAL;
+      break;
+      
+    case DANA_TC012:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_DECREASE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = POS_STABILITY_TARGET_TORQUE_VAL;
+      break;
+    
+    case DANA_TC013:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = STABILITY_TORQUE_DECREASE;
+      ACCEL_DECEL_REQ_PRI_VAL = POS_ACCEL_VAL;
+      ACCEL_DECEL_REQ_SEC_VAL = POS_ACCEL_VAL;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+    
+    default:
+      SELECTED_GEAR = SELECTED_GEAR_DRIVE;
+      STABILITY_TORQUE_DIRECTION = 0;
+      ACCEL_DECEL_REQ_PRI_VAL = 0;
+      ACCEL_DECEL_REQ_SEC_VAL = 0;
+      REGEN_TARGET_TORQUE = 0;
+      STABILITY_TARGET_TORQUE = 0;
+      break;
+  }
+  
+  
+    Chass1SDSStabInfPrim.GearchangeReqPri = SELECTED_GEAR; //Drive 1
+    Chass2SDSStabInfSec.GearchangeReq_Sec = SELECTED_GEAR; //Drive 1
+  
+    //MKC1_Torque.StabilityTorqueDirection = STABILITY_TORQUE_DIRECTION; // IDLE
+    
+    //$CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = ACCEL_DECEL_REQ_PRI_VAL; // AccelDecelPri
+    //$CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = ACCEL_DECEL_REQ_SEC_VAL; // AccelDecelSec
+    
+    
+    progressiveAccel();
+  
+  
+    Chass1SDSStabInfPrim.AccelDecelReqPri = ACCEL_DECEL_REQ_PRI_VAL;  // AccelDecelPri
+    Chass1SDSStabInfPrim.AccelDecelReqPriValidStat = 1; // AccelDecelPri
+    Chass2SDSStabInfSec.AccelDecelReqSec = ACCEL_DECEL_REQ_SEC_VAL;  // AccelDecelSec
+    Chass2SDSStabInfSec.AccelDecelReqSecValidStat = 1;  // AccelDecelSec
+    
+    //MKC1_Torque.RegenTargetTorque =   REGEN_TARGET_TORQUE;
+  
+    //MKC1_Torque.StabilityTargetTorque = STABILITY_TARGET_TORQUE; // in Nm
+  
+    Chass2SDSStabInfSec.VehStandStillReqSec = 0; // Do we need this?
+    Chass2SDSStabInfSec.VehStandStillReqValiditySec = 1; // Do we need this?
+    
+    setTimer(SDS_Pres_Timer, SDS_Pres_Timer_Rate);
+    //setTimer(MKC1TrqTimer, MKC1TrqTimerRate);
+}
+
+
+on timer SDS_Pres_Timer
+{
+  output(Chass2SDSStabInfSec);
+  output(Chass1SDSStabInfPrim);
+  setTimer(SDS_Pres_Timer, SDS_Pres_Timer_Rate);
+}
+
+on timer MKC1TrqTimer
+{
+  output(MKC1_Torque);
+  setTimer(MKC1TrqTimer, MKC1TrqTimerRate);
+}
+
+void progressiveAccel()
+{
+    if(lastAccPriVal<ACCEL_DECEL_REQ_PRI_VAL)
+    {
+      lastAccPriVal = lastAccPriVal + 0.1;
+    }
+    
+    if(lastAccSecVal<ACCEL_DECEL_REQ_SEC_VAL)
+    {
+      lastAccSecVal = lastAccSecVal + 0.1;
+    }
+    
+    if(EXECUTED_MANEUVER == DANA_NO_TORQUE)
+    {
+      lastAccPriVal = 0;
+      lastAccSecVal = 0;
+    }
+    
+    $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = lastAccPriVal; // AccelDecelPri
+    $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = lastAccSecVal; // AccelDecelSec
+}

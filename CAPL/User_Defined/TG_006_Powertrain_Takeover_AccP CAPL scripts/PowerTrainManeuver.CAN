@@ -1,0 +1,1151 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "testingSetSignals.CAN"
+}
+
+variables
+{
+  // Variables and constants
+  const int sequenceRate = 100;
+  const int preconditionsRate = 1000;
+  const int SLEEP_VAL = 1;
+  const int PARK_VAL = 2;
+  const int AUTO_VAL = 3;
+  const int TEST_DRIVE_MODE = 8;
+  const int VALID_STATE = 1;
+  const int INVALID_STATE = 0;
+  const int VALID_BRAKES = 1;
+  const int DRIVE_GEAR = 1; // In SDS!!!!
+  const int DISABLE_VCU_SIGNALS = 1; // 1 = On ; 0 = Off
+  
+  const float MAX_STEERING_ANGLE_PROFILE_0 = 507.0;
+  const float MAX_STEERING_ANGLE_PROFILE_10 = 507.0;
+  const float MAX_STEERING_ANGLE_PROFILE_20 = 297.0;
+  const float MAX_STEERING_ANGLE_PROFILE_30 = 145.0;
+  const float MAX_STEERING_ANGLE_PROFILE_40 = 87.5;
+  const float MAX_STEERING_ANGLE_PROFILE_50 = 60.2;
+  const float MAX_STEERING_ANGLE_PROFILE_60 = 45.6;
+  
+  const float TARGET_ACC_1 = 1.3;
+  const float TARGET_ACC_2 = 2;
+  const float TARGET_ACC_BRAKING = 2;
+    
+  float ACC_VAL = 1.0; // Acceleration Value, now dynamic
+  
+  const float TARGET_SPEED_PROFILE_0 = 0;
+  const float TARGET_SPEED_PROFILE_10 = 10;
+  const float TARGET_SPEED_PROFILE_20 = 20;
+  const float TARGET_SPEED_PROFILE_30 = 30;
+  const float TARGET_SPEED_PROFILE_40 = 40;
+  const float TARGET_SPEED_PROFILE_50 = 50;
+  const float TARGET_SPEED_PROFILE_60 = 60;
+  const float TARGET_SPEED_PROFILE_ACC1 = 23.4;
+  const float TARGET_SPEED_PROFILE_ACC2 = 36;
+  const float TARGET_SPEED_PROFILE_BRAK_30 = 30;
+  const float TARGET_SPEED_PROFILE_BRAK_50 = 50;
+  
+  
+  const float TOLERANCE_ACC_PROFILE_0 = 0;
+  const float TOLERANCE_ACC_PROFILE_10 = 2;
+  const float TOLERANCE_ACC_PROFILE_20 = 2;
+  const float TOLERANCE_ACC_PROFILE_30 = 2;
+  const float TOLERANCE_ACC_PROFILE_40 = 2;
+  const float TOLERANCE_ACC_PROFILE_50 = 2;
+  const float TOLERANCE_ACC_PROFILE_60 = 2;
+  const float TOLERANCE_ACC_PROFILE_ACC1 = 2;
+  const float TOLERANCE_ACC_PROFILE_ACC2 = 2;
+  
+  const float STEERING_RATE_PROFILE_0 = 18.2;
+  const float STEERING_RATE_PROFILE_10 = 18.2;
+  const float STEERING_RATE_PROFILE_20 = 8.8;
+  const float STEERING_RATE_PROFILE_30 = 6.0;
+  const float STEERING_RATE_PROFILE_40 = 4.3;
+  const float STEERING_RATE_PROFILE_50 = 3.6;
+  const float STEERING_RATE_PROFILE_60 = 3.2;
+  
+  
+  enum ACC_PROFILE 
+  {
+    TG_003_Steering_0,
+    TG_003_Steering_10,
+    TG_003_Steering_20,
+    TG_003_Steering_30,
+    TG_003_Steering_40,
+    TG_003_Steering_50,
+    TG_003_Steering_60,
+    TG_001_Acceleration_2_D1,
+    TG_001_Acceleration_2_D2,
+    TG_001_Acceleration_2_D1R,
+    TG_001_Acceleration_2_D2R,
+    TG_002_BRAKING_30_3_5,
+    TG_002_BRAKING_30_5,
+    TG_002_BRAKING_50_3_5,
+    TG_002_BRAKING_50_5,
+    TG_004_Steering_Braking_60,
+    TG_007_Brake_Takeover,
+    TG_006_PowerTrainTakover,
+    TG_005_Steering_Take
+  };
+  
+  int EXECUTED_MANEUVER;
+
+  enum SDS_State
+{
+    PARK_STATE = 0,        // Park Mode
+    AUTO_STATE = 1,        // Autonomous Mode
+    MANEUVER_STATE = 2     // Maneuver Mode
+};
+  
+enum ACC_IO
+{
+  STOP_ACC = 0,
+  START_ACC = 1
+};
+  
+  float calculatedSteeringValue = 0;
+  float currentSpeed = 0;
+  float NMinusOneSteeringVal = 0;
+  float NMinusTwoSteeringVal = 0;
+  float maxSteeringAngle;
+  
+  int preconditionsStep = 0;
+  int steeringManeuverCount = 0;
+  int SteeringCounter = 0;
+  int accCount = 0;
+  int intervalPointsArray[11];
+  
+  // Input Messages (Simulation)
+  message CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim primSteeringMsg2; // Primary Steering Control Chassis 2 (0x14B)
+  message CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec secSteeringMsg1;  // Secondary Steering Control Chassis 1 (0x14D)
+  
+  message CHASSIS1CAN::VCU_VSMInfo vsmInfoMsg1;  // VSM Status Chassis 1 (0x11A)
+  message CHASSIS2CAN::VCU_VSMInfo vsmINfoMsg2;  // VSM Status Chassis 2 (0x11A)
+  
+  message CHASSIS1CAN::MKC1_VehMvmntInfo MK100_1; // Breaks Chassis 1 MK100 (0x16A)
+  message CHASSIS2CAN::MKC1_VehMvmntInfo MKC1_2; // Breaks Chassis 2 MKC1 (0x16A)
+
+  message PWT1CAN::CDM_Crash_Info PWT1CDMCrashInfo; // 50ms
+  message PWT1CAN::DCS_Door_status PWT1DoorStat; // 50ms
+  message PWT1CAN::RCS_Ramp_status PWT1RCSRampStatus; // 50ms
+  message PWT1CAN::TCU_Erro_Info PWT1TCUErrorInfo; // 100ms
+  message PWT1CAN::TCU_FuncReq2 PWT1TCUFuncReq; // 100ms
+  message PWT1CAN::BCM_Error_Info PWT1BCMErrInf; // 100ms
+  message PWT1CAN::ASS_Info PWT1AssInf; // 100ms
+  message PWT1CAN::ASS_Error_Info PWT1AssErr; //100ms
+  message PWT1CAN::VCU::VCU_FaultInfo PWT1VcuFaultInf; //100ms
+  message PWT1CAN::VCU_HVInfo PWT1VcuHvInf; //100ms
+  message PWT1CAN::VCU_Info PWT1VcuInf; //100ms
+  message PWT1CAN::IPC_Stat PWT1IpcStat; //100ms
+  message PWT1CAN::VCU_VSMInfo PWT1VcuVsmInf;  //100ms
+  message PWT1CAN::MK100_SecBrkInfo PWT1MK100SecBrkInf;
+  
+  message CHASSIS2CAN::CGW::SDS_Stability_Info_Sec Chass2SDSStabInfSec;
+
+  // Timers
+  msTimer preconditionsTimer;
+  msTimer PWT100Timer;
+  msTimer PWT50Timer;
+  const int PWT50TimerVal = 50;
+  const int PWT100TimerVal = 100;
+
+  
+  int maneuverInProgress = 0;
+
+  //Test variables
+
+  int k;
+  float receivedPinionAngle;
+  float receivedPinionAngle2;
+  
+  const float TOLERANCE = 2.5; // Acceptable tolerance range (±0.5 degrees)
+  int nbOfTries = 0;
+  int retVal = 0;
+  int retryCount =0;
+  const int MAX_RETRY_CNT = 9;
+  int angle1Result;
+  int angle2Result;
+  
+  
+  // Test return values macros
+  const int PASS = 1;
+  const int FAIL = 0;
+  
+  // Manual intervention Detection variables
+  int steeringState;
+  const int MIN_STEERING_RATE = 10;
+  const int MANUAL_STEERING_ACTIVE = 1;
+  const int DELAY_1000_MS = 1000;
+  int TIMEOUT_TURN_WHEEL = 10000;
+  const int ENABLED = 1;
+  const int DISABLED = 0;
+  
+  // ISCS test variables
+  const int MAX_STEERING_TEST_BUFFER_SIZE = 300;
+  const float ISCS_TEST_PINION_ANGLE_TOLERANCE = 2.5;
+  float iscsPinionAngle1Buffer[MAX_STEERING_TEST_BUFFER_SIZE];
+  float iscsPinionAngle2Buffer[MAX_STEERING_TEST_BUFFER_SIZE];
+  float calculatedPinionAngleBuffer[MAX_STEERING_TEST_BUFFER_SIZE];
+  int bufferIndex = 0;
+  int validationTimer = 0;
+
+
+  // TB_007_Braking_takeover variables
+  msTimer TG006_Timer; 
+  const int TG007_Period = 100; // 100ms
+  const float TG007_STEERING_RATE = 3.2;
+  const float TG007_MAX_STEERING_ANGLE = 10;
+  const float TG007_MIN_STEERING_ANGLE = -10;
+  const int TG_OFFSET_DURATION = 60;
+  int TG006_ElapsedTime = 0;
+  int TG007_CurrentState = 0; 
+  const int MKC1_MANUAL_BRAKE_INTR_STATUS_DETECTED = 1;
+  const int MKC1_MANUAL_BRAKE_INTR_STATUS_NOT_DETECTED = 0;
+  const int TG006_MANUAL_INTERVENTION_DETECTED = 2;
+  
+}
+
+// Function to start the sequence
+void StartPreconditionSequence()
+{
+  // Start the sequence
+  preconditionsStep = 0;
+  PowerTrainPreconditions();
+  setTimer(preconditionsTimer, preconditionsRate); 
+}
+
+void executeManeuver()
+{
+  
+  int currentVCUState;
+  //currentVCUState = getSignal(CHASSIS2CAN::VCU_VSMInfo::VSMStatus);
+  currentVCUState = AUTO_VAL;
+  
+  if(currentVCUState == AUTO_VAL) // Check if we are in Autonomous mode and if a maneuver is not taking place
+  {
+    SteeringCounter = 0;
+    PowerTrainPreconditions();
+    teststep("Validate AUTO Mode","Starting Sequence with 100ms rate");
+    setTimer(TG006_Timer,sequenceRate);
+  }
+  else
+  {
+    teststep("Validate AUTO Mode","Oops! Seems like you are not in Autonomous state or a maneuver is taking place. That's sad :(");
+    TestStepFail("FAIL: Vehicle not in AUTO mode.");
+  }
+}
+
+
+on timer PWT100Timer
+{
+  output(PWT1TCUErrorInfo);
+  output(PWT1TCUFuncReq);
+  output(Chass2SDSStabInfSec);
+  setTimer(PWT100Timer,PWT100TimerVal);
+}
+
+on timer PWT50Timer
+{
+  output(PWT1CDMCrashInfo);
+  output(PWT1DoorStat);
+  output(PWT1RCSRampStatus);
+  setTimer(PWT50Timer,PWT50TimerVal);
+}
+
+// Timer event for sequential execution
+on timer preconditionsTimer
+{
+  switch (preconditionsStep)
+  {
+    case 0:
+      // 0 - Set Sleep
+      teststep(" ","Step 0: Set Sleep");
+      if(DISABLE_VCU_SIGNALS == 0)
+      {
+        $CHASSIS1CAN::VCU_VSMInfo::VSMStatus = SLEEP_VAL;
+        $CHASSIS2CAN::VCU_VSMInfo::VSMStatus = SLEEP_VAL;
+      }
+      preconditionsStep++;
+      setTimer(preconditionsTimer, preconditionsRate); // 100ms delay before next step
+      break;
+
+    case 1:
+      // 2 - Set SDS Steering validity to Valid
+      teststep(" ","Step 1: Set SDS Steering validity to Valid");
+      setSteeringValidity(VALID_STATE);
+      preconditionsStep++;
+      setTimer(preconditionsTimer, preconditionsRate); // 100ms delay before next step
+      break;
+
+    case 2:
+      // 2 - Set Brake Validity to Valid
+      teststep(" ","Step 2: Set Brake Validity to Valid");
+      if(DISABLE_VCU_SIGNALS == 0)
+      {
+        //$CHASSIS1CAN::MKC1_VehMvmntInfo::VehSpeedValidStat = VALID_BRAKES;
+        //$CHASSIS2CAN::MKC1_VehMvmntInfo::VehSpeedValidStat = VALID_BRAKES;
+      }
+      preconditionsStep++;
+      setTimer(preconditionsTimer, preconditionsRate); // 100ms delay before next step
+      break;
+
+    case 3:
+      // 3 - Set Park
+      if(DISABLE_VCU_SIGNALS == 0)
+      {
+        //$CHASSIS1CAN::VCU_VSMInfo::VSMStatus = PARK_VAL;
+        //$CHASSIS2CAN::VCU_VSMInfo::VSMStatus = PARK_VAL;
+      }
+      teststep(" ","Step 3: Set Park");
+      preconditionsStep++;
+      setTimer(preconditionsTimer, preconditionsRate); // 100ms delay before next step
+      break;
+
+    case 4:
+      // 4 - Set Initial values
+      teststep(" ","Step 4: Set initial Values");
+      
+      setSDSSimParams(PARK_STATE);
+      
+      preconditionsStep++;
+      setTimer(preconditionsTimer, preconditionsRate); // 100ms delay before next step
+      break;
+      
+    default:
+      // End of sequence
+      teststep(" ","Sequence Completed", "All steps executed successfully.");
+      cancelTimer(preconditionsTimer);
+      break;
+  }
+}
+
+void setSDSSimParams(int State)
+{
+  switch(State)
+  {
+    case PARK_STATE:  
+      $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::Valid_CtrlSteeringPinionAng_Pri = 1;
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = 0; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPriValidStat = 1; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri = 2; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqPri = 0; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqValidityPri = 1; 
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_SelfCheckInfo_Prim::SDSSlfCheckStatus_Pri = 1;
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::CurrentSDSModeStat_Pri = 1;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::DestReachedStat_Pri = 1;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::LaneChangeStat_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 3;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MRMStatPri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::SDSRequest_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::TeleOpReqStat_Pri = 2;
+      
+      
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec = 1;
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSecValidStat = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::GearchangeReq_Sec = 2;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqValiditySec = 1;
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::CurrentSDSModeStat_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::DestReachedStat_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::LaneChangeStat_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MissionProgressStat_Sec = 3;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MRMStatSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::ParkingProcessStat_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::TeleOpReqStat_Sec = 2;
+      
+      Chass2SDSStabInfSec.AccelDecelReqSec = 0;
+      Chass2SDSStabInfSec.AccelDecelReqSecValidStat = 1;
+      Chass2SDSStabInfSec.GearchangeReq_Sec = 1;
+      Chass2SDSStabInfSec.VehStandStillReqSec = 0;
+      Chass2SDSStabInfSec.VehStandStillReqValiditySec = 1;
+      setTimer(PWT100Timer,PWT100TimerVal);
+      
+      break;
+    case AUTO_STATE:
+      PowerTrainPreconditions();
+      $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::Valid_CtrlSteeringPinionAng_Pri = 1;
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = 0; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPriValidStat = 1; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri = 1; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqPri = 0; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqValidityPri = 1; 
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_SelfCheckInfo_Prim::SDSSlfCheckStatus_Pri = 1;
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::CurrentSDSModeStat_Pri = 1;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::DestReachedStat_Pri = 1;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::LaneChangeStat_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 3;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MRMStatPri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::SDSRequest_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::TeleOpReqStat_Pri = 2;
+      
+      
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec = 1;
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSecValidStat = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::GearchangeReq_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqValiditySec = 1;
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::CurrentSDSModeStat_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::DestReachedStat_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::LaneChangeStat_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MissionProgressStat_Sec = 3;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MRMStatSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::ParkingProcessStat_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::TeleOpReqStat_Sec = 2;
+      
+      Chass2SDSStabInfSec.AccelDecelReqSec = 0;
+      Chass2SDSStabInfSec.AccelDecelReqSecValidStat = 1;
+      Chass2SDSStabInfSec.GearchangeReq_Sec = 1;
+      Chass2SDSStabInfSec.VehStandStillReqSec = 0;
+      Chass2SDSStabInfSec.VehStandStillReqValiditySec = 1;
+      setTimer(PWT100Timer,PWT100TimerVal);
+      break;
+    case MANEUVER_STATE:
+      PowerTrainPreconditions();
+      $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::Valid_CtrlSteeringPinionAng_Pri = 1;
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPriValidStat = 1; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri = 1; 
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqPri = 2; // 2 seconds?
+      $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::VehStandStillReqValidityPri = 1; 
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_SelfCheckInfo_Prim::SDSSlfCheckStatus_Pri = 1;
+      
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::CurrentSDSModeStat_Pri = 1;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::DestReachedStat_Pri = 1;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::LaneChangeStat_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 5;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MRMStatPri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::SDSRequest_Pri = 0;
+      $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::TeleOpReqStat_Pri = 2;
+      
+      
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec = 1;
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSecValidStat = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::GearchangeReq_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqSec = 2;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::VehStandStillReqValiditySec = 1;
+      
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::CurrentSDSModeStat_Sec = 4;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::DestReachedStat_Sec = 1;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::LaneChangeStat_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MissionProgressStat_Sec = 5;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::MRMStatSec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::ParkingProcessStat_Sec = 0;
+      $CHASSIS1CAN::SDS_Secondary::SDS_Status_Sec::TeleOpReqStat_Sec = 2;
+      
+      
+      
+      break;
+    default:
+      break;
+  }      
+}
+
+
+void PowerTrainPreconditions()
+{
+  PWT1RCSRampStatus.RampStatus = 0; //Retracted  NA in IG
+  PWT1TCUFuncReq.CloudStartStopChargingRequest = 0; //No Charging Req
+  PWT1TCUFuncReq.ControlCenterStartupRequest = 0; // vehicle Off
+  PWT1TCUFuncReq.RequestRemoteDiagnosticMode = 0; // Inactive
+  PWT1TCUFuncReq.StatusProviderGo = 1; // go Ahead with Mission
+  PWT1TCUFuncReq.StatusCloudDataOpertn = 0; //DataTransfer_NotInprogress
+  PWT1TCUFuncReq.RemoteChargingRequest = 0; // No Charging Req
+  PWT1TCUFuncReq.StatusTelematicsConnectivity = 0; // Default
+  PWT1TCUFuncReq.WakeUpIformation = 1; //wakeUp SMS Received
+  PWT1TCUFuncReq.RemoteStartUpShutdownReq = 0; // Default
+  PWT1TCUFuncReq.TCUSignalStrength = 4; // Good NA works
+  PWT1DoorStat.DoorStatus = 0; // Closed NA in IG
+  PWT1DoorStat.DoorEmgReleaseStatus = 0; //No emergenecy release. in IG
+  PWT1CDMCrashInfo.CrashDetectionSysErrLvl = 0; // No Fault NA in IG
+  PWT1CDMCrashInfo.CrashDetectedStat = 0; // No Fault NA in IG
+  PWT1TCUErrorInfo.StatusTelematicsErrLvl = 0; // No Fault NA in IG
+  
+  setTimer(PWT100Timer,PWT100TimerVal);
+  setTimer(PWT50Timer,PWT50TimerVal);
+}
+
+void setIntervals()
+{
+  int i=0;
+  // Reset array values to 0 (optional, in case you want to clear it)
+    for (i = 0; i < 10; i++) 
+    {
+        intervalPointsArray[i] = 0;
+    }
+    teststep(" ","Setting Interval points and Maximum steering angle");
+   switch(EXECUTED_MANEUVER)
+    {
+      case TG_003_Steering_0:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_0;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 37;
+            intervalPointsArray[4] = 38;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 211;
+            intervalPointsArray[8] = 212;
+            intervalPointsArray[9] = 300;  
+        break;
+      case TG_003_Steering_10:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_10;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 37;
+            intervalPointsArray[4] = 38;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 211;
+            intervalPointsArray[8] = 212;
+            intervalPointsArray[9] = 300;
+        break;
+        
+      case TG_003_Steering_20:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_20;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 43;
+            intervalPointsArray[4] = 44;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 234;
+            intervalPointsArray[8] = 235;
+            intervalPointsArray[9] = 300;
+        break;
+        
+      case TG_003_Steering_30:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_30;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 34;
+            intervalPointsArray[4] = 35;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 196;
+            intervalPointsArray[8] = 197;
+            intervalPointsArray[9] = 300;
+        break;
+        
+      case TG_003_Steering_40:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_40;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 30;
+            intervalPointsArray[4] = 31;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 180;
+            intervalPointsArray[8] = 181;
+            intervalPointsArray[9] = 300;
+        break;
+        
+      case TG_003_Steering_50:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_50;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 26;
+            intervalPointsArray[4] = 27;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 166;
+            intervalPointsArray[8] = 167;
+            intervalPointsArray[9] = 300;
+        break;
+        
+      case TG_003_Steering_60:
+      case TG_004_Steering_Braking_60:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_60;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 24;
+            intervalPointsArray[4] = 25;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 156;
+            intervalPointsArray[8] = 157;
+            intervalPointsArray[9] = 300;
+        break;
+      default:
+            maxSteeringAngle = MAX_STEERING_ANGLE_PROFILE_60;
+            intervalPointsArray[0] = 0;
+            intervalPointsArray[1] = 9;
+            intervalPointsArray[2] = 10;
+            intervalPointsArray[3] = 24;
+            intervalPointsArray[4] = 25;
+            intervalPointsArray[5] = 100;
+            intervalPointsArray[6] = 101;
+            intervalPointsArray[7] = 156;
+            intervalPointsArray[8] = 157;
+            intervalPointsArray[9] = 300;
+        break;
+    }
+}
+
+
+
+on timer TG006_Timer
+{
+  if (TG006_ElapsedTime <= TG_OFFSET_DURATION + 151)
+  {
+    TG006_ElapsedTime++;
+    switch(TG007_CurrentState)
+    {
+     case 0:
+       write("TG006_PowerTrain_takeOver","Case 0: Starting TG006_PowerTrain_takeOver maneuver...");
+       write("Case 0: Starting TG006_PowerTrain_takeOver maneuver...");
+       write("WARNING! This maneuver needs an operator manual intervention at a certain state!");
+       write("Keep your eyes on the panel for the indication to manually brake!");
+       $CHASSIS2CAN::SDS_Primary::SDS_Status_Prim::MissionProgressStat_Pri = 5; // in progress
+       if (TG006_ElapsedTime == 10) 
+        {
+          TG007_CurrentState = 1;
+        }
+      else if (TG006_ElapsedTime == 2)
+      {
+          setSteeringValidity(VALID_STATE);
+          setSDSSimParams(MANEUVER_STATE);
+      }  
+      else if (TG006_ElapsedTime == 5)
+        {
+          /*---------------------------------------RUN TESTCASES: START--------------------------------------------*/
+          $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::GearchangeReqPri = DRIVE_GEAR;
+          TC001_testGearchangeReqPrimary(DRIVE_GEAR);
+          TC002_verifySDSPrimarySignals();
+          TC003_verifySDSSecondarySignals();
+          TC004_verifyPWT1Signals();
+          TC005_testVSMStatus(AUTO_VAL);
+          /*---------------------------------------RUN TESTCASES: END----------------------------------------------*/   
+        }
+        setTimer(TG006_Timer, TG007_Period); 
+       break;
+      case 1: // Acceleration phase (1s to 6s)
+        write("TG006_PowerTrain_takeOver","Case 1: Acceleration phase (1s to 6s).");
+        if (TG006_ElapsedTime == TG_OFFSET_DURATION) 
+        {
+          write("Stopping ...");
+          
+          accelerateToSpeed(STOP_ACC);
+          TG007_CurrentState = 2;
+        }
+        else
+        {
+          write("Accelerating ...");
+          accelerateToSpeed(START_ACC); 
+        }
+        setTimer(TG006_Timer, TG007_Period); 
+        break;
+      case 2: // S1 Maneuver starts her. Take into consideration an offset of 6 seconds.
+        write("TG006_PowerTrain_takeOver","S1 Maneuver starts her. Take into consideration an offset of 6 seconds.");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 9))
+        {
+          TG007_CurrentState = 3;
+        }
+        else
+        {
+          write("Acceleration has stopped.");
+          accelerateToSpeed(STOP_ACC);
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      case 3: // S2
+        write("TG006_PowerTrain_takeOver","S2 positive steering to a maximum positive angle of +10 degrees. With a steering rate 3.2 degrees/s");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 13))
+        {
+          TG007_CurrentState = 4;
+          $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(TG007_MAX_STEERING_ANGLE);
+          $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(TG007_MAX_STEERING_ANGLE);
+        }
+        else
+        {
+          //ACC_VAL = 0.5;
+          //accelerateToSpeed(START_ACC);
+          Pos_Dir_Steering(TG007_STEERING_RATE);
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      case 4: //S3
+        write("TG006_PowerTrain_takeOver","S3 holding steering at an angle of +10 degrees.");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 31))
+        {
+          TG007_CurrentState = 5;
+        }
+        else
+        {
+          //ACC_VAL = 0.5;
+          //accelerateToSpeed(START_ACC);
+          $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(TG007_MAX_STEERING_ANGLE);
+          $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(TG007_MAX_STEERING_ANGLE);
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      case 5: //S4
+        write("TG006_PowerTrain_takeOver","S4 Driver presses the brake at the pedal position of 50%.");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 40))
+        {
+          write("COOL! Done Braking.");
+          
+          // Test Manual Intervention for braking
+          TC006_PowerTrainManualIntervention(1);
+
+          // Test AUTO Mode VSM Status
+          TC005_testVSMStatus(TEST_DRIVE_MODE);
+          
+          TG007_CurrentState = 6;
+        }
+        else
+        {
+          write("**********************************************************************************");
+          write("**********************************************************************************");
+          write("**********************************************************************************");
+          write("**********************************ACCELERATE NOW!**********************************");
+          write("**********************************************************************************");
+          write("**********************************************************************************");
+          write("**********************************************************************************");
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      case 6: //S5
+        write("TG006_PowerTrain_takeOver","S5 Driver releases brakes. Steering is still held at an angle of +10 degrees.");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 100))
+        {
+          write("COOL! Done Braking. Done holding.");
+          TG007_CurrentState = 7;
+        }
+        else
+        {
+          write("COOL! Done Braking. Now holding ...");
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      case 7: //S6
+        write("TG006_PowerTrain_takeOver","S6 negative steering to a maximum negative angle of -10 degrees. With a steering rate 3.2 degrees/s");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 113))
+        {
+          write("COOL! Done Braking. Done holding.");
+          TG007_CurrentState = 8;
+          $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(TG007_MIN_STEERING_ANGLE);
+          $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(TG007_MIN_STEERING_ANGLE);
+        }
+        else
+        {
+          write("COOL! Done Braking. Now holding ...");
+          Neg_Dir_Steering(TG007_STEERING_RATE);
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      case 8: //S7
+        write("TG006_PowerTrain_takeOver","S7 holding steering at an angle of -10 degrees.");
+        if(TG006_ElapsedTime == (TG_OFFSET_DURATION + 150))
+        {
+          write("Test has ended!");
+          TG007_CurrentState = 9;
+        }
+        else
+        {
+          write("Test about to end, still holding to negative value...");
+          $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(TG007_MIN_STEERING_ANGLE);
+          $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(TG007_MIN_STEERING_ANGLE);
+        }
+        setTimer(TG006_Timer,TG007_Period);
+        break;
+      default: 
+        TG006_ElapsedTime = 0;
+        $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(0);
+        $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(0);
+        TG007_CurrentState = 0; 
+        cancelTimer(TG006_Timer);
+        write("TG006_PowerTrain_takeOver","All steps executed successfully.");
+        break;
+    }
+  }
+}
+
+
+
+testfunction validateISCSSteeringSample(int sampleIndex, double expectedVal, double actualVal, double tolerance)
+{
+  if (abs(actualVal - expectedVal) > tolerance)
+  {
+    testStep("Steering Test", "Mismatch at sample %d: expected %.2f, got %.2f", sampleIndex, degreesToRadians(expectedVal), actualVal);
+    write("validateISCS1SteeringResults: Mismatch at sample %d: expected %.2f, got %.2f", sampleIndex, degreesToRadians(expectedVal), actualVal);
+    TestStepFail("ISCS", "Mismatch at sample %d in ISCS", sampleIndex);
+  }
+  else
+  {
+    testStepPass("ISCS", "Sample %d passed: expected %.2f, got %.2f", sampleIndex, expectedVal, actualVal);
+  }
+}
+
+
+void executePosSteering()
+{
+    float steeringRate;
+  
+    switch(EXECUTED_MANEUVER)
+    {
+      case TG_003_Steering_0:
+        steeringRate = STEERING_RATE_PROFILE_0;
+        break;
+      case TG_003_Steering_10:
+        steeringRate = STEERING_RATE_PROFILE_10;
+        break;
+        
+      case TG_003_Steering_20:
+        steeringRate = STEERING_RATE_PROFILE_20;
+        break;
+        
+      case TG_003_Steering_30:
+        steeringRate = STEERING_RATE_PROFILE_30;
+        break;
+        
+      case TG_003_Steering_40:
+        steeringRate = STEERING_RATE_PROFILE_40;
+        break;
+        
+      case TG_003_Steering_50:
+        steeringRate = STEERING_RATE_PROFILE_50;
+        break;
+        
+      case TG_003_Steering_60:
+      case TG_004_Steering_Braking_60:
+      case TG_007_Brake_Takeover:
+      case TG_006_PowerTrainTakover:
+      case TG_005_Steering_Take:
+        steeringRate = STEERING_RATE_PROFILE_60;
+        break;
+      default:
+        steeringRate = STEERING_RATE_PROFILE_60;
+        break;
+    }
+    
+    Pos_Dir_Steering(steeringRate);
+}
+
+
+void executeNegSteering()
+{
+    float steeringRate;
+  
+    switch(EXECUTED_MANEUVER)
+    {
+      case TG_003_Steering_0:
+        steeringRate = STEERING_RATE_PROFILE_0;
+        break;
+      case TG_003_Steering_10:
+        steeringRate = STEERING_RATE_PROFILE_10;
+        break;
+        
+      case TG_003_Steering_20:
+        steeringRate = STEERING_RATE_PROFILE_20;
+        break;
+        
+      case TG_003_Steering_30:
+        steeringRate = STEERING_RATE_PROFILE_30;
+        break;
+        
+      case TG_003_Steering_40:
+        steeringRate = STEERING_RATE_PROFILE_40;
+        break;
+        
+      case TG_003_Steering_50:
+        steeringRate = STEERING_RATE_PROFILE_50;
+        break;
+        
+      case TG_003_Steering_60:
+      case TG_004_Steering_Braking_60:
+      case TG_007_Brake_Takeover:
+      case TG_006_PowerTrainTakover:
+      case TG_005_Steering_Take:
+        steeringRate = STEERING_RATE_PROFILE_60;
+        break;
+      default:
+        steeringRate = STEERING_RATE_PROFILE_60;
+        break;
+    }
+    
+    Neg_Dir_Steering(steeringRate);
+}
+
+void Pos_Dir_Steering(float SteeringRateFactor)
+{
+  calculatedSteeringValue = NMinusOneSteeringVal + SteeringRateFactor;
+  $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(calculatedSteeringValue);
+  $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(calculatedSteeringValue);  
+  NMinusOneSteeringVal = calculatedSteeringValue;
+  write("SteeringManeuver = %d  calculatedSteeringValue = %f",steeringManeuverCount,calculatedSteeringValue);
+}
+
+
+
+void Neg_Dir_Steering(float SteeringRateFactor)
+{
+  if(steeringManeuverCount % 2 == 0) // Update only on odd iterations
+  {
+    calculatedSteeringValue = NMinusTwoSteeringVal - SteeringRateFactor;
+  }
+  
+  $CHASSIS2CAN::SDS_CtrlSteeringWheel_Prim::CtrlSteeringPinionAngle_Pri = degreesToRadians(calculatedSteeringValue);
+  $CHASSIS1CAN::SDS_CtrlSteeringWheel_Sec::CtrlSteeringPinionAngle_Sec = degreesToRadians(calculatedSteeringValue);
+  write("SteeringManeuver = %d  calculatedSteeringValue = %f",steeringManeuverCount,calculatedSteeringValue);
+  
+  if(steeringManeuverCount % 2 == 1) // Update only on pair iterations
+  {
+    NMinusTwoSteeringVal = calculatedSteeringValue;
+  }
+}
+
+
+
+void accelerateToSpeed(int accIO)
+{
+    float targetSpeed;
+    float tolerance; 
+    
+  if(accIO == START_ACC)
+  {
+    switch(EXECUTED_MANEUVER)
+    {
+      case TG_003_Steering_0:
+          ACC_VAL = TARGET_ACC_1;
+          targetSpeed = TARGET_SPEED_PROFILE_0;
+          tolerance = TOLERANCE_ACC_PROFILE_0;
+        break;
+      case TG_003_Steering_10:
+      case TG_007_Brake_Takeover:
+      case TG_006_PowerTrainTakover:
+      case TG_005_Steering_Take:
+          ACC_VAL = TARGET_ACC_1;
+          targetSpeed = TARGET_SPEED_PROFILE_10;
+          tolerance = TOLERANCE_ACC_PROFILE_10;
+        break;
+        
+      case TG_003_Steering_20:
+          ACC_VAL = TARGET_ACC_1;
+          targetSpeed = TARGET_SPEED_PROFILE_20;
+          tolerance = TOLERANCE_ACC_PROFILE_20;
+        break;
+        
+      case TG_003_Steering_30:
+          ACC_VAL = TARGET_ACC_1; 
+          targetSpeed = TARGET_SPEED_PROFILE_30;
+          tolerance = TOLERANCE_ACC_PROFILE_30;
+        break;
+        
+      case TG_003_Steering_40:
+          ACC_VAL = TARGET_ACC_2;
+          targetSpeed = TARGET_SPEED_PROFILE_40;
+          tolerance = TOLERANCE_ACC_PROFILE_40;
+        break;
+        
+      case TG_003_Steering_50:
+          ACC_VAL = TARGET_ACC_2;
+          targetSpeed = TARGET_SPEED_PROFILE_50;
+          tolerance = TOLERANCE_ACC_PROFILE_50;
+        break;
+        
+      case TG_003_Steering_60:
+      case TG_004_Steering_Braking_60:
+          ACC_VAL = TARGET_ACC_2;
+          targetSpeed = TARGET_SPEED_PROFILE_60;
+          tolerance = TOLERANCE_ACC_PROFILE_60;
+        break;
+        
+
+        
+      case TG_001_Acceleration_2_D1:
+          ACC_VAL = TARGET_ACC_1;
+          targetSpeed = TARGET_SPEED_PROFILE_ACC1;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC1;
+        break;
+        
+      case TG_001_Acceleration_2_D2:
+          ACC_VAL = TARGET_ACC_2;
+          targetSpeed = TARGET_SPEED_PROFILE_ACC2;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC2;
+        break;
+        
+      case TG_001_Acceleration_2_D1R:
+          ACC_VAL = TARGET_ACC_1;
+          targetSpeed = TARGET_SPEED_PROFILE_ACC1;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC1;
+        break;
+        
+      case TG_001_Acceleration_2_D2R:
+          ACC_VAL = TARGET_ACC_2;
+          targetSpeed = TARGET_SPEED_PROFILE_ACC2;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC2;
+        break;
+        
+      case TG_002_BRAKING_30_3_5:
+          ACC_VAL = TARGET_ACC_BRAKING;
+          targetSpeed = TARGET_SPEED_PROFILE_BRAK_30;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC2;
+        break;
+        
+      case TG_002_BRAKING_30_5:
+          ACC_VAL = TARGET_ACC_BRAKING;
+          targetSpeed = TARGET_SPEED_PROFILE_BRAK_30;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC2;
+        break;
+        
+      case TG_002_BRAKING_50_3_5:
+          ACC_VAL = TARGET_ACC_BRAKING;
+          targetSpeed = TARGET_SPEED_PROFILE_BRAK_50;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC2;
+        break;
+        
+      case TG_002_BRAKING_50_5:
+          ACC_VAL = TARGET_ACC_BRAKING;
+          targetSpeed = TARGET_SPEED_PROFILE_BRAK_50;
+          tolerance = TOLERANCE_ACC_PROFILE_ACC2;
+        break;
+        
+      default:
+        
+        break;
+    }
+  }
+  else if(accIO == STOP_ACC)
+  {
+    targetSpeed = TARGET_SPEED_PROFILE_0;
+    tolerance = TARGET_SPEED_PROFILE_0;
+  }
+    
+
+    write("Setting acceleration to %f m/s with a tolerance of %f m/s ... ",targetSpeed, tolerance);
+    currentSpeed = getSignal(CHASSIS1CAN::MKC1_VehMvmntInfo::VehSpeedCalcStat);
+    
+        // Check if the speed is within the tolerance range
+        if (currentSpeed >= targetSpeed - tolerance && currentSpeed <= targetSpeed + tolerance)
+        {
+            // If within tolerance range, stop acceleration
+            $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = 0;
+            $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = 0;
+            Chass2SDSStabInfSec.AccelDecelReqSec = 0;
+            Chass2SDSStabInfSec.AccelDecelReqSecValidStat = 1;
+            Chass2SDSStabInfSec.GearchangeReq_Sec = 1;
+            Chass2SDSStabInfSec.VehStandStillReqSec = 0;
+            Chass2SDSStabInfSec.VehStandStillReqValiditySec = 1;
+            setTimer(PWT100Timer,PWT100TimerVal);
+           
+        }
+        else if (currentSpeed < targetSpeed - tolerance)
+        {
+            // If current speed is less than target speed minus tolerance, continue accelerating
+            $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = ACC_VAL;
+            $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = ACC_VAL;
+            Chass2SDSStabInfSec.AccelDecelReqSec = ACC_VAL;
+            Chass2SDSStabInfSec.AccelDecelReqSecValidStat = 1;
+            Chass2SDSStabInfSec.GearchangeReq_Sec = 1;
+            Chass2SDSStabInfSec.VehStandStillReqSec = 0;
+            Chass2SDSStabInfSec.VehStandStillReqValiditySec = 1;
+            setTimer(PWT100Timer,PWT100TimerVal);
+        }
+        else if (currentSpeed > targetSpeed + tolerance)
+        {
+            // If current speed is greater than target speed plus tolerance, stop acceleration
+            $CHASSIS2CAN::SDS_Primary::SDS_Stability_Info_Prim::AccelDecelReqPri = 0;
+            $CHASSIS1CAN::SDS_Secondary::SDS_Stability_Info_Sec::AccelDecelReqSec = 0;
+            Chass2SDSStabInfSec.AccelDecelReqSec = 0;
+            Chass2SDSStabInfSec.AccelDecelReqSecValidStat = 1;
+            Chass2SDSStabInfSec.GearchangeReq_Sec = 1;
+            Chass2SDSStabInfSec.VehStandStillReqSec = 0;
+            Chass2SDSStabInfSec.VehStandStillReqValiditySec = 1;
+            setTimer(PWT100Timer,PWT100TimerVal);
+        }
+}
+
+
+void setSteeringValidity(int validity)
+{
+      if(validity == VALID_STATE)
+      {
+        $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::Valid_CtrlSteeringPinionAng_Pri = validity;
+        $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec = validity;
+        teststep(" ","Validity of Steering is set to VALID_STATE (%d). ", validity);
+      }
+      else if(validity == INVALID_STATE)
+      {
+        $CHASSIS2CAN::SDS_Primary::SDS_CtrlSteeringWheel_Prim::Valid_CtrlSteeringPinionAng_Pri = validity;
+        $CHASSIS1CAN::SDS_Secondary::SDS_CtrlSteeringWheel_Sec::Valid_CtrlSteeringPinionAng_Sec = validity;
+        teststep(" ","Validity of Steering is set to INVALID_STATE (%d).", validity);
+      }
+      else
+      {
+        teststep(" ","Incompatible value set to Steering Validity State. ");
+      }
+}
+
+
+// Function to convert degrees to radians
+float degreesToRadians(float degrees) 
+{
+  return degrees * 3.14159265359 / 180.0;
+}
+
+// Function to convert raw sensor value to pinion angle
+float convertRawToAngle(int rawValue) 
+{
+  return (-0.5081 * rawValue) + 754.5;
+}
+
+// Function to convert pinion angle to raw sensor value
+int convertAngleToRaw(float angle) 
+{
+  return (int)((angle - 754.5) / -0.5081);
+}
+
+
+
+
+
+
+void resetVariables()
+{
+  calculatedSteeringValue = 0;
+  currentSpeed = 0;
+  NMinusOneSteeringVal = 0;
+  NMinusTwoSteeringVal = 0;
+  
+  preconditionsStep = 0;
+  steeringManeuverCount = 0;
+  SteeringCounter = 0;
+  accCount = 0;
+
+}
+
+void cancelAllTimers()
+{
+  cancelTimer(PWT100Timer);
+  cancelTimer(PWT50Timer);
+  cancelTimer(preconditionsTimer);
+  stop(); // Stops measurement
+}

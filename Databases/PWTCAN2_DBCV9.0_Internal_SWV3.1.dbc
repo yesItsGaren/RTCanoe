@@ -1,0 +1,2038 @@
+VERSION ""
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: DCDC_1 M_BMS_MVIG_PLUS TMC VCU VN
+
+
+BO_ 10 PSM_BMS_INV_01_GW: 8 VCU
+  SG_ Checksum_A : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_A : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ PSM_CrashState_GW : 21|3@1+ (1,0) [0|7] "NoUnit" DCDC_1
+
+BO_ 110 BMS_VCU_INV_DCDC_CHRGR_01: 8 VCU
+  SG_ Checksum_6E : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_6E : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ BMS_Voltage : 28|12@1+ (0.25,0) [0|1023.25] "V" DCDC_1
+  SG_ BMS_State : 50|3@1+ (1,0) [0|7] "NoUnit" DCDC_1
+  SG_ BMS_ContactorState : 53|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+
+BO_ 111 BMS_VCU_DCDC_07: 3 VCU
+  SG_ Checksum_6F : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_6F : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ BMS_UCntct : 12|12@1+ (0.25,0) [0|1023.25] "V" DCDC_1
+
+BO_ 120 BMS_VCU_DCDC_02: 8 VCU
+  SG_ Checksum_78 : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_78 : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ BMS_MaxChgCurrLongTerm : 12|12@1+ (1,0) [0|4094] "A" DCDC_1
+  SG_ BMS_MaxChgCurrShortTerm : 36|12@1+ (1,0) [0|4094] "A" DCDC_1
+
+BO_ 150 BMS_VCU_INV_DCDC_05: 8 VCU
+  SG_ Checksum_96 : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_96 : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ BMS_MaxChgVoltage : 12|10@1+ (1,0) [0|1021] "V" DCDC_1
+
+BO_ 160 BMS_VCU_DCDC_06: 7 VCU
+  SG_ Checksum_A0 : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_A0 : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ BMS_HVinterlockState : 22|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+
+BO_ 304 VCU_DC1_01: 8 VCU
+  SG_ Checksum_130 : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ MessageCounter_130 : 8|4@1+ (1,0) [0|15] "NoUnit" DCDC_1
+  SG_ VCU_VoltageDemandHV : 12|10@1+ (1,0) [0|1021] "V" DCDC_1
+  SG_ VCU_CurrentLimitHV : 22|11@1+ (0.0625,-64) [-64|63.8125] "A" DCDC_1
+  SG_ VCU_CurrentLimitLV : 33|11@1+ (1,-1023) [-1023|1022] "A" DCDC_1
+  SG_ VCU_VoltageDemandLV : 44|9@1+ (0.125,0) [0|63.625] "V" DCDC_1
+  SG_ VCU_ModeRequestDC : 53|3@1+ (1,0) [0|7] "NoUnit" DCDC_1
+  SG_ VCU_stT15DC : 56|2@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ VCU_stHvDeactvnDC : 58|2@1+ (1,0) [0|3] "NoUnit" DCDC_1
+
+BO_ 544 DC1_VCU_01: 8 DCDC_1
+  SG_ Checksum_220 : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ MessageCounter_220 : 8|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ DC1_VoltageHV : 12|10@1+ (1,0) [0|1021] "V" VCU
+  SG_ DC1_CurrentLV : 22|11@1+ (1,-1023) [-1023|1022] "A" VCU
+  SG_ DC1_Mode : 33|3@1+ (1,0) [0|7] "NoUnit" VCU
+  SG_ DC1_CurrentHV : 36|11@1+ (0.0625,-63.90625) [-63.90625|63.90625] "A" VCU
+  SG_ DC1_Temp : 47|8@1+ (1,-40) [-40|213] "°C" VCU
+  SG_ DC1_VoltageLV : 55|9@1+ (0.125,0) [0|63.625] "V" VCU
+
+BO_ 1024 DC1_VCU_02: 8 DCDC_1
+  SG_ Checksum_400 : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ MessageCounter_400 : 8|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ DC1_MaxCurrentHV : 12|8@1+ (0.25,0) [0|63.75] "A" VCU
+  SG_ DC1_MaxCurrentLV : 20|11@1+ (1,-1023) [-1023|1024] "A" VCU
+  SG_ DC1_SetPointVoltageHV : 31|10@1+ (1,0) [0|1023] "V" VCU
+  SG_ DC1_SetPointVoltageLV : 41|9@1+ (0.125,0) [0|63.875] "V" VCU
+  SG_ DC1_Utilization : 50|9@1+ (0.25,0) [0|127.75] "%" VCU
+
+BO_ 1040 DC1_VCU_03: 4 DCDC_1
+  SG_ Checksum_410 : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ MessageCounter_410 : 8|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ DC1_bDernUndrUdcLv : 12|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bDernOvrUdcLv : 13|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bDernUndrUdcHv : 14|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bDernOvrUdcHv : 15|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bDernTemp_DCDC : 18|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_ErrLimitedPerformance : 19|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrVltg : 20|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_ErrShtOff : 21|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrCrashDetd : 22|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrLvBattOutOfRng : 23|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrHvLineOutOfRng : 24|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrHvIllegalCurrent : 25|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrHvSpNotReachedTimeout : 26|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bErrCanMsg : 27|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bPrecCmpl : 28|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_bReqMIL : 29|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ DC1_stT30c : 30|2@1+ (1,0) [0|3] "NoUnit" VCU
+
+BO_ 1424 NM_VCU: 8 VCU
+  SG_ NM_VCU_SrcNodeId : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ NM_VCU_CtrlBitVect : 8|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ NM_VCU_UserData : 16|48@1+ (1,0) [0|0] "NoUnit" DCDC_1
+
+BO_ 1425 NM_VCU_INV_DCDC_CHRGR: 8 VCU
+  SG_ NM_BMS_SrcNodeId : 0|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ NM_BMS_CtrlBitVect : 8|8@1+ (1,0) [0|255] "NoUnit" DCDC_1
+  SG_ NM_BMS_UserData : 16|48@1+ (1,0) [0|0] "NoUnit" DCDC_1
+
+BO_ 1431 NM_DCDC1: 8 DCDC_1
+  SG_ NM_DCDC1_SrcNodeId : 0|8@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS,VCU
+  SG_ NM_DCDC1_CtrlBitVect : 8|8@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS,VCU
+  SG_ NM_DCDC1_UserData : 16|48@1+ (1,0) [0|0] "NoUnit" M_BMS_MVIG_PLUS,VCU
+
+BO_ 1757 DIAG_ALL_01: 8 VCU
+  SG_ DIAG_Mileage : 0|20@1+ (1,0) [0|1048575] "Km" DCDC_1
+  SG_ DIAG_Year : 20|7@1+ (1,2000) [2000|2127] "year" DCDC_1
+  SG_ DIAG_Month : 27|4@1+ (1,0) [1|12] "month" DCDC_1
+  SG_ DIAG_Day : 31|5@1+ (1,0) [1|31] "day" DCDC_1
+  SG_ DIAG_Hour : 36|5@1+ (1,0) [0|23] "h" DCDC_1
+  SG_ DIAG_Minute : 41|6@1+ (1,0) [0|59] "NoUnit" DCDC_1
+  SG_ DIAG_Second : 47|6@1+ (1,0) [0|59] "s" DCDC_1
+  SG_ DIAG_Downtime_state : 53|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_Downtime : 54|10@1+ (32,0) [0|32736] "s" DCDC_1
+
+BO_ 1758 DIAG_ALL_02: 8 VCU
+  SG_ DIAG_VehicleSpeed : 0|8@1+ (1,0) [0|255] "KMPH" DCDC_1
+  SG_ DIAG_OutsideTemperature : 8|8@1+ (1,-40) [-40|213] "°C" DCDC_1
+  SG_ DIAG_EnvP_P : 16|8@1+ (7.8,0) [0|1973.4] "hPa" DCDC_1
+  SG_ DIAG_AccelPdlPosn : 24|8@1+ (0.5,0) [0|100] "%" DCDC_1
+  SG_ DIAG_flgPropSysActv : 32|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_flgGnrlDenom : 33|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_flgGnrlDenomInhbn : 34|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_flgColdStrtDenom : 35|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_flgColdStrtDenomInhbn : 36|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_flgPDTCMinTrip : 37|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+  SG_ DIAG_flgWarmUpCycle : 38|1@1+ (1,0) [0|1] "NoUnit" DCDC_1
+
+BO_ 1759 DIAG_ALL_03: 5 VCU
+  SG_ DIAG_AbsThrtlPos : 0|8@1+ (0.392157,0) [0|100.000035] "%" DCDC_1
+  SG_ DIAG_EngLoad : 8|8@1+ (0.392157,0) [0|100.000035] "%" DCDC_1
+  SG_ DIAG_EngCooltT : 16|8@1+ (1,-40) [-40|215] "°C" DCDC_1
+  SG_ DIAG_EngN : 24|16@1+ (0.25,0) [0|16383.25] "1/min" DCDC_1
+
+BO_ 1792 DIAG_REQUEST_FUNC: 8 VCU
+  SG_ N_PDU_RQ_FUNC : 0|64@1+ (1,0) [0|0] "NoUnit" DCDC_1
+
+BO_ 2015 DIAG_REQUEST_OBD: 8 VCU
+  SG_ N_PDU_RQ_OBD : 0|64@1+ (1,0) [0|0] "NoUnit" DCDC_1
+
+BO_ 2019 DIAG_REQUEST_DC1: 8 VCU
+  SG_ N_PDU_RQ_DC1 : 0|64@1+ (1,0) [0|0] "NoUnit" DCDC_1
+
+BO_ 2027 DIAG_RESPONSE_DC1: 8 DCDC_1
+  SG_ N_PDU_RESP_DC1 : 0|64@1+ (1,0) [0|1.84467440737096E+019] "NoUnit" VCU
+
+BO_ 2147483904 SftyInfo: 8 VCU
+  SG_ SftyInfo_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ SftyInfo_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ SftyInfo_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ SftyOk : 16|2@1+ (1,0) [0|3] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ CrashDetnNeg : 18|2@1+ (1,0) [0|3] "NoUnit" M_BMS_MVIG_PLUS
+
+BO_ 2147483905 VehInfo: 8 VCU
+  SG_ VehInfo_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ VehInfo_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ VehInfo_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ TAmb : 16|11@1- (0.25,0) [-256|255.75] "°C" M_BMS_MVIG_PLUS
+  SG_ VehSpd : 32|11@1- (0.5,0) [-512|511.5] "KMPH" M_BMS_MVIG_PLUS
+
+BO_ 2147483936 CtlCmd: 8 VCU
+  SG_ CtlCmd_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ CtlCmd_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ CtlCmd_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ HvReq : 16|8@1+ (1,0) [0|255] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ IslnMeastDisaCmd : 24|2@1+ (1,0) [0|3] "NoUnit" M_BMS_MVIG_PLUS
+
+BO_ 2147483938 CGW_FVM_Authentication: 8 VCU
+  SG_ FVMAuthenticator : 0|24@1+ (1,0) [0|16777215] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ FVMPDULinkerAuth : 24|2@1+ (1,0) [0|3] "NoUnit" M_BMS_MVIG_PLUS
+
+BO_ 2147483939 CGW_FVM_Counter: 8 VCU
+  SG_ FVMResetCounter : 0|22@1+ (1,0) [0|4194303] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ FVMPDULinkerCntr : 24|2@1+ (1,0) [0|3] "NoUnit" M_BMS_MVIG_PLUS
+  SG_ FVMTripCounter : 32|24@1+ (1,0) [0|16777215] "NoUnit" M_BMS_MVIG_PLUS
+
+BO_ 2147483952 BatPermsnToCls: 8 M_BMS_MVIG_PLUS
+  SG_ BatPermsnToCls_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatPermsnToCls_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatPermsnToCls_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ IPermsnToCls : 16|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ IslnPermsnToCls : 20|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ CtctrStuckPermsnToCls : 24|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ DcChCtctrPermsnToCls : 28|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ ThermRunAwPermsnToCls : 32|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ CrashPermsnToCls : 36|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ LockMemPermsnToCls : 40|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ CptTPermsnToCls : 44|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ CellUPermsnToCls : 48|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ CellTPermsnToCls : 52|4@1+ (1,0) [0|15] "NoUnit" VCU
+
+BO_ 2147483953 BatInfo: 8 M_BMS_MVIG_PLUS
+  SG_ BatInfo_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatInfo_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatInfo_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ P : 16|13@1- (0.125,0) [-512|511.875] "kW" VCU
+  SG_ StsIslnMeast : 29|3@1+ (1,0) [0|7] "NoUnit" VCU
+  SG_ RIsln : 32|16@1+ (8,0) [0|524280] "kOhm" VCU
+  SG_ ThermEveStsCellT : 50|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ RPrecOvtempFlag : 52|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ DcnctPndFlag : 54|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ DcnctPndCtr : 56|8@1+ (10,0) [0|255] "ms" VCU
+
+BO_ 2147483955 BatUMps: 8 M_BMS_MVIG_PLUS
+  SG_ BatUMps_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatUMps_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatUMps_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ ULnkMps : 16|12@1- (0.5,0) [-1024|1023.5] "V" VCU
+  SG_ UExpdCh : 28|12@1+ (0.25,0) [0|1023.75] "V" VCU
+  SG_ UExpdDrvg : 40|12@1+ (0.25,0) [0|1023.75] "V" VCU
+  SG_ UDcLnk : 52|12@1+ (0.25,0) [0|1023.75] "V" VCU
+
+BO_ 2147483956 BatUSng: 8 M_BMS_MVIG_PLUS
+  SG_ BatUSng_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatUSng_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatUSng_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ ULnkSng : 16|12@1- (0.5,0) [-1024|1023.5] "V" VCU
+  SG_ UBat : 28|12@1+ (0.25,0) [0|1023.75] "V" VCU
+
+BO_ 2147483958 BatSts: 8 M_BMS_MVIG_PLUS
+  SG_ BatSts_Cks : 0|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatSts_Alvctr : 8|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatSts_DIDNibble : 12|4@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ BatSt : 16|6@1+ (1,0) [0|63] "NoUnit" VCU
+  SG_ SftySt : 22|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ ErrLvl : 24|4@1+ (1,0) [0|7] "NoUnit" VCU
+  SG_ HvilPermsnToCls : 28|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ I : 32|14@1- (0.25,0) [-2048|2047.75] "A" VCU
+  SG_ StCtctrPos : 46|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StCtctrNeg : 48|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StCtctrPrec : 50|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ EcuSt : 52|3@1+ (1,0) [0|7] "NoUnit" VCU
+
+BO_ 2147484752 VehTi: 8 VCU
+  SG_ Year : 0|12@1+ (1,0) [0|4095] "year" M_BMS_MVIG_PLUS
+  SG_ Month : 12|4@1+ (1,0) [1|12] "months" M_BMS_MVIG_PLUS
+  SG_ Day : 16|6@1+ (1,0) [0|63] "Days" M_BMS_MVIG_PLUS
+  SG_ Hour : 22|5@1+ (1,0) [0|24] "hours" M_BMS_MVIG_PLUS
+  SG_ Minu : 27|6@1+ (1,0) [0|59] "mins" M_BMS_MVIG_PLUS
+  SG_ Sec : 33|6@1+ (1,0) [0|60] "sec" M_BMS_MVIG_PLUS
+  SG_ miliseconds : 39|10@1+ (1,0) [0|1000] "ms" M_BMS_MVIG_PLUS
+
+BO_ 2147484800 UdsComTx_VIB_BMSStdAln_Func: 8 VCU
+  SG_ UdsComTx_VIB_BMSStdAln_Func : 0|64@1+ (1,0) [0|0] "" M_BMS_MVIG_PLUS
+
+BO_ 2147484801 UdsComTx_VIBToPack1_Func: 8 VCU
+  SG_ UdsComTx_VIBToPack1_Func : 0|64@1+ (1,0) [0|0] "" M_BMS_MVIG_PLUS
+
+BO_ 2147485185 TM_PassengerClimateControl: 8 VCU
+  SG_ CtrlEnPassengerClimate : 0|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlEnPassengerPassengerEcoMode : 2|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlEnPassengerPrecondMode : 4|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B0 : 6|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B1 : 8|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B2 : 16|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B3 : 24|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B4 : 32|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B5 : 40|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B6 : 48|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPassenger_Reserved_B7 : 56|8@1+ (1,0) [0|0] "NoUnit" TMC
+
+BO_ 2147485186 TM_BatteryThermalControl: 8 VCU
+  SG_ CtrlEnBatteryPreconditioning : 0|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B0 : 2|6@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B1 : 8|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B2 : 16|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B3 : 24|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B4 : 32|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B5 : 40|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B6 : 48|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlBattery_Reserved_B7 : 56|8@1+ (1,0) [0|0] "NoUnit" TMC
+
+BO_ 2147485187 TM_PeemThermalControl: 8 VCU
+  SG_ CtrlEnPeemCooling : 0|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlPeem_Reserved_B0 : 2|6@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPeemComponentTempDcdc1 : 8|8@1+ (1,-40) [-40|210] "°C" TMC
+  SG_ CtrlPeemComponentTempDcdc2 : 16|8@1+ (1,-40) [-40|210] "°C" TMC
+  SG_ CtrlPeemComponentTempPwrMotor : 24|8@1+ (1,-40) [-40|210] "°C" TMC
+  SG_ CtrlPeemComponentTempPwrInvtr : 32|8@1+ (1,-40) [-40|210] "°C" TMC
+  SG_ CtrlPeem_Reserved_B5 : 40|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPeem_Reserved_B6 : 48|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPeem_Reserved_B7 : 56|8@1+ (1,0) [0|0] "NoUnit" TMC
+
+BO_ 2147485188 TM_PowerManagementControl: 8 VCU
+  SG_ CtrlPowerMgmtThermalPriority : 0|4@1+ (1,0) [0|15] "NoUnit" TMC
+  SG_ CtrlPowerMgmt_Reserved_B0 : 4|4@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPowerMgmtHvAvailable : 8|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ CtrlPowerMgmt_Reserved_B1 : 10|6@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPowerMgmtHvPowerLimit : 16|16@1+ (2,0) [0|128510] "W" TMC
+  SG_ CtrlPowerMgmt_Reserved_B4 : 32|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPowerMgmt_Reserved_B5 : 40|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPowerMgmt_Reserved_B6 : 48|8@1+ (1,0) [0|0] "NoUnit" TMC
+  SG_ CtrlPowerMgmt_Reserved_B7 : 56|8@1+ (1,0) [0|0] "NoUnit" TMC
+
+BO_ 2147485189 TM_PowerManagementStatus: 8 TMC
+  SG_ StatusPwTMCReq : 0|16@1+ (2,0) [0|128510] "W" VCU
+  SG_ StatusPowerMgmt_Reserved_B2 : 16|8@1+ (1,0) [0|0] "NoUnit" VCU
+  SG_ StatusPowerMgmt_Reserved_B3 : 24|8@1+ (1,0) [0|0] "NoUnit" VCU
+  SG_ StatusPowerMgmt_Reserved_B4 : 32|8@1+ (1,0) [0|0] "NoUnit" VCU
+  SG_ StatusPowerMgmt_Reserved_B5 : 40|8@1+ (1,0) [0|0] "NoUnit" VCU
+  SG_ StatusPowerMgmt_Reserved_B6 : 48|8@1+ (1,0) [0|0] "NoUnit" VCU
+  SG_ StatusPowerMgmt_Reserved_B7 : 56|8@1+ (1,0) [0|0] "NoUnit" VCU
+
+BO_ 2147485190 TM_Status_0: 8 TMC
+  SG_ StatusAirTreatedTemp1 : 0|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusAirTreatedTemp2 : 2|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusBatteryCoolantPump : 4|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusBatteryCoolValveColdIn : 6|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusAmbientAirTemp : 8|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ StatusBatteryCoolValveHotIn : 16|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusBatteryCoolValveOut : 18|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusBatteryLoopTank : 20|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCabinTemp : 22|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusColdCoolantPump1 : 24|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusColdCoolantPump2 : 26|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusColdTank : 28|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantLevelIndication : 30|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempBattInlet : 32|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempBattOutlet : 34|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempHyperInletCold : 36|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempHyperInletHot : 38|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempInverterOutlet : 40|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempPEEMInlet : 42|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempPEEMOutlet : 44|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempRadiatorOutlet : 46|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempSDSInlet : 48|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolantTempSDSOutlet : 50|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusCoolingPriority : 52|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ StatusEXTTemp : 56|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusFrontWindshieldDefrostAct : 58|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusHotTank : 60|2@1+ (1,0) [0|3] "NoUnit" VCU
+
+BO_ 2147485191 TM_Status_1: 8 TMC
+  SG_ StatusHeater : 0|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusHeatpump1 : 2|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusHeatpump2 : 4|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusHotCoolantPump1 : 6|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusHotCoolantPump2 : 8|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerAQSensor : 10|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerBlower1 : 12|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerBlower2 : 14|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerCO2Sensor : 16|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerCoolantValveHotIn : 18|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerCoolValveColdIn : 20|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerFlrCoolantValveIn : 22|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPassengerHumiditySensor : 24|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPeemCoolantPump : 26|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPeemCoolValveIn : 28|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPeemCoolValveMix : 30|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPeemFan1 : 32|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPeemFan2 : 34|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusPEEMLoopTank : 36|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorCoolValveColdIn : 38|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorCoolValveHotIn : 40|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorCoolValveOut : 42|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorFan1 : 44|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorFan2 : 46|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorFan4 : 48|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ StatusRadiatorFan3 : 50|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ Status_Reserved_F1_B6 : 52|4@1+ (1,0) [0|15] "NoUnit" VCU
+  SG_ Status_Reserved_F1_B7 : 56|8@1+ (1,0) [0|255] "NoUnit" VCU
+
+BO_ 2147485192 TM_Status_2: 8 TMC
+  SG_ StatusPEEMInletTemp : 0|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ StatusSDSOutletTemp : 8|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ Status_Reserved_F2_B2 : 16|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ Status_Reserved_F2_B3 : 24|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ Status_Reserved_F2_B4 : 32|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ Status_Reserved_F2_B5 : 40|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ Status_Reserved_F2_B6 : 48|8@1+ (1,0) [0|255] "NoUnit" VCU
+  SG_ StatusPassengerCabinAirTemp : 56|8@1+ (1,-40) [-40|210] "°C" VCU
+
+BO_ 2147485193 CoolantTempInfo: 8 TMC
+  SG_ CoolantTempBattInlet : 0|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempBattOutlet : 8|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempInverterOutlet : 16|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempPEEMInlet : 24|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempPEEMOutlet : 32|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempRadiatorOutlet : 40|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempSDSInlet : 48|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ CoolantTempSDSOutlet : 56|8@1+ (1,-40) [-40|210] "°C" VCU
+
+BO_ 2147485194 AirTempInfo: 8 TMC
+  SG_ AirTreatedTemp1 : 0|8@1+ (1,-40) [-40|210] "°C" VCU
+  SG_ AirTreatedTemp2 : 8|8@1+ (1,-40) [-40|210] "°C" VCU
+
+BO_ 2147485312 UdsComTx_VIB_BMSStdAln: 8 VCU
+  SG_ UdsComTx_VIB_BMSStdAln : 0|64@1+ (1,0) [0|0] "" M_BMS_MVIG_PLUS
+
+BO_ 2147485318 UdsComTx_VIBToPack1_1: 8 VCU
+  SG_ UdsComTx_VIBToPack1_1 : 0|64@1+ (1,0) [0|0] "" M_BMS_MVIG_PLUS
+
+BO_ 2147485324 UdsComTx_VIBToPack1_2: 8 VCU
+  SG_ UdsComTx_VIBToPack1_2 : 0|64@1+ (1,0) [0|0] "" M_BMS_MVIG_PLUS
+
+BO_ 2147485440 BatILim: 8 M_BMS_MVIG_PLUS
+  SG_ IChLimSho : 0|12@1+ (0.5,0) [0|2047.5] "A" VCU
+  SG_ IDchaLimSho : 12|12@1+ (0.5,0) [0|2047.5] "A" VCU
+  SG_ IChLimLong : 24|12@1+ (0.5,0) [0|2047.5] "A" VCU
+  SG_ IDchaLimLong : 36|12@1+ (0.5,0) [0|2047.5] "A" VCU
+
+BO_ 2147485441 BatULim: 8 M_BMS_MVIG_PLUS
+  SG_ UChLimSho : 0|12@1+ (0.25,0) [0|1023.75] "V" VCU
+  SG_ UDchaLimSho : 12|12@1+ (0.25,0) [0|1023.75] "V" VCU
+  SG_ UChLimLong : 24|12@1+ (0.25,0) [0|1023.75] "V" VCU
+  SG_ UDchaLimLong : 36|12@1+ (0.25,0) [0|1023.75] "V" VCU
+
+BO_ 2147485442 BatSox: 8 M_BMS_MVIG_PLUS
+  SG_ Soc : 0|10@1+ (0.125,0) [0|100] "%" VCU
+  SG_ Soh : 10|10@1+ (0.125,0) [0|100] "%" VCU
+  SG_ AvlE : 20|12@1+ (0.25,0) [0|1023.75] "kWh" VCU
+
+BO_ 2147485443 BatT: 8 M_BMS_MVIG_PLUS
+  SG_ TCellMax : 0|11@1- (0.25,0) [-256|255.75] "°C" VCU
+  SG_ TCellMin : 11|11@1- (0.25,0) [-256|255.75] "°C" VCU
+
+BO_ 2147485444 BatUCell: 8 M_BMS_MVIG_PLUS
+  SG_ UCellMax : 0|12@1+ (0.002,0) [0|8.19] "V" VCU
+  SG_ UCellMin : 12|12@1+ (0.002,0) [0|8.19] "V" VCU
+
+BO_ 2147485456 BatCfg: 8 M_BMS_MVIG_PLUS
+  SG_ EcuCalVersSwEcuTyp : 0|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuSwNrSwEcuTyp : 16|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ CmptbltyIdx : 32|16@1+ (1,0) [0|65535] "NoUnit" VCU
+
+BO_ 2147485457 BatSysId: 8 M_BMS_MVIG_PLUS
+  SG_ EcuHwNr : 0|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuHwVers : 16|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ PackName : 32|5@1+ (1,0) [0|31] "NoUnit" VCU
+  SG_ EcuTyp : 37|1@1+ (1,0) [0|1] "NoUnit" VCU
+  SG_ EcuSbTypBms : 38|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ EcuSbTypVic : 40|2@1+ (1,0) [0|3] "NoUnit" VCU
+
+BO_ 2147485458 BatEcuSwVersNr: 8 M_BMS_MVIG_PLUS
+  SG_ EcuSwVersNrMjr : 0|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuSwVersNrMid : 16|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuSwVersNrMnr : 32|16@1+ (1,0) [0|65535] "NoUnit" VCU
+
+BO_ 2147485459 BatEcuSwNr: 8 M_BMS_MVIG_PLUS
+  SG_ EcuSwVersNrBuild : 0|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuSwNrCusVrnt : 16|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuSwNrSwVrnt : 32|16@1+ (1,0) [0|65535] "NoUnit" VCU
+
+BO_ 2147485460 BatEcuCalVersNr: 8 M_BMS_MVIG_PLUS
+  SG_ EcuCalVersMjr : 0|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuCalVersMid : 16|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuCalVersMnr : 32|16@1+ (1,0) [0|65535] "NoUnit" VCU
+
+BO_ 2147485461 BatEcuCalNr: 8 M_BMS_MVIG_PLUS
+  SG_ EcuCalVersBuild : 0|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuCalVersCusVrnt : 16|16@1+ (1,0) [0|65535] "NoUnit" VCU
+  SG_ EcuCalVersSwVrnt : 32|16@1+ (1,0) [0|65535] "NoUnit" VCU
+
+BO_ 2147485472 BatThermReq1: 8 M_BMS_MVIG_PLUS
+  SG_ ThermSysStrtReq1 : 0|2@1+ (1,0) [0|3] "NoUnit" TMC,VCU
+  SG_ PackNameThermReq1 : 2|5@1+ (1,0) [0|31] "NoUnit" TMC
+  SG_ EnaCoolgHeatgBatFlag : 7|2@1+ (1,0) [0|3] "NoUnit" TMC
+  SG_ TAct : 9|11@1- (0.25,0) [-256|255.75] "°C" TMC,VCU
+  SG_ TSetPoint : 20|11@1- (0.25,0) [-256|255.75] "°C" TMC
+
+BO_ 2147485473 BatThermReq2: 8 M_BMS_MVIG_PLUS
+  SG_ ThermSysStrtReq2 : 0|2@1+ (1,0) [0|3] "NoUnit" VCU
+  SG_ CoolgHeatgReq : 7|2@1+ (1,0) [0|3] "NoUnit" TMC
+
+BO_ 2147485568 UdsComRx_VIB_BMSStdAln: 8 M_BMS_MVIG_PLUS
+  SG_ UdsComRx_VIB_BMSStdAln : 0|64@1+ (1,0) [0|0] "" VCU
+
+BO_ 2147485574 UdsComRx_VIBFromPack1_1: 8 M_BMS_MVIG_PLUS
+  SG_ UdsComRx_VIBFromPack1_1 : 0|64@1+ (1,0) [0|0] "" VCU
+
+BO_ 2147485580 UdsComRx_VIBFromPack1_2: 8 M_BMS_MVIG_PLUS
+  SG_ UdsComRx_VIBFromPack1_2 : 0|64@1+ (1,0) [0|0] "" VCU
+
+
+CM_ BU_ DCDC_1 "The DCDC Converter is used for converting the HV (400V) Battery energy to LV (12V) energy for driving LV loads and charging the 12V LV Battery. The DCDC converter provides information about various parameters like High Side Voltage, Low Side Voltage, High Side Current, Low Side Current etc. to vehicle over CAN channel. "; 
+CM_ BU_ M_BMS_MVIG_PLUS "The HV Master BMS VIG Box is the master BMS for 2 BEMS. The HV Master BMS VIG Box receives information for 2 BEMS & forwards it to vehicle ECUs. Also the HV Master BMS recives commands from vehicle ECUs and forwards it BEMs."; 
+CM_ BU_ TMC "The thermal management unit has responsibility to control the cooling of the powertrain components like DCDC, Inverter + Motor and AVKit. Besides, it is also responsible for heating and cooling the high voltage battery and cabin of the People Mover."; 
+CM_ BU_ VCU "The Vehicle Control Unit (VCU) is a supervisory controller which covers features such as propulsion system, HV energy management, thermal management and LV energy management. The primary responsibility of VCU is to determine acceleration and deceleration functions as per request in automated/manual driving. VCU monitors the HV components and provide overall status to all other Controllers on CAN BUS. VCU monitors and control the operation of LV powernet components. VCU is also responsible for determining and communicate the thermal priority to Thermal management system among powertrain components, Battery, SDS and cabin. As supervisory controller VCU is responsible for monitoring the failures in Propulsion system, HV system, Thermal system and provide the status to vehicle fault manager "; 
+CM_ BO_ 10 "PSM ? Crash level information
+
+Versionsinfo_RB_PF_EV_CAN: Rev 3.20"; 
+CM_ BO_ 110 "High-Voltage battery related information
+
+Versionsinfo_RB_PF_EV_CAN: Rev 3.20"; 
+CM_ BO_ 111 "High-Voltage battery related information"; 
+CM_ BO_ 120 "High-Voltage battery Current Charging and Discharging information"; 
+CM_ BO_ 150 "High-Voltage battery Voltage Charging and Discharging information"; 
+CM_ BO_ 160 "BMS - Interlock, pump related info Frame"; 
+CM_ BO_ 304 "Inverter1 DCDC Control Frame"; 
+CM_ BO_ 544 "Inverter1 DCDC Information Frame - Present Status
+
+Versionsinfo_RB_PF_EV_CAN: Rev 3.20"; 
+CM_ BO_ 1024 "Inverter1 DCDC Information Frame - Current and Voltage Status"; 
+CM_ BO_ 1040 "Inverter1 DCDC Information Frame - Limits / Error / Derating information"; 
+CM_ BO_ 1424 "Network Management Message from VCU ECU"; 
+CM_ BO_ 1425 "Network Management Message from BMS ECU"; 
+CM_ BO_ 1431 "Network Management Message from Inverter1 ECU"; 
+CM_ BO_ 1757 "Real Time, Mileage & Vehicle Down time information"; 
+CM_ BO_ 1758 "various enviroment information for OBD"; 
+CM_ BO_ 1759 "various enviroment information for OBD in HEV (optional)"; 
+CM_ BO_ 1792 "Diagnostic Message used by Tester
+
+Versionsinfo_RB_PF_EV_CAN: Rev 3.20"; 
+CM_ BO_ 2015 "Diagnostic Message used by Tester"; 
+CM_ BO_ 2019 "Diagnostic Message used by Tester in Inverter1"; 
+CM_ BO_ 2027 "Diagnostic Message used by Tester in Inverter1"; 
+CM_ BO_ 2147483904 "Safety relevant information"; 
+CM_ BO_ 2147483905 "Vehicle status information"; 
+CM_ BO_ 2147483936 "Commands to control the battery"; 
+CM_ BO_ 2147483952 "Permissions to activate HV by the safety functions"; 
+CM_ BO_ 2147483953 "Battery operating information"; 
+CM_ BO_ 2147483955 "Battery voltage measurements of multipack system"; 
+CM_ BO_ 2147483956 "Battery voltage measurements of single pack system"; 
+CM_ BO_ 2147483958 "Battery status signals"; 
+CM_ BO_ 2147484752 "Vehicle time"; 
+CM_ BO_ 2147485440 "Battery current limits"; 
+CM_ BO_ 2147485441 "Battery voltage limits"; 
+CM_ BO_ 2147485442 "SoC, SoH and energy"; 
+CM_ BO_ 2147485443 "Battery temperatures"; 
+CM_ BO_ 2147485444 "Battery cell voltages"; 
+CM_ BO_ 2147485456 "Configuration of the ECU"; 
+CM_ BO_ 2147485457 "ECU hardware identification"; 
+CM_ BO_ 2147485458 "ECU software release numbers (unique identification in combination with BatEcuSwNr)"; 
+CM_ BO_ 2147485459 "ECU software build and variant numbers (unique identification in combination with BatEcuSwVersNr)"; 
+CM_ BO_ 2147485460 "ECU calibration release numbers (unique identification in combination with BatEcuSwNr)"; 
+CM_ BO_ 2147485461 "ECU calibration build and variant numbers (unique identification in combination with BatEcuCalVersNr)"; 
+CM_ BO_ 2147485472 "Coolant/heating request for an external thermal management system with setpoint control"; 
+CM_ BO_ 2147485473 "Coolant/heating request for an external thermal management system with on/off control"; 
+CM_ BO_ 2147485568 "UDS response message from the battery system"; 
+CM_ BO_ 2147485574 "UDS response message from Pack1_1 routed via VIC"; 
+CM_ BO_ 2147485580 "UDS response message from Pack1_2 routed via VIC"; 
+CM_ SG_ 10 Checksum_A "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 10 MessageCounter_A "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 10 PSM_CrashState_GW "Crash level"; 
+CM_ SG_ 110 Checksum_6E "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 110 MessageCounter_6E "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 110 BMS_Voltage "Voltage of the electric energy storage"; 
+CM_ SG_ 110 BMS_State "State of electric energy storage"; 
+CM_ SG_ 110 BMS_ContactorState "State of the HV contactors"; 
+CM_ SG_ 111 Checksum_6F "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 111 MessageCounter_6F "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 111 BMS_UCntct "contactor output voltage of the electric energy storage"; 
+CM_ SG_ 120 Checksum_78 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 120 MessageCounter_78 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 120 BMS_MaxChgCurrLongTerm "Maximum charging long term current, usage including determination of charging current for AC and DC charging."; 
+CM_ SG_ 120 BMS_MaxChgCurrShortTerm "Maximum charging short term current"; 
+CM_ SG_ 150 Checksum_96 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 150 MessageCounter_96 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 150 BMS_MaxChgVoltage "ultimate limit of maximum charging voltage for HV battery protection"; 
+CM_ SG_ 160 Checksum_A0 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 160 MessageCounter_A0 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 160 BMS_HVinterlockState "HV interlock state"; 
+CM_ SG_ 304 Checksum_130 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 304 MessageCounter_130 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 304 VCU_VoltageDemandHV "Desired voltage of the DCDC converter HV side (boost mode)"; 
+CM_ SG_ 304 VCU_CurrentLimitHV "Limit for HV- current of DC/DC converter (pos: into DCDC | neg: unused)"; 
+CM_ SG_ 304 VCU_CurrentLimitLV "Limit for LV- current of DC/DC converter (pos: into LV power net | neg: into DCDC)"; 
+CM_ SG_ 304 VCU_VoltageDemandLV "Desired voltage of the DCDC converter LV side (buck mode)"; 
+CM_ SG_ 304 VCU_ModeRequestDC "Requested mode of the DCDC converter"; 
+CM_ SG_ 304 VCU_stT15DC "Terminal 15 (T15) state"; 
+CM_ SG_ 304 VCU_stHvDeactvnDC "HV deactivation signal (e.g. for service conditions)"; 
+CM_ SG_ 544 Checksum_220 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 544 MessageCounter_220 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 544 DC1_VoltageHV "Voltage at high voltage side"; 
+CM_ SG_ 544 DC1_CurrentLV "Current on low voltage side (pos: into LV powernet  | neg: into DCDC)"; 
+CM_ SG_ 544 DC1_Mode "State DC/DC converter"; 
+CM_ SG_ 544 DC1_CurrentHV "Current at high voltage side (pos: into DCDC | neg: into HV powernet)"; 
+CM_ SG_ 544 DC1_Temp "Temperature of DCDC"; 
+CM_ SG_ 544 DC1_VoltageLV "Voltage on low voltage side"; 
+CM_ SG_ 1024 Checksum_400 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 1024 MessageCounter_400 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 1024 DC1_MaxCurrentHV "Maximal possible current at high voltage side (pos: into DCDC | neg: into HV power net)"; 
+CM_ SG_ 1024 DC1_MaxCurrentLV "Maximum possible current on low voltage side (pos: into LV power net | neg: unused)"; 
+CM_ SG_ 1024 DC1_SetPointVoltageHV "Present set point of high voltage (boost mode)"; 
+CM_ SG_ 1024 DC1_SetPointVoltageLV "Present set point of low voltage (buck mode)"; 
+CM_ SG_ 1024 DC1_Utilization "Utilization rate"; 
+CM_ SG_ 1040 Checksum_410 "Checksum signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 1040 MessageCounter_410 "Message counter signal, computation according to Autosar E2E communication protection profile 2"; 
+CM_ SG_ 1040 DC1_bDernUndrUdcLv "Derating because of Low Voltage at LV"; 
+CM_ SG_ 1040 DC1_bDernOvrUdcLv "Derating because of error high voltage at LV"; 
+CM_ SG_ 1040 DC1_bDernUndrUdcHv "Derating because of error low voltage at HV"; 
+CM_ SG_ 1040 DC1_bDernOvrUdcHv "Derating because of high voltage at HV"; 
+CM_ SG_ 1040 DC1_bDernTemp_DCDC "Derating because of overtemperature DCDC"; 
+CM_ SG_ 1040 DC1_ErrLimitedPerformance "limited performance of DCDC"; 
+CM_ SG_ 1040 DC1_bErrVltg "shutdown because of Over/Undervoltage at I/O side"; 
+CM_ SG_ 1040 DC1_ErrShtOff "Derating because of DCDC shutdown"; 
+CM_ SG_ 1040 DC1_bErrCrashDetd "External fault: detected light/soft or strong/hard Crash"; 
+CM_ SG_ 1040 DC1_bErrLvBattOutOfRng "External fault: LV battery is detected out of range"; 
+CM_ SG_ 1040 DC1_bErrHvLineOutOfRng "External fault: HV line out of range"; 
+CM_ SG_ 1040 DC1_bErrHvIllegalCurrent "External fault: Recognition of illegal HV current"; 
+CM_ SG_ 1040 DC1_bErrHvSpNotReachedTimeout "External fault: Desired HV Line voltage not reached within time"; 
+CM_ SG_ 1040 DC1_bErrCanMsg "External fault: CAN error (e.g. frame timeout, global timeout, message corruption, alive counter)"; 
+CM_ SG_ 1040 DC1_bPrecCmpl "Status of precharging operation"; 
+CM_ SG_ 1040 DC1_bReqMIL "MIL (Malfunction Indicator Lamp) request by DCDC1"; 
+CM_ SG_ 1040 DC1_stT30c "Terminal 30c (T30c) state: permanent supply, can be interrupted by crash (non-reversible) or service disconnect"; 
+CM_ SG_ 1424 NM_VCU_SrcNodeId "VCU Network Management Node id"; 
+CM_ SG_ 1424 NM_VCU_CtrlBitVect "Reserved for AUTOSAR NM. Currently unused."; 
+CM_ SG_ 1424 NM_VCU_UserData "VCU Network Management User Data"; 
+CM_ SG_ 1425 NM_BMS_SrcNodeId "Reserved for AUTOSAR NM. Currently unused."; 
+CM_ SG_ 1425 NM_BMS_CtrlBitVect "Reserved for AUTOSAR NM. Currently unused."; 
+CM_ SG_ 1425 NM_BMS_UserData "BMS Network Management User Data"; 
+CM_ SG_ 1431 NM_DCDC1_SrcNodeId "0: Inverter0
+1: Inverter1
+2: Inverter2"; 
+CM_ SG_ 1431 NM_DCDC1_CtrlBitVect "Reserved for AUTOSAR NM. Currently unused."; 
+CM_ SG_ 1431 NM_DCDC1_UserData "Inverter1 Network Management User Data"; 
+CM_ SG_ 1757 DIAG_Mileage "Mileage"; 
+CM_ SG_ 1757 DIAG_Year "year"; 
+CM_ SG_ 1757 DIAG_Month "Month"; 
+CM_ SG_ 1757 DIAG_Day "Day"; 
+CM_ SG_ 1757 DIAG_Hour "Hour"; 
+CM_ SG_ 1757 DIAG_Minute "Minute"; 
+CM_ SG_ 1757 DIAG_Second "Second"; 
+CM_ SG_ 1757 DIAG_Downtime_state "state of transmitted signal Downtime"; 
+CM_ SG_ 1757 DIAG_Downtime "Calculated Downtime of System (car sleep)"; 
+CM_ SG_ 1758 DIAG_VehicleSpeed "Overall Vehicle speed"; 
+CM_ SG_ 1758 DIAG_OutsideTemperature "outside temperature"; 
+CM_ SG_ 1758 DIAG_EnvP_P "Environment air pressure"; 
+CM_ SG_ 1758 DIAG_AccelPdlPosn "Accelerator Pedal Position"; 
+CM_ SG_ 1758 DIAG_flgPropSysActv "OBD propulsion system active (replaces OBD driving cycle)"; 
+CM_ SG_ 1758 DIAG_flgGnrlDenom "OBD general denominator"; 
+CM_ SG_ 1758 DIAG_flgGnrlDenomInhbn "OBD general denominator inhibited due to error"; 
+CM_ SG_ 1758 DIAG_flgColdStrtDenom "OBD cold start denominator"; 
+CM_ SG_ 1758 DIAG_flgColdStrtDenomInhbn "OBD cold start denominator inhibited due to error"; 
+CM_ SG_ 1758 DIAG_flgPDTCMinTrip "OBD PDTC erase conditions - minimum trip"; 
+CM_ SG_ 1758 DIAG_flgWarmUpCycle "OBD warmup cycle classic"; 
+CM_ SG_ 1759 DIAG_AbsThrtlPos "PID$11: Absolute Throttle Position"; 
+CM_ SG_ 1759 DIAG_EngLoad "PID$04: Calculated load value"; 
+CM_ SG_ 1759 DIAG_EngCooltT "PID$05: engine coolant temperature"; 
+CM_ SG_ 1759 DIAG_EngN "PID$0C: engine speed"; 
+CM_ SG_ 1792 N_PDU_RQ_FUNC "This signal is used for diagnostic purposes"; 
+CM_ SG_ 2015 N_PDU_RQ_OBD "This signal is used for diagnostic purposes"; 
+CM_ SG_ 2019 N_PDU_RQ_DC1 "This signal is used for diagnostic purposes"; 
+CM_ SG_ 2027 N_PDU_RESP_DC1 "This signal is used for diagnostic purposes"; 
+CM_ SG_ 2147483904 SftyInfo_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483904 SftyInfo_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483904 SftyInfo_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483904 SftyOk "Concession for executing safety relevant actions from the commanding component to the executing component"; 
+CM_ SG_ 2147483904 CrashDetnNeg "Crash detection indication"; 
+CM_ SG_ 2147483905 VehInfo_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483905 VehInfo_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483905 VehInfo_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483905 TAmb "Ambient temperature"; 
+CM_ SG_ 2147483905 VehSpd "Vehicle speed"; 
+CM_ SG_ 2147483936 CtlCmd_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483936 CtlCmd_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483936 CtlCmd_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483936 HvReq "High voltage request"; 
+CM_ SG_ 2147483936 IslnMeastDisaCmd "Command to disable the isolation measurement"; 
+CM_ SG_ 2147483952 BatPermsnToCls_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483952 BatPermsnToCls_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483952 BatPermsnToCls_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483952 IPermsnToCls "Permission to activate HV by the current safety function"; 
+CM_ SG_ 2147483952 IslnPermsnToCls "Permission to activate HV by the isolation safety function"; 
+CM_ SG_ 2147483952 CtctrStuckPermsnToCls "Permission to activate HV by the main and precharge contactor stuck safety function"; 
+CM_ SG_ 2147483952 DcChCtctrPermsnToCls "Permission to activate HV by the DC charging contactor stuck safety function"; 
+CM_ SG_ 2147483952 ThermRunAwPermsnToCls "Permission to activate HV by the thermal runaway safety function"; 
+CM_ SG_ 2147483952 CrashPermsnToCls "Permission to activate HV by the crash safety function"; 
+CM_ SG_ 2147483952 LockMemPermsnToCls "Permission to activate HV by the lock memory safety function"; 
+CM_ SG_ 2147483952 CptTPermsnToCls "Permission to activate HV by the component temperature safety function"; 
+CM_ SG_ 2147483952 CellUPermsnToCls "Permission to activate HV by the cell voltage safety function"; 
+CM_ SG_ 2147483952 CellTPermsnToCls "Permission to activate HV by the cell temperature safety function"; 
+CM_ SG_ 2147483953 BatInfo_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483953 BatInfo_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483953 BatInfo_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483953 P "Electrical power flow (positive value: charge; negative value: discharge)"; 
+CM_ SG_ 2147483953 StsIslnMeast "Status of the isolation measurement"; 
+CM_ SG_ 2147483953 RIsln "Isolation resistance value"; 
+CM_ SG_ 2147483953 ThermEveStsCellT "Warning status of cell temperature"; 
+CM_ SG_ 2147483953 RPrecOvtempFlag "Precharge impossible due to overtemperature of the precharge resistor"; 
+CM_ SG_ 2147483953 DcnctPndFlag "Disconnection of the battery is imminent"; 
+CM_ SG_ 2147483953 DcnctPndCtr "Counter until the battery will be disconnected if DcnctPndFlag is set"; 
+CM_ SG_ 2147483955 BatUMps_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483955 BatUMps_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483955 BatUMps_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483955 ULnkMps "Link voltage"; 
+CM_ SG_ 2147483955 UExpdCh "Expected link voltage when connected for charging"; 
+CM_ SG_ 2147483955 UExpdDrvg "Expected link voltage when connected for driving"; 
+CM_ SG_ 2147483955 UDcLnk "Link voltage at DC charging socket"; 
+CM_ SG_ 2147483956 BatUSng_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483956 BatUSng_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483956 BatUSng_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483956 ULnkSng "Link voltage"; 
+CM_ SG_ 2147483956 UBat "Battery voltage (independent of contactor status)"; 
+CM_ SG_ 2147483958 BatSts_Cks "CRC-8-SAE J1850 according to E2E profile 1C"; 
+CM_ SG_ 2147483958 BatSts_Alvctr "Alive counter signal incremented every transmission (0 to 14)"; 
+CM_ SG_ 2147483958 BatSts_DIDNibble "Low nibble of the high byte of data ID according to E2E profile 1C"; 
+CM_ SG_ 2147483958 BatSt "Status of the battery system"; 
+CM_ SG_ 2147483958 SftySt "Consolidated status of the safety function diagnosis (PermsnToCls) to the commanding component"; 
+CM_ SG_ 2147483958 ErrLvl "Error level value"; 
+CM_ SG_ 2147483958 HvilPermsnToCls "Permission to activate HV by the connector (HVIL) safety function"; 
+CM_ SG_ 2147483958 I "Current flow (positive value: charge; negative value: discharge)"; 
+CM_ SG_ 2147483958 StCtctrPos "Status of the contactors on the positive terminal"; 
+CM_ SG_ 2147483958 StCtctrNeg "Status of the contactors on the negative terminal"; 
+CM_ SG_ 2147483958 StCtctrPrec "Status of the contactors on the precharge circuit"; 
+CM_ SG_ 2147483958 EcuSt "Status of the ECU"; 
+CM_ SG_ 2147484752 Year "Year in time"; 
+CM_ SG_ 2147484752 Month "Month (within the year)"; 
+CM_ SG_ 2147484752 Day "Day (within the month)"; 
+CM_ SG_ 2147484752 Hour "Hour (within the day)"; 
+CM_ SG_ 2147484752 Minu "Minute (within the hour)"; 
+CM_ SG_ 2147484752 Sec "Second (within the minute)"; 
+CM_ SG_ 2147484800 UdsComTx_VIB_BMSStdAln_Func "Functional request from VCU to BMS "; 
+CM_ SG_ 2147484801 UdsComTx_VIBToPack1_Func "Functional request from VCU to pack1 "; 
+CM_ SG_ 2147485185 CtrlEnPassengerClimate "Enable Passenger Climatization"; 
+CM_ SG_ 2147485185 CtrlEnPassengerPassengerEcoMode "Set Eco Mode for Passenger Climatization (CtrlEnPassengerClimate still has to be enabled to start climatization)"; 
+CM_ SG_ 2147485185 CtrlEnPassengerPrecondMode "Set Preconditioning Mode for Passenger Climatization (CtrlEnPassengerClimate still has to be enabled to start climatization)"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B0 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B1 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B2 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B3 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B4 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B5 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B6 "Reserved for future use"; 
+CM_ SG_ 2147485185 CtrlPassenger_Reserved_B7 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlEnBatteryPreconditioning "Enable Battery Preconditioning (e.g. when about to Fast Charge)"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B0 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B1 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B2 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B3 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B4 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B5 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B6 "Reserved for future use"; 
+CM_ SG_ 2147485186 CtrlBattery_Reserved_B7 "Reserved for future use"; 
+CM_ SG_ 2147485187 CtrlEnPeemCooling "Enable PEEM cooling"; 
+CM_ SG_ 2147485187 CtrlPeem_Reserved_B0 "Reserved for future use"; 
+CM_ SG_ 2147485187 CtrlPeemComponentTempDcdc1 "This signal provide Actual Component temperature of DCDC1"; 
+CM_ SG_ 2147485187 CtrlPeemComponentTempDcdc2 "This signal provide Actual Component temperature of DCDC2"; 
+CM_ SG_ 2147485187 CtrlPeemComponentTempPwrMotor "This signal provide Actual Component Tempreture of Motor"; 
+CM_ SG_ 2147485187 CtrlPeemComponentTempPwrInvtr "This signal provide Actual Component Tempreture of Inverter"; 
+CM_ SG_ 2147485187 CtrlPeem_Reserved_B5 "Reserved for future use"; 
+CM_ SG_ 2147485187 CtrlPeem_Reserved_B6 "Reserved for future use"; 
+CM_ SG_ 2147485187 CtrlPeem_Reserved_B7 "Reserved for future use"; 
+CM_ SG_ 2147485188 CtrlPowerMgmtThermalPriority "Prioritized sub system"; 
+CM_ SG_ 2147485188 CtrlPowerMgmt_Reserved_B0 "Reserved for future use"; 
+CM_ SG_ 2147485188 CtrlPowerMgmtHvAvailable "Signal that HV is active and allowed to be used"; 
+CM_ SG_ 2147485188 CtrlPowerMgmt_Reserved_B1 "Reserved for future use"; 
+CM_ SG_ 2147485188 CtrlPowerMgmtHvPowerLimit "Maximum allowed power withdrawal from HV supply by Thermal Management System"; 
+CM_ SG_ 2147485188 CtrlPowerMgmt_Reserved_B4 "Reserved for future use"; 
+CM_ SG_ 2147485188 CtrlPowerMgmt_Reserved_B5 "Reserved for future use"; 
+CM_ SG_ 2147485188 CtrlPowerMgmt_Reserved_B6 "Reserved for future use"; 
+CM_ SG_ 2147485188 CtrlPowerMgmt_Reserved_B7 "Reserved for future use"; 
+CM_ SG_ 2147485189 StatusPwTMCReq "This signal provides Total HV power consumption of TMC components"; 
+CM_ SG_ 2147485189 StatusPowerMgmt_Reserved_B2 "Reserved for future use"; 
+CM_ SG_ 2147485189 StatusPowerMgmt_Reserved_B3 "Reserved for future use"; 
+CM_ SG_ 2147485189 StatusPowerMgmt_Reserved_B4 "Reserved for future use"; 
+CM_ SG_ 2147485189 StatusPowerMgmt_Reserved_B5 "Reserved for future use"; 
+CM_ SG_ 2147485189 StatusPowerMgmt_Reserved_B6 "Reserved for future use"; 
+CM_ SG_ 2147485189 StatusPowerMgmt_Reserved_B7 "Reserved for future use"; 
+CM_ SG_ 2147485190 StatusAirTreatedTemp1 "This signal provide Air Treated Temperature1 Status"; 
+CM_ SG_ 2147485190 StatusAirTreatedTemp2 "This signal provide Air Treated Temperature2 Status"; 
+CM_ SG_ 2147485190 StatusBatteryCoolantPump "This signal provide Battery Coolant Pump Status"; 
+CM_ SG_ 2147485190 StatusBatteryCoolValveColdIn "This signal provide Battery Coolant Valve Cold In Status"; 
+CM_ SG_ 2147485190 StatusAmbientAirTemp "This signal provide ambient/ environmental air temperature"; 
+CM_ SG_ 2147485190 StatusBatteryCoolValveHotIn "This signal provide Battery Coolant Valve Hot In Status"; 
+CM_ SG_ 2147485190 StatusBatteryCoolValveOut "This signal provide Battery Coolant Valve Out"; 
+CM_ SG_ 2147485190 StatusBatteryLoopTank "This signal provide Battery Loop Water Tank Level Status"; 
+CM_ SG_ 2147485190 StatusCabinTemp "Status of Cabin temp to IPC"; 
+CM_ SG_ 2147485190 StatusColdCoolantPump1 "This signal provide Cold Coolant Pump 1 Status"; 
+CM_ SG_ 2147485190 StatusColdCoolantPump2 "This signal provide Cold Coolant Pump 2 Status"; 
+CM_ SG_ 2147485190 StatusColdTank "This signal provide Cold Tank Water Level  Status"; 
+CM_ SG_ 2147485190 StatusCoolantLevelIndication "Coolant level incication signal received from TMC system."; 
+CM_ SG_ 2147485190 StatusCoolantTempBattInlet "This signal provide Battery Inlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempBattOutlet "This signal provide Battery Outlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempHyperInletCold "This signal provide Hyper Inlet Cold Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempHyperInletHot "This signal provide Hyper Inlet Hot Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempInverterOutlet "This signal provide Inverter Outlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempPEEMInlet "This signal provide PEEM Inlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempPEEMOutlet "This signal provide PEEM Outlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempRadiatorOutlet "This signal provide Radiator Outlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempSDSInlet "This signal provide SDS Inlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolantTempSDSOutlet "This signal provide SDS Outlet Coolant Temperature Status"; 
+CM_ SG_ 2147485190 StatusCoolingPriority "Status of which component Thermal System is providing priority in cooling"; 
+CM_ SG_ 2147485190 StatusEXTTemp "This signal provide EXT Temperature Status"; 
+CM_ SG_ 2147485190 StatusFrontWindshieldDefrostAct "Status of Front Windshield Defrost is activated by Thermal system"; 
+CM_ SG_ 2147485190 StatusHotTank "This signal provide Hot Tank Water Level Status"; 
+CM_ SG_ 2147485191 StatusHeater "This signal provide Heater Status"; 
+CM_ SG_ 2147485191 StatusHeatpump1 "This signal provide Heatpump 1 Status"; 
+CM_ SG_ 2147485191 StatusHeatpump2 "This signal provide Heatpump 2 Status"; 
+CM_ SG_ 2147485191 StatusHotCoolantPump1 "This signal provide Hot Coolant Pump 1 Status"; 
+CM_ SG_ 2147485191 StatusHotCoolantPump2 "This signal provide Hot Coolant Pump 2 Status"; 
+CM_ SG_ 2147485191 StatusPassengerAQSensor "This signal provide Passenger Air Quality Sensor Status"; 
+CM_ SG_ 2147485191 StatusPassengerBlower1 "This signal provide Passenger Blower 1 Status"; 
+CM_ SG_ 2147485191 StatusPassengerBlower2 "This signal provide Passenger Blower 2 Status"; 
+CM_ SG_ 2147485191 StatusPassengerCO2Sensor "This signal provide Passenger CO2 Sensor Status"; 
+CM_ SG_ 2147485191 StatusPassengerCoolantValveHotIn "This signal provide Passenger Coolant Valve Hot In Status"; 
+CM_ SG_ 2147485191 StatusPassengerCoolValveColdIn "This signal provide Passenger Coolant Valve Cold In Status"; 
+CM_ SG_ 2147485191 StatusPassengerFlrCoolantValveIn "This signal provide Passenger Floor Coolant Valve Hot In Status"; 
+CM_ SG_ 2147485191 StatusPassengerHumiditySensor "This signal provide Passenger Humidity Sensor Status"; 
+CM_ SG_ 2147485191 StatusPeemCoolantPump "This signal provide Peem Coolant Pump Status"; 
+CM_ SG_ 2147485191 StatusPeemCoolValveIn "This signal provide PEEM Coolant Valve Cold In Status"; 
+CM_ SG_ 2147485191 StatusPeemCoolValveMix "This signal provide Peem Coolant Valve Mix"; 
+CM_ SG_ 2147485191 StatusPeemFan1 "This signal provide Peem Fan 1 Status"; 
+CM_ SG_ 2147485191 StatusPeemFan2 "This signal provide Peem Fan 2 Status"; 
+CM_ SG_ 2147485191 StatusPEEMLoopTank "This signal provide PEEM Loop Water Level Status"; 
+CM_ SG_ 2147485191 StatusRadiatorCoolValveColdIn "This signal provide Radiator Coolant Valve Cold In Status"; 
+CM_ SG_ 2147485191 StatusRadiatorCoolValveHotIn "This signal provide Radiator Coolant Valve Hot In Status"; 
+CM_ SG_ 2147485191 StatusRadiatorCoolValveOut "This signal provide Radiator Coolant Valve Out"; 
+CM_ SG_ 2147485191 StatusRadiatorFan1 "This signal provide Radiator Fan 1 Status"; 
+CM_ SG_ 2147485191 StatusRadiatorFan2 "This signal provide Radiator Fan 2 Status"; 
+CM_ SG_ 2147485191 StatusRadiatorFan4 "This signal provide Radiator Fan 4 Status"; 
+CM_ SG_ 2147485191 StatusRadiatorFan3 "This signal provide Radiator Fan 3 Status"; 
+CM_ SG_ 2147485191 Status_Reserved_F1_B6 "Reserved for future use"; 
+CM_ SG_ 2147485191 Status_Reserved_F1_B7 "Reserved for future use"; 
+CM_ SG_ 2147485192 StatusPEEMInletTemp "This signal provide ambient/ environmental air temperature"; 
+CM_ SG_ 2147485192 StatusSDSOutletTemp "This signal provide ambient/ environmental air temperature"; 
+CM_ SG_ 2147485192 Status_Reserved_F2_B2 "Reserved for future use"; 
+CM_ SG_ 2147485192 Status_Reserved_F2_B3 "Reserved for future use"; 
+CM_ SG_ 2147485192 Status_Reserved_F2_B4 "Reserved for future use"; 
+CM_ SG_ 2147485192 Status_Reserved_F2_B5 "Reserved for future use"; 
+CM_ SG_ 2147485192 Status_Reserved_F2_B6 "Reserved for future use"; 
+CM_ SG_ 2147485192 StatusPassengerCabinAirTemp "This signal provide actual Passenger cabin air temperature 
+"; 
+CM_ SG_ 2147485193 CoolantTempBattInlet "This signal provide temperature for inlet Coolant of Battery"; 
+CM_ SG_ 2147485193 CoolantTempBattOutlet "This signal provide temperature for outlet Coolant of Battery"; 
+CM_ SG_ 2147485193 CoolantTempInverterOutlet "This signal provide temperature for outlet Coolant of Inverter"; 
+CM_ SG_ 2147485193 CoolantTempPEEMInlet "This signal provide temperature for inlet Coolant of PEEM loop"; 
+CM_ SG_ 2147485193 CoolantTempPEEMOutlet "This signal provide temperature for outlet Coolant of PEEM loop"; 
+CM_ SG_ 2147485193 CoolantTempRadiatorOutlet "This signal provide temperature for outlet Coolant of Radiator"; 
+CM_ SG_ 2147485193 CoolantTempSDSInlet "This signal provide temperature for inlet Coolant of SDS"; 
+CM_ SG_ 2147485193 CoolantTempSDSOutlet "This signal provide temperature for outlet Coolant of SDS"; 
+CM_ SG_ 2147485194 AirTreatedTemp1 "This signal provide temperature of Air Treated Sensor 1"; 
+CM_ SG_ 2147485194 AirTreatedTemp2 "This signal provide temperature of Air Treated Sensor 2"; 
+CM_ SG_ 2147485440 IChLimSho "Short term current limit for charging"; 
+CM_ SG_ 2147485440 IDchaLimSho "Short term current limit for discharging"; 
+CM_ SG_ 2147485440 IChLimLong "Long term current limit for charging"; 
+CM_ SG_ 2147485440 IDchaLimLong "Long term current limit for discharging"; 
+CM_ SG_ 2147485441 UChLimSho "Short term voltage limit for charging"; 
+CM_ SG_ 2147485441 UDchaLimSho "Short term voltage limit for discharging"; 
+CM_ SG_ 2147485441 UChLimLong "Long term voltage limit for charging"; 
+CM_ SG_ 2147485441 UDchaLimLong "Long term voltage limit for discharging"; 
+CM_ SG_ 2147485442 Soc "State of charge"; 
+CM_ SG_ 2147485442 Soh "State of health"; 
+CM_ SG_ 2147485442 AvlE "Available energy"; 
+CM_ SG_ 2147485443 TCellMax "Maximal cell temperature"; 
+CM_ SG_ 2147485443 TCellMin "Minimal cell temperature"; 
+CM_ SG_ 2147485444 UCellMax "Maximal cell voltage"; 
+CM_ SG_ 2147485444 UCellMin "Minimal cell voltage"; 
+CM_ SG_ 2147485456 EcuCalVersSwEcuTyp "Calibration data ECU type"; 
+CM_ SG_ 2147485456 EcuSwNrSwEcuTyp "Software ECU type"; 
+CM_ SG_ 2147485456 CmptbltyIdx "Compatibility index of the CAN communication between BMS and VIC"; 
+CM_ SG_ 2147485457 EcuHwNr "ECU hardware number"; 
+CM_ SG_ 2147485457 EcuHwVers "ECU hardware version"; 
+CM_ SG_ 2147485457 PackName "Name of the battery component"; 
+CM_ SG_ 2147485457 EcuTyp "Type of ECU"; 
+CM_ SG_ 2147485457 EcuSbTypBms "ECU sub-type for BMS"; 
+CM_ SG_ 2147485457 EcuSbTypVic "ECU sub-type for VIC"; 
+CM_ SG_ 2147485458 EcuSwVersNrMjr "Software major release number"; 
+CM_ SG_ 2147485458 EcuSwVersNrMid "Software feature release number"; 
+CM_ SG_ 2147485458 EcuSwVersNrMnr "Software bugfix release number"; 
+CM_ SG_ 2147485459 EcuSwVersNrBuild "Software build version number"; 
+CM_ SG_ 2147485459 EcuSwNrCusVrnt "Software customer variant"; 
+CM_ SG_ 2147485459 EcuSwNrSwVrnt "Software variant"; 
+CM_ SG_ 2147485460 EcuCalVersMjr "Calibration data major release number"; 
+CM_ SG_ 2147485460 EcuCalVersMid "Calibration data feature release number"; 
+CM_ SG_ 2147485460 EcuCalVersMnr "Calibration data bugfix release number"; 
+CM_ SG_ 2147485461 EcuCalVersBuild "Calibration data build version number"; 
+CM_ SG_ 2147485461 EcuCalVersCusVrnt "Calibration data customer variant"; 
+CM_ SG_ 2147485461 EcuCalVersSwVrnt "Calibration data software variant"; 
+CM_ SG_ 2147485472 ThermSysStrtReq1 "Wakeup request for an external thermal management system with setpoint control"; 
+CM_ SG_ 2147485472 PackNameThermReq1 "Battery pack the multiplexed signals in this message refer to (multiplexor signal)"; 
+CM_ SG_ 2147485472 EnaCoolgHeatgBatFlag "Request for coolant/heating flow for an external thermal management system with setpoint control from pack mentioned in PackNameThermReq1 (multiplexed signal)"; 
+CM_ SG_ 2147485472 TAct "Cell temperature of pack mentioned in PackNameThermReq1 with the highest absolute deviation from the setpoint temperature (multiplexed signal)"; 
+CM_ SG_ 2147485472 TSetPoint "Setpoint temperature for an external thermal management system for pack mentioned in PackNameThermReq1 (multiplexed signal)"; 
+CM_ SG_ 2147485473 ThermSysStrtReq2 "Wakeup request for an external thermal management system with on/off control"; 
+CM_ SG_ 2147485473 CoolgHeatgReq "Request for coolant/heating flow for an external thermal management system with on/off control"; 
+CM_ SG_ 2147485568 UdsComRx_VIB_BMSStdAln "UDS response message from the battery system "; 
+CM_ SG_ 2147485574 UdsComRx_VIBFromPack1_1 "UDS response message from Pack1_1"; 
+CM_ SG_ 2147485580 UdsComRx_VIBFromPack1_2 "UDS response message from Pack1_2"; 
+
+BA_DEF_  "SigType" ENUM "Default","Range","RangeSigned","ASCII","Discrete","Control","ReferencePGN","DTC","StringDelimiter","StringLength","StringLengthControl";
+BA_DEF_ SG_  "ASIL" ENUM "ASIL A","ASIL B","ASIL C","ASIL D","NA","QM";
+BA_DEF_ BO_  "ASILLevel" ENUM "ASIL A","ASIL B","ASIL C","ASIL D","NA","QM";
+BA_DEF_ BO_  "SecOC" ENUM "NO","YES";
+BA_DEF_ SG_  "SecOc" ENUM "NO","YES";
+BA_DEF_ SG_  "GenSigSendType" ENUM "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 3600000;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 0;
+BA_DEF_ BU_  "NodeLayerModules" STRING;
+BA_DEF_ BU_  "ECU" STRING;
+BA_DEF_ BO_  "CANFD_BRS" ENUM "0","1";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM "No","Yes";
+BA_DEF_ BO_  "DiagState" ENUM "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM "No","Yes";
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_ BO_  "GenMsgSendType" ENUM "cyclic","Event Triggered","IfActive","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","noMsgSendType";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 3600000;
+BA_DEF_  "SPN" INT 0 524287;
+BA_DEF_  "DBName" STRING;
+BA_DEF_  "ProtocolType" STRING;
+BA_DEF_ BO_  "VFrameFormat" ENUM "StandardCAN","ExtendedCAN","reserved","J1939PG","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_  "SW_Version" FLOAT 0 0;
+BA_DEF_  "Manufacturer" STRING;
+BA_DEF_  "VersionNumber" FLOAT 0 0;
+BA_DEF_  "VersionYear" INT 0 9999;
+BA_DEF_  "VersionMonth" INT 1 12;
+BA_DEF_  "BusType" STRING;
+BA_DEF_  "Baudrate" INT 50000 500000;
+BA_DEF_  "Arbitration_Baudrate" INT 0 0;
+
+
+
+BA_DEF_DEF_  "ASIL" "NA";
+BA_DEF_DEF_  "ASILLevel" "QM";
+BA_DEF_DEF_  "Arbitration_Baudrate" 2000000;
+BA_DEF_DEF_  "Baudrate" 100000;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "CANFD_BRS" "0";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "No";
+BA_DEF_DEF_  "GenMsgSendType" "noMsgSendType";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigStartValue" 0.0;
+BA_DEF_DEF_  "Manufacturer" "Holon People Mover";
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "ProtocolType" "J1939";
+BA_DEF_DEF_  "SPN" 0;
+BA_DEF_DEF_  "SW_Version" 1.0;
+BA_DEF_DEF_  "SecOC" "NO";
+BA_DEF_DEF_  "SecOc" "NO";
+BA_DEF_DEF_  "SigType" "Default";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "VersionMonth" 1;
+BA_DEF_DEF_  "VersionNumber" 0.0;
+BA_DEF_DEF_  "VersionYear" 2006;
+
+BA_ "Arbitration_Baudrate" 500000;
+BA_ "Baudrate" 500000;
+BA_ "BusType" "CAN 2.0B";
+BA_ "DBName" "PWT-2 CAN";
+BA_ "Manufacturer" "Holon People Mover";
+BA_ "ProtocolType" "CAN 2.0B";
+BA_ "SW_Version" 3.1;
+BA_ "VersionMonth" 9;
+BA_ "VersionNumber" 9;
+BA_ "VersionYear" 2024;
+BA_ "NmStationAddress" BU_ DCDC_1 19;
+BA_ "NmStationAddress" BU_ DCDC_1 19;
+BA_ "NmStationAddress" BU_ M_BMS_MVIG_PLUS 21;
+BA_ "NmStationAddress" BU_ TMC 24;
+BA_ "NmStationAddress" BU_ VCU 16;
+BA_ "NmStationAddress" BU_ VCU 254;
+BA_ "GenMsgCycleTime" BO_ 10 20;
+BA_ "GenMsgSendType" BO_ 10 0;
+BA_ "VFrameFormat" BO_ 10 0;
+BA_ "GenMsgCycleTime" BO_ 110 10;
+BA_ "GenMsgSendType" BO_ 110 0;
+BA_ "VFrameFormat" BO_ 110 0;
+BA_ "GenMsgCycleTime" BO_ 111 10;
+BA_ "GenMsgSendType" BO_ 111 0;
+BA_ "VFrameFormat" BO_ 111 0;
+BA_ "GenMsgCycleTime" BO_ 120 100;
+BA_ "GenMsgSendType" BO_ 120 0;
+BA_ "VFrameFormat" BO_ 120 0;
+BA_ "GenMsgCycleTime" BO_ 150 500;
+BA_ "GenMsgSendType" BO_ 150 0;
+BA_ "VFrameFormat" BO_ 150 0;
+BA_ "GenMsgCycleTime" BO_ 160 1000;
+BA_ "GenMsgSendType" BO_ 160 0;
+BA_ "VFrameFormat" BO_ 160 0;
+BA_ "GenMsgCycleTime" BO_ 304 10;
+BA_ "GenMsgSendType" BO_ 304 0;
+BA_ "VFrameFormat" BO_ 304 0;
+BA_ "GenMsgCycleTime" BO_ 544 10;
+BA_ "GenMsgSendType" BO_ 544 0;
+BA_ "VFrameFormat" BO_ 544 0;
+BA_ "GenMsgCycleTime" BO_ 1024 100;
+BA_ "GenMsgSendType" BO_ 1024 0;
+BA_ "VFrameFormat" BO_ 1024 0;
+BA_ "GenMsgCycleTime" BO_ 1040 100;
+BA_ "GenMsgSendType" BO_ 1040 0;
+BA_ "VFrameFormat" BO_ 1040 0;
+BA_ "VFrameFormat" BO_ 1424 0;
+BA_ "VFrameFormat" BO_ 1425 0;
+BA_ "GenMsgSendType" BO_ 1431 8;
+BA_ "VFrameFormat" BO_ 1431 0;
+BA_ "GenMsgCycleTime" BO_ 1757 1000;
+BA_ "GenMsgSendType" BO_ 1757 0;
+BA_ "VFrameFormat" BO_ 1757 0;
+BA_ "GenMsgCycleTime" BO_ 1758 100;
+BA_ "GenMsgSendType" BO_ 1758 0;
+BA_ "VFrameFormat" BO_ 1758 0;
+BA_ "GenMsgCycleTime" BO_ 1759 100;
+BA_ "GenMsgSendType" BO_ 1759 0;
+BA_ "VFrameFormat" BO_ 1759 0;
+BA_ "GenMsgSendType" BO_ 1792 0;
+BA_ "VFrameFormat" BO_ 1792 0;
+BA_ "GenMsgSendType" BO_ 2015 0;
+BA_ "VFrameFormat" BO_ 2015 0;
+BA_ "GenMsgSendType" BO_ 2019 0;
+BA_ "VFrameFormat" BO_ 2019 0;
+BA_ "GenMsgSendType" BO_ 2027 8;
+BA_ "VFrameFormat" BO_ 2027 0;
+BA_ "GenMsgCycleTime" BO_ 2147483904 10;
+BA_ "GenMsgSendType" BO_ 2147483904 0;
+BA_ "VFrameFormat" BO_ 2147483904 1;
+BA_ "GenMsgCycleTime" BO_ 2147483905 100;
+BA_ "GenMsgSendType" BO_ 2147483905 0;
+BA_ "VFrameFormat" BO_ 2147483905 1;
+BA_ "GenMsgCycleTime" BO_ 2147483936 100;
+BA_ "GenMsgSendType" BO_ 2147483936 0;
+BA_ "VFrameFormat" BO_ 2147483936 1;
+BA_ "GenMsgCycleTime" BO_ 2147483938 100;
+BA_ "GenMsgSendType" BO_ 2147483938 0;
+BA_ "VFrameFormat" BO_ 2147483938 1;
+BA_ "GenMsgCycleTime" BO_ 2147483939 100;
+BA_ "GenMsgSendType" BO_ 2147483939 0;
+BA_ "VFrameFormat" BO_ 2147483939 1;
+BA_ "GenMsgCycleTime" BO_ 2147483952 100;
+BA_ "GenMsgSendType" BO_ 2147483952 0;
+BA_ "VFrameFormat" BO_ 2147483952 1;
+BA_ "GenMsgCycleTime" BO_ 2147483953 100;
+BA_ "GenMsgSendType" BO_ 2147483953 0;
+BA_ "VFrameFormat" BO_ 2147483953 1;
+BA_ "GenMsgCycleTime" BO_ 2147483955 100;
+BA_ "GenMsgSendType" BO_ 2147483955 0;
+BA_ "VFrameFormat" BO_ 2147483955 1;
+BA_ "GenMsgCycleTime" BO_ 2147483956 100;
+BA_ "GenMsgSendType" BO_ 2147483956 0;
+BA_ "VFrameFormat" BO_ 2147483956 1;
+BA_ "GenMsgCycleTime" BO_ 2147483958 10;
+BA_ "GenMsgSendType" BO_ 2147483958 0;
+BA_ "VFrameFormat" BO_ 2147483958 1;
+BA_ "GenMsgCycleTime" BO_ 2147484752 10;
+BA_ "GenMsgSendType" BO_ 2147484752 0;
+BA_ "VFrameFormat" BO_ 2147484752 1;
+BA_ "VFrameFormat" BO_ 2147484800 1;
+BA_ "VFrameFormat" BO_ 2147484801 1;
+BA_ "GenMsgCycleTime" BO_ 2147485185 500;
+BA_ "GenMsgSendType" BO_ 2147485185 0;
+BA_ "VFrameFormat" BO_ 2147485185 1;
+BA_ "GenMsgCycleTime" BO_ 2147485186 500;
+BA_ "GenMsgSendType" BO_ 2147485186 0;
+BA_ "VFrameFormat" BO_ 2147485186 1;
+BA_ "GenMsgCycleTime" BO_ 2147485187 500;
+BA_ "GenMsgSendType" BO_ 2147485187 0;
+BA_ "VFrameFormat" BO_ 2147485187 1;
+BA_ "GenMsgCycleTime" BO_ 2147485188 500;
+BA_ "GenMsgSendType" BO_ 2147485188 0;
+BA_ "VFrameFormat" BO_ 2147485188 1;
+BA_ "CANFD_BRS" BO_ 2147485189 0;
+BA_ "GenMsgCycleTime" BO_ 2147485189 500;
+BA_ "GenMsgSendType" BO_ 2147485189 0;
+BA_ "VFrameFormat" BO_ 2147485189 1;
+BA_ "CANFD_BRS" BO_ 2147485190 0;
+BA_ "GenMsgCycleTime" BO_ 2147485190 500;
+BA_ "GenMsgSendType" BO_ 2147485190 0;
+BA_ "VFrameFormat" BO_ 2147485190 1;
+BA_ "CANFD_BRS" BO_ 2147485191 0;
+BA_ "GenMsgCycleTime" BO_ 2147485191 500;
+BA_ "GenMsgSendType" BO_ 2147485191 0;
+BA_ "VFrameFormat" BO_ 2147485191 1;
+BA_ "CANFD_BRS" BO_ 2147485192 0;
+BA_ "GenMsgCycleTime" BO_ 2147485192 500;
+BA_ "GenMsgSendType" BO_ 2147485192 0;
+BA_ "VFrameFormat" BO_ 2147485192 1;
+BA_ "CANFD_BRS" BO_ 2147485193 0;
+BA_ "VFrameFormat" BO_ 2147485193 1;
+BA_ "CANFD_BRS" BO_ 2147485194 0;
+BA_ "VFrameFormat" BO_ 2147485194 1;
+BA_ "VFrameFormat" BO_ 2147485312 1;
+BA_ "VFrameFormat" BO_ 2147485318 1;
+BA_ "VFrameFormat" BO_ 2147485324 1;
+BA_ "GenMsgCycleTime" BO_ 2147485440 100;
+BA_ "GenMsgSendType" BO_ 2147485440 0;
+BA_ "VFrameFormat" BO_ 2147485440 1;
+BA_ "GenMsgCycleTime" BO_ 2147485441 100;
+BA_ "GenMsgSendType" BO_ 2147485441 0;
+BA_ "VFrameFormat" BO_ 2147485441 1;
+BA_ "GenMsgCycleTime" BO_ 2147485442 1000;
+BA_ "GenMsgSendType" BO_ 2147485442 0;
+BA_ "VFrameFormat" BO_ 2147485442 1;
+BA_ "GenMsgCycleTime" BO_ 2147485443 1000;
+BA_ "GenMsgSendType" BO_ 2147485443 0;
+BA_ "VFrameFormat" BO_ 2147485443 1;
+BA_ "GenMsgCycleTime" BO_ 2147485444 100;
+BA_ "GenMsgSendType" BO_ 2147485444 0;
+BA_ "VFrameFormat" BO_ 2147485444 1;
+BA_ "GenMsgCycleTime" BO_ 2147485456 5000;
+BA_ "GenMsgSendType" BO_ 2147485456 0;
+BA_ "VFrameFormat" BO_ 2147485456 1;
+BA_ "GenMsgCycleTime" BO_ 2147485457 5000;
+BA_ "GenMsgSendType" BO_ 2147485457 0;
+BA_ "VFrameFormat" BO_ 2147485457 1;
+BA_ "GenMsgCycleTime" BO_ 2147485458 5000;
+BA_ "GenMsgSendType" BO_ 2147485458 0;
+BA_ "VFrameFormat" BO_ 2147485458 1;
+BA_ "GenMsgCycleTime" BO_ 2147485459 5000;
+BA_ "GenMsgSendType" BO_ 2147485459 0;
+BA_ "VFrameFormat" BO_ 2147485459 1;
+BA_ "GenMsgCycleTime" BO_ 2147485460 5000;
+BA_ "GenMsgSendType" BO_ 2147485460 0;
+BA_ "VFrameFormat" BO_ 2147485460 1;
+BA_ "GenMsgCycleTime" BO_ 2147485461 5000;
+BA_ "GenMsgSendType" BO_ 2147485461 0;
+BA_ "VFrameFormat" BO_ 2147485461 1;
+BA_ "GenMsgCycleTime" BO_ 2147485472 100;
+BA_ "GenMsgSendType" BO_ 2147485472 0;
+BA_ "VFrameFormat" BO_ 2147485472 1;
+BA_ "GenMsgCycleTime" BO_ 2147485473 1000;
+BA_ "GenMsgSendType" BO_ 2147485473 0;
+BA_ "VFrameFormat" BO_ 2147485473 1;
+BA_ "VFrameFormat" BO_ 2147485568 1;
+BA_ "VFrameFormat" BO_ 2147485574 1;
+BA_ "VFrameFormat" BO_ 2147485580 1;
+BA_ "ASIL" SG_ 10 Checksum_A 3;
+BA_ "GenSigSendType" SG_ 10 Checksum_A 7;
+BA_ "GenSigStartValue" SG_ 10 Checksum_A 0;
+BA_ "ASIL" SG_ 10 MessageCounter_A 3;
+BA_ "GenSigSendType" SG_ 10 MessageCounter_A 7;
+BA_ "GenSigStartValue" SG_ 10 MessageCounter_A 0;
+BA_ "ASIL" SG_ 10 PSM_CrashState_GW 3;
+BA_ "GenSigSendType" SG_ 10 PSM_CrashState_GW 7;
+BA_ "GenSigStartValue" SG_ 10 PSM_CrashState_GW 0;
+BA_ "ASIL" SG_ 110 Checksum_6E 3;
+BA_ "GenSigSendType" SG_ 110 Checksum_6E 7;
+BA_ "GenSigStartValue" SG_ 110 Checksum_6E 0;
+BA_ "ASIL" SG_ 110 MessageCounter_6E 3;
+BA_ "GenSigSendType" SG_ 110 MessageCounter_6E 7;
+BA_ "GenSigStartValue" SG_ 110 MessageCounter_6E 0;
+BA_ "ASIL" SG_ 110 BMS_Voltage 3;
+BA_ "GenSigSendType" SG_ 110 BMS_Voltage 7;
+BA_ "GenSigStartValue" SG_ 110 BMS_Voltage 4094;
+BA_ "ASIL" SG_ 110 BMS_State 3;
+BA_ "GenSigSendType" SG_ 110 BMS_State 7;
+BA_ "GenSigStartValue" SG_ 110 BMS_State 7;
+BA_ "ASIL" SG_ 110 BMS_ContactorState 3;
+BA_ "GenSigSendType" SG_ 110 BMS_ContactorState 7;
+BA_ "GenSigStartValue" SG_ 110 BMS_ContactorState 6;
+BA_ "ASIL" SG_ 111 Checksum_6F 3;
+BA_ "GenSigSendType" SG_ 111 Checksum_6F 7;
+BA_ "GenSigStartValue" SG_ 111 Checksum_6F 0;
+BA_ "ASIL" SG_ 111 MessageCounter_6F 3;
+BA_ "GenSigSendType" SG_ 111 MessageCounter_6F 7;
+BA_ "GenSigStartValue" SG_ 111 MessageCounter_6F 0;
+BA_ "ASIL" SG_ 111 BMS_UCntct 3;
+BA_ "GenSigSendType" SG_ 111 BMS_UCntct 7;
+BA_ "GenSigStartValue" SG_ 111 BMS_UCntct 4094;
+BA_ "ASIL" SG_ 120 Checksum_78 3;
+BA_ "GenSigSendType" SG_ 120 Checksum_78 7;
+BA_ "ASIL" SG_ 120 MessageCounter_78 3;
+BA_ "GenSigSendType" SG_ 120 MessageCounter_78 7;
+BA_ "GenSigStartValue" SG_ 120 MessageCounter_78 0;
+BA_ "ASIL" SG_ 120 BMS_MaxChgCurrLongTerm 3;
+BA_ "GenSigSendType" SG_ 120 BMS_MaxChgCurrLongTerm 7;
+BA_ "GenSigStartValue" SG_ 120 BMS_MaxChgCurrLongTerm 4095;
+BA_ "ASIL" SG_ 120 BMS_MaxChgCurrShortTerm 3;
+BA_ "GenSigSendType" SG_ 120 BMS_MaxChgCurrShortTerm 7;
+BA_ "GenSigStartValue" SG_ 120 BMS_MaxChgCurrShortTerm 4095;
+BA_ "ASIL" SG_ 150 Checksum_96 3;
+BA_ "GenSigSendType" SG_ 150 Checksum_96 7;
+BA_ "GenSigStartValue" SG_ 150 Checksum_96 0;
+BA_ "ASIL" SG_ 150 MessageCounter_96 3;
+BA_ "GenSigSendType" SG_ 150 MessageCounter_96 7;
+BA_ "GenSigStartValue" SG_ 150 MessageCounter_96 0;
+BA_ "ASIL" SG_ 150 BMS_MaxChgVoltage 3;
+BA_ "GenSigSendType" SG_ 150 BMS_MaxChgVoltage 7;
+BA_ "GenSigStartValue" SG_ 150 BMS_MaxChgVoltage 1022;
+BA_ "ASIL" SG_ 160 Checksum_A0 3;
+BA_ "GenSigSendType" SG_ 160 Checksum_A0 7;
+BA_ "GenSigStartValue" SG_ 160 Checksum_A0 0;
+BA_ "ASIL" SG_ 160 MessageCounter_A0 3;
+BA_ "GenSigSendType" SG_ 160 MessageCounter_A0 7;
+BA_ "GenSigStartValue" SG_ 160 MessageCounter_A0 0;
+BA_ "ASIL" SG_ 160 BMS_HVinterlockState 3;
+BA_ "GenSigSendType" SG_ 160 BMS_HVinterlockState 7;
+BA_ "ASIL" SG_ 304 Checksum_130 3;
+BA_ "GenSigSendType" SG_ 304 Checksum_130 7;
+BA_ "GenSigStartValue" SG_ 304 Checksum_130 0;
+BA_ "ASIL" SG_ 304 MessageCounter_130 3;
+BA_ "GenSigSendType" SG_ 304 MessageCounter_130 7;
+BA_ "GenSigStartValue" SG_ 304 MessageCounter_130 0;
+BA_ "ASIL" SG_ 304 VCU_VoltageDemandHV 3;
+BA_ "GenSigSendType" SG_ 304 VCU_VoltageDemandHV 7;
+BA_ "GenSigStartValue" SG_ 304 VCU_VoltageDemandHV 1022;
+BA_ "ASIL" SG_ 304 VCU_CurrentLimitHV 3;
+BA_ "GenSigSendType" SG_ 304 VCU_CurrentLimitHV 7;
+BA_ "GenSigStartValue" SG_ 304 VCU_CurrentLimitHV 2046;
+BA_ "ASIL" SG_ 304 VCU_CurrentLimitLV 3;
+BA_ "GenSigSendType" SG_ 304 VCU_CurrentLimitLV 7;
+BA_ "GenSigStartValue" SG_ 304 VCU_CurrentLimitLV 2046;
+BA_ "ASIL" SG_ 304 VCU_VoltageDemandLV 3;
+BA_ "GenSigSendType" SG_ 304 VCU_VoltageDemandLV 7;
+BA_ "GenSigStartValue" SG_ 304 VCU_VoltageDemandLV 510;
+BA_ "ASIL" SG_ 304 VCU_ModeRequestDC 3;
+BA_ "GenSigSendType" SG_ 304 VCU_ModeRequestDC 7;
+BA_ "GenSigStartValue" SG_ 304 VCU_ModeRequestDC 0;
+BA_ "ASIL" SG_ 304 VCU_stT15DC 3;
+BA_ "GenSigSendType" SG_ 304 VCU_stT15DC 7;
+BA_ "GenSigStartValue" SG_ 304 VCU_stT15DC 2;
+BA_ "ASIL" SG_ 304 VCU_stHvDeactvnDC 3;
+BA_ "GenSigSendType" SG_ 304 VCU_stHvDeactvnDC 7;
+BA_ "ASIL" SG_ 544 Checksum_220 3;
+BA_ "GenSigSendType" SG_ 544 Checksum_220 7;
+BA_ "GenSigStartValue" SG_ 544 Checksum_220 0;
+BA_ "ASIL" SG_ 544 MessageCounter_220 3;
+BA_ "GenSigSendType" SG_ 544 MessageCounter_220 7;
+BA_ "GenSigStartValue" SG_ 544 MessageCounter_220 0;
+BA_ "ASIL" SG_ 544 DC1_VoltageHV 3;
+BA_ "GenSigSendType" SG_ 544 DC1_VoltageHV 7;
+BA_ "GenSigStartValue" SG_ 544 DC1_VoltageHV 1022;
+BA_ "ASIL" SG_ 544 DC1_CurrentLV 3;
+BA_ "GenSigSendType" SG_ 544 DC1_CurrentLV 7;
+BA_ "GenSigStartValue" SG_ 544 DC1_CurrentLV 2046;
+BA_ "ASIL" SG_ 544 DC1_Mode 3;
+BA_ "GenSigSendType" SG_ 544 DC1_Mode 7;
+BA_ "GenSigStartValue" SG_ 544 DC1_Mode 6;
+BA_ "ASIL" SG_ 544 DC1_CurrentHV 3;
+BA_ "GenSigSendType" SG_ 544 DC1_CurrentHV 7;
+BA_ "GenSigStartValue" SG_ 544 DC1_CurrentHV 2046;
+BA_ "ASIL" SG_ 544 DC1_Temp 3;
+BA_ "GenSigSendType" SG_ 544 DC1_Temp 7;
+BA_ "GenSigStartValue" SG_ 544 DC1_Temp 254;
+BA_ "ASIL" SG_ 544 DC1_VoltageLV 3;
+BA_ "GenSigSendType" SG_ 544 DC1_VoltageLV 7;
+BA_ "GenSigStartValue" SG_ 544 DC1_VoltageLV 510;
+BA_ "ASIL" SG_ 1024 Checksum_400 3;
+BA_ "GenSigSendType" SG_ 1024 Checksum_400 7;
+BA_ "GenSigStartValue" SG_ 1024 Checksum_400 0;
+BA_ "ASIL" SG_ 1024 MessageCounter_400 3;
+BA_ "GenSigSendType" SG_ 1024 MessageCounter_400 7;
+BA_ "GenSigStartValue" SG_ 1024 MessageCounter_400 0;
+BA_ "ASIL" SG_ 1024 DC1_MaxCurrentHV 3;
+BA_ "GenSigSendType" SG_ 1024 DC1_MaxCurrentHV 7;
+BA_ "GenSigStartValue" SG_ 1024 DC1_MaxCurrentHV 0;
+BA_ "ASIL" SG_ 1024 DC1_MaxCurrentLV 3;
+BA_ "GenSigSendType" SG_ 1024 DC1_MaxCurrentLV 7;
+BA_ "GenSigStartValue" SG_ 1024 DC1_MaxCurrentLV 1023;
+BA_ "ASIL" SG_ 1024 DC1_SetPointVoltageHV 3;
+BA_ "GenSigSendType" SG_ 1024 DC1_SetPointVoltageHV 7;
+BA_ "GenSigStartValue" SG_ 1024 DC1_SetPointVoltageHV 0;
+BA_ "ASIL" SG_ 1024 DC1_SetPointVoltageLV 3;
+BA_ "GenSigSendType" SG_ 1024 DC1_SetPointVoltageLV 7;
+BA_ "GenSigStartValue" SG_ 1024 DC1_SetPointVoltageLV 0;
+BA_ "ASIL" SG_ 1024 DC1_Utilization 3;
+BA_ "GenSigSendType" SG_ 1024 DC1_Utilization 7;
+BA_ "GenSigStartValue" SG_ 1024 DC1_Utilization 0;
+BA_ "ASIL" SG_ 1040 Checksum_410 3;
+BA_ "GenSigSendType" SG_ 1040 Checksum_410 7;
+BA_ "GenSigStartValue" SG_ 1040 Checksum_410 0;
+BA_ "ASIL" SG_ 1040 MessageCounter_410 3;
+BA_ "GenSigSendType" SG_ 1040 MessageCounter_410 7;
+BA_ "GenSigStartValue" SG_ 1040 MessageCounter_410 0;
+BA_ "ASIL" SG_ 1040 DC1_bDernUndrUdcLv 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bDernUndrUdcLv 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bDernUndrUdcLv 0;
+BA_ "ASIL" SG_ 1040 DC1_bDernOvrUdcLv 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bDernOvrUdcLv 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bDernOvrUdcLv 0;
+BA_ "ASIL" SG_ 1040 DC1_bDernUndrUdcHv 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bDernUndrUdcHv 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bDernUndrUdcHv 0;
+BA_ "ASIL" SG_ 1040 DC1_bDernOvrUdcHv 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bDernOvrUdcHv 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bDernOvrUdcHv 0;
+BA_ "ASIL" SG_ 1040 DC1_bDernTemp_DCDC 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bDernTemp_DCDC 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bDernTemp_DCDC 0;
+BA_ "ASIL" SG_ 1040 DC1_ErrLimitedPerformance 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_ErrLimitedPerformance 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_ErrLimitedPerformance 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrVltg 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrVltg 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrVltg 0;
+BA_ "ASIL" SG_ 1040 DC1_ErrShtOff 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_ErrShtOff 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_ErrShtOff 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrCrashDetd 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrCrashDetd 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrCrashDetd 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrLvBattOutOfRng 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrLvBattOutOfRng 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrLvBattOutOfRng 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrHvLineOutOfRng 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrHvLineOutOfRng 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrHvLineOutOfRng 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrHvIllegalCurrent 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrHvIllegalCurrent 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrHvIllegalCurrent 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrHvSpNotReachedTimeout 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrHvSpNotReachedTimeout 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrHvSpNotReachedTimeout 0;
+BA_ "ASIL" SG_ 1040 DC1_bErrCanMsg 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bErrCanMsg 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_bErrCanMsg 0;
+BA_ "ASIL" SG_ 1040 DC1_bPrecCmpl 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bPrecCmpl 7;
+BA_ "ASIL" SG_ 1040 DC1_bReqMIL 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_bReqMIL 7;
+BA_ "ASIL" SG_ 1040 DC1_stT30c 3;
+BA_ "GenSigSendType" SG_ 1040 DC1_stT30c 7;
+BA_ "GenSigStartValue" SG_ 1040 DC1_stT30c 2;
+BA_ "GenSigSendType" SG_ 1424 NM_VCU_SrcNodeId 7;
+BA_ "GenSigSendType" SG_ 1424 NM_VCU_CtrlBitVect 7;
+BA_ "GenSigSendType" SG_ 1424 NM_VCU_UserData 7;
+BA_ "GenSigSendType" SG_ 1425 NM_BMS_SrcNodeId 7;
+BA_ "GenSigSendType" SG_ 1425 NM_BMS_CtrlBitVect 7;
+BA_ "GenSigSendType" SG_ 1425 NM_BMS_UserData 7;
+BA_ "GenSigSendType" SG_ 1431 NM_DCDC1_SrcNodeId 7;
+BA_ "GenSigSendType" SG_ 1431 NM_DCDC1_CtrlBitVect 7;
+BA_ "GenSigSendType" SG_ 1431 NM_DCDC1_UserData 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Mileage 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Year 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Month 7;
+BA_ "GenSigStartValue" SG_ 1757 DIAG_Month 1;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Day 7;
+BA_ "GenSigStartValue" SG_ 1757 DIAG_Day 1;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Hour 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Minute 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Second 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Downtime_state 7;
+BA_ "GenSigSendType" SG_ 1757 DIAG_Downtime 7;
+BA_ "GenSigSendType" SG_ 1758 DIAG_VehicleSpeed 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_VehicleSpeed 255;
+BA_ "GenSigSendType" SG_ 1758 DIAG_OutsideTemperature 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_OutsideTemperature 254;
+BA_ "GenSigSendType" SG_ 1758 DIAG_EnvP_P 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_EnvP_P 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_AccelPdlPosn 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_AccelPdlPosn 255;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgPropSysActv 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgPropSysActv 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgGnrlDenom 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgGnrlDenom 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgGnrlDenomInhbn 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgGnrlDenomInhbn 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgColdStrtDenom 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgColdStrtDenom 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgColdStrtDenomInhbn 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgColdStrtDenomInhbn 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgPDTCMinTrip 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgPDTCMinTrip 0;
+BA_ "GenSigSendType" SG_ 1758 DIAG_flgWarmUpCycle 7;
+BA_ "GenSigStartValue" SG_ 1758 DIAG_flgWarmUpCycle 0;
+BA_ "GenSigSendType" SG_ 1759 DIAG_AbsThrtlPos 7;
+BA_ "GenSigStartValue" SG_ 1759 DIAG_AbsThrtlPos 255;
+BA_ "GenSigSendType" SG_ 1759 DIAG_EngLoad 7;
+BA_ "GenSigStartValue" SG_ 1759 DIAG_EngLoad 255;
+BA_ "GenSigSendType" SG_ 1759 DIAG_EngCooltT 7;
+BA_ "GenSigStartValue" SG_ 1759 DIAG_EngCooltT 255;
+BA_ "GenSigSendType" SG_ 1759 DIAG_EngN 7;
+BA_ "GenSigStartValue" SG_ 1759 DIAG_EngN 65534;
+BA_ "GenSigSendType" SG_ 1792 N_PDU_RQ_FUNC 7;
+BA_ "GenSigSendType" SG_ 2015 N_PDU_RQ_OBD 7;
+BA_ "GenSigSendType" SG_ 2019 N_PDU_RQ_DC1 7;
+BA_ "GenSigSendType" SG_ 2027 N_PDU_RESP_DC1 7;
+BA_ "ASIL" SG_ 2147483904 SftyInfo_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483904 SftyInfo_Cks 7;
+BA_ "ASIL" SG_ 2147483904 SftyInfo_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483904 SftyInfo_Alvctr 7;
+BA_ "ASIL" SG_ 2147483904 SftyInfo_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483904 SftyInfo_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483904 SftyOk 3;
+BA_ "GenSigSendType" SG_ 2147483904 SftyOk 7;
+BA_ "ASIL" SG_ 2147483904 CrashDetnNeg 3;
+BA_ "GenSigSendType" SG_ 2147483904 CrashDetnNeg 7;
+BA_ "ASIL" SG_ 2147483905 VehInfo_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483905 VehInfo_Cks 7;
+BA_ "ASIL" SG_ 2147483905 VehInfo_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483905 VehInfo_Alvctr 7;
+BA_ "ASIL" SG_ 2147483905 VehInfo_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483905 VehInfo_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483905 TAmb 3;
+BA_ "GenSigSendType" SG_ 2147483905 TAmb 7;
+BA_ "ASIL" SG_ 2147483905 VehSpd 3;
+BA_ "GenSigSendType" SG_ 2147483905 VehSpd 7;
+BA_ "ASIL" SG_ 2147483936 CtlCmd_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483936 CtlCmd_Cks 7;
+BA_ "ASIL" SG_ 2147483936 CtlCmd_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483936 CtlCmd_Alvctr 7;
+BA_ "ASIL" SG_ 2147483936 CtlCmd_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483936 CtlCmd_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483936 HvReq 3;
+BA_ "GenSigSendType" SG_ 2147483936 HvReq 7;
+BA_ "ASIL" SG_ 2147483936 IslnMeastDisaCmd 3;
+BA_ "GenSigSendType" SG_ 2147483936 IslnMeastDisaCmd 7;
+BA_ "GenSigStartValue" SG_ 2147483938 FVMAuthenticator 0;
+BA_ "GenSigStartValue" SG_ 2147483938 FVMPDULinkerAuth 0;
+BA_ "ASIL" SG_ 2147483939 FVMResetCounter 1;
+BA_ "GenSigStartValue" SG_ 2147483939 FVMResetCounter 0;
+BA_ "ASIL" SG_ 2147483939 FVMPDULinkerCntr 1;
+BA_ "GenSigStartValue" SG_ 2147483939 FVMPDULinkerCntr 0;
+BA_ "ASIL" SG_ 2147483939 FVMTripCounter 1;
+BA_ "GenSigStartValue" SG_ 2147483939 FVMTripCounter 0;
+BA_ "ASIL" SG_ 2147483952 BatPermsnToCls_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483952 BatPermsnToCls_Cks 7;
+BA_ "ASIL" SG_ 2147483952 BatPermsnToCls_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483952 BatPermsnToCls_Alvctr 7;
+BA_ "ASIL" SG_ 2147483952 BatPermsnToCls_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483952 BatPermsnToCls_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483952 IPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 IPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 IslnPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 IslnPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 CtctrStuckPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 CtctrStuckPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 DcChCtctrPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 DcChCtctrPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 ThermRunAwPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 ThermRunAwPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 CrashPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 CrashPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 LockMemPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 LockMemPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 CptTPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 CptTPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 CellUPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 CellUPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483952 CellTPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483952 CellTPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483953 BatInfo_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483953 BatInfo_Cks 7;
+BA_ "ASIL" SG_ 2147483953 BatInfo_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483953 BatInfo_Alvctr 7;
+BA_ "ASIL" SG_ 2147483953 BatInfo_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483953 BatInfo_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483953 P 3;
+BA_ "GenSigSendType" SG_ 2147483953 P 7;
+BA_ "ASIL" SG_ 2147483953 StsIslnMeast 3;
+BA_ "GenSigSendType" SG_ 2147483953 StsIslnMeast 7;
+BA_ "ASIL" SG_ 2147483953 RIsln 3;
+BA_ "GenSigSendType" SG_ 2147483953 RIsln 7;
+BA_ "ASIL" SG_ 2147483953 ThermEveStsCellT 3;
+BA_ "GenSigSendType" SG_ 2147483953 ThermEveStsCellT 7;
+BA_ "ASIL" SG_ 2147483953 RPrecOvtempFlag 3;
+BA_ "GenSigSendType" SG_ 2147483953 RPrecOvtempFlag 7;
+BA_ "ASIL" SG_ 2147483953 DcnctPndFlag 3;
+BA_ "GenSigSendType" SG_ 2147483953 DcnctPndFlag 7;
+BA_ "ASIL" SG_ 2147483953 DcnctPndCtr 3;
+BA_ "GenSigSendType" SG_ 2147483953 DcnctPndCtr 7;
+BA_ "ASIL" SG_ 2147483955 BatUMps_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483955 BatUMps_Cks 7;
+BA_ "ASIL" SG_ 2147483955 BatUMps_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483955 BatUMps_Alvctr 7;
+BA_ "ASIL" SG_ 2147483955 BatUMps_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483955 BatUMps_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483955 ULnkMps 3;
+BA_ "GenSigSendType" SG_ 2147483955 ULnkMps 7;
+BA_ "ASIL" SG_ 2147483955 UExpdCh 3;
+BA_ "GenSigSendType" SG_ 2147483955 UExpdCh 7;
+BA_ "ASIL" SG_ 2147483955 UExpdDrvg 3;
+BA_ "GenSigSendType" SG_ 2147483955 UExpdDrvg 7;
+BA_ "ASIL" SG_ 2147483955 UDcLnk 3;
+BA_ "GenSigSendType" SG_ 2147483955 UDcLnk 7;
+BA_ "ASIL" SG_ 2147483956 BatUSng_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483956 BatUSng_Cks 7;
+BA_ "GenSigStartValue" SG_ 2147483956 BatUSng_Cks 0;
+BA_ "ASIL" SG_ 2147483956 BatUSng_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483956 BatUSng_Alvctr 7;
+BA_ "GenSigStartValue" SG_ 2147483956 BatUSng_Alvctr 0;
+BA_ "ASIL" SG_ 2147483956 BatUSng_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483956 BatUSng_DIDNibble 7;
+BA_ "GenSigStartValue" SG_ 2147483956 BatUSng_DIDNibble 0;
+BA_ "ASIL" SG_ 2147483956 ULnkSng 3;
+BA_ "GenSigSendType" SG_ 2147483956 ULnkSng 7;
+BA_ "GenSigStartValue" SG_ 2147483956 ULnkSng 0;
+BA_ "ASIL" SG_ 2147483956 UBat 3;
+BA_ "GenSigSendType" SG_ 2147483956 UBat 7;
+BA_ "GenSigStartValue" SG_ 2147483956 UBat 0;
+BA_ "ASIL" SG_ 2147483958 BatSts_Cks 3;
+BA_ "GenSigSendType" SG_ 2147483958 BatSts_Cks 7;
+BA_ "ASIL" SG_ 2147483958 BatSts_Alvctr 3;
+BA_ "GenSigSendType" SG_ 2147483958 BatSts_Alvctr 7;
+BA_ "ASIL" SG_ 2147483958 BatSts_DIDNibble 3;
+BA_ "GenSigSendType" SG_ 2147483958 BatSts_DIDNibble 7;
+BA_ "ASIL" SG_ 2147483958 BatSt 3;
+BA_ "GenSigSendType" SG_ 2147483958 BatSt 7;
+BA_ "ASIL" SG_ 2147483958 SftySt 3;
+BA_ "GenSigSendType" SG_ 2147483958 SftySt 7;
+BA_ "ASIL" SG_ 2147483958 ErrLvl 3;
+BA_ "GenSigSendType" SG_ 2147483958 ErrLvl 7;
+BA_ "ASIL" SG_ 2147483958 HvilPermsnToCls 3;
+BA_ "GenSigSendType" SG_ 2147483958 HvilPermsnToCls 7;
+BA_ "ASIL" SG_ 2147483958 I 3;
+BA_ "GenSigSendType" SG_ 2147483958 I 7;
+BA_ "ASIL" SG_ 2147483958 StCtctrPos 3;
+BA_ "GenSigSendType" SG_ 2147483958 StCtctrPos 7;
+BA_ "ASIL" SG_ 2147483958 StCtctrNeg 3;
+BA_ "GenSigSendType" SG_ 2147483958 StCtctrNeg 7;
+BA_ "ASIL" SG_ 2147483958 StCtctrPrec 3;
+BA_ "GenSigSendType" SG_ 2147483958 StCtctrPrec 7;
+BA_ "ASIL" SG_ 2147483958 EcuSt 3;
+BA_ "GenSigSendType" SG_ 2147483958 EcuSt 7;
+BA_ "GenSigSendType" SG_ 2147484752 Year 7;
+BA_ "GenSigStartValue" SG_ 2147484752 Year 0;
+BA_ "GenSigSendType" SG_ 2147484752 Month 7;
+BA_ "GenSigStartValue" SG_ 2147484752 Month 1;
+BA_ "GenSigSendType" SG_ 2147484752 Day 7;
+BA_ "GenSigStartValue" SG_ 2147484752 Day 0;
+BA_ "GenSigSendType" SG_ 2147484752 Hour 7;
+BA_ "GenSigStartValue" SG_ 2147484752 Hour 0;
+BA_ "GenSigSendType" SG_ 2147484752 Minu 7;
+BA_ "GenSigStartValue" SG_ 2147484752 Minu 0;
+BA_ "GenSigSendType" SG_ 2147484752 Sec 7;
+BA_ "GenSigStartValue" SG_ 2147484752 Sec 0;
+BA_ "GenSigSendType" SG_ 2147484752 miliseconds 7;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlEnPassengerClimate 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlEnPassengerClimate 3;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlEnPassengerPassengerEcoMode 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlEnPassengerPassengerEcoMode 3;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlEnPassengerPrecondMode 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlEnPassengerPrecondMode 3;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B0 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B0 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B1 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B1 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B2 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B2 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B3 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B3 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B4 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B4 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B5 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B5 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B6 0;
+BA_ "GenSigSendType" SG_ 2147485185 CtrlPassenger_Reserved_B7 7;
+BA_ "GenSigStartValue" SG_ 2147485185 CtrlPassenger_Reserved_B7 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlEnBatteryPreconditioning 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlEnBatteryPreconditioning 3;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B0 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B0 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B1 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B1 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B2 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B2 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B3 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B3 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B4 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B4 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B5 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B5 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B6 0;
+BA_ "GenSigSendType" SG_ 2147485186 CtrlBattery_Reserved_B7 7;
+BA_ "GenSigStartValue" SG_ 2147485186 CtrlBattery_Reserved_B7 0;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlEnPeemCooling 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlEnPeemCooling 3;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeem_Reserved_B0 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeem_Reserved_B0 0;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeemComponentTempDcdc1 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeemComponentTempDcdc1 255;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeemComponentTempDcdc2 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeemComponentTempDcdc2 255;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeemComponentTempPwrMotor 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeemComponentTempPwrMotor 255;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeemComponentTempPwrInvtr 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeemComponentTempPwrInvtr 255;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeem_Reserved_B5 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeem_Reserved_B5 0;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeem_Reserved_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeem_Reserved_B6 0;
+BA_ "GenSigSendType" SG_ 2147485187 CtrlPeem_Reserved_B7 7;
+BA_ "GenSigStartValue" SG_ 2147485187 CtrlPeem_Reserved_B7 0;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmtThermalPriority 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmtThermalPriority 15;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmt_Reserved_B0 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmt_Reserved_B0 0;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmtHvAvailable 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmtHvAvailable 3;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmt_Reserved_B1 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmt_Reserved_B1 0;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmtHvPowerLimit 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmtHvPowerLimit 65535;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmt_Reserved_B4 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmt_Reserved_B4 0;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmt_Reserved_B5 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmt_Reserved_B5 0;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmt_Reserved_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmt_Reserved_B6 0;
+BA_ "GenSigSendType" SG_ 2147485188 CtrlPowerMgmt_Reserved_B7 7;
+BA_ "GenSigStartValue" SG_ 2147485188 CtrlPowerMgmt_Reserved_B7 0;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPwTMCReq 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPwTMCReq 65535;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPowerMgmt_Reserved_B2 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPowerMgmt_Reserved_B2 255;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPowerMgmt_Reserved_B3 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPowerMgmt_Reserved_B3 255;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPowerMgmt_Reserved_B4 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPowerMgmt_Reserved_B4 255;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPowerMgmt_Reserved_B5 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPowerMgmt_Reserved_B5 255;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPowerMgmt_Reserved_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPowerMgmt_Reserved_B6 255;
+BA_ "GenSigSendType" SG_ 2147485189 StatusPowerMgmt_Reserved_B7 7;
+BA_ "GenSigStartValue" SG_ 2147485189 StatusPowerMgmt_Reserved_B7 255;
+BA_ "GenSigSendType" SG_ 2147485190 StatusAirTreatedTemp1 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusAirTreatedTemp1 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusAirTreatedTemp2 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusAirTreatedTemp2 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusBatteryCoolantPump 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusBatteryCoolantPump 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusBatteryCoolValveColdIn 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusBatteryCoolValveColdIn 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusAmbientAirTemp 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusAmbientAirTemp 255;
+BA_ "GenSigSendType" SG_ 2147485190 StatusBatteryCoolValveHotIn 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusBatteryCoolValveHotIn 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusBatteryCoolValveOut 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusBatteryCoolValveOut 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusBatteryLoopTank 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusBatteryLoopTank 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCabinTemp 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCabinTemp 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusColdCoolantPump1 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusColdCoolantPump1 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusColdCoolantPump2 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusColdCoolantPump2 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusColdTank 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusColdTank 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantLevelIndication 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantLevelIndication 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempBattInlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempBattInlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempBattOutlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempBattOutlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempHyperInletCold 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempHyperInletCold 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempHyperInletHot 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempHyperInletHot 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempInverterOutlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempInverterOutlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempPEEMInlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempPEEMInlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempPEEMOutlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempPEEMOutlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempRadiatorOutlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempRadiatorOutlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempSDSInlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempSDSInlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolantTempSDSOutlet 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolantTempSDSOutlet 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusCoolingPriority 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusCoolingPriority 15;
+BA_ "GenSigSendType" SG_ 2147485190 StatusEXTTemp 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusEXTTemp 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusFrontWindshieldDefrostAct 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusFrontWindshieldDefrostAct 3;
+BA_ "GenSigSendType" SG_ 2147485190 StatusHotTank 7;
+BA_ "GenSigStartValue" SG_ 2147485190 StatusHotTank 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusHeater 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusHeater 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusHeatpump1 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusHeatpump1 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusHeatpump2 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusHeatpump2 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusHotCoolantPump1 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusHotCoolantPump1 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusHotCoolantPump2 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusHotCoolantPump2 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerAQSensor 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerAQSensor 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerBlower1 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerBlower1 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerBlower2 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerBlower2 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerCO2Sensor 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerCO2Sensor 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerCoolantValveHotIn 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerCoolantValveHotIn 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerCoolValveColdIn 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerCoolValveColdIn 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerFlrCoolantValveIn 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerFlrCoolantValveIn 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPassengerHumiditySensor 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPassengerHumiditySensor 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPeemCoolantPump 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPeemCoolantPump 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPeemCoolValveIn 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPeemCoolValveIn 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPeemCoolValveMix 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPeemCoolValveMix 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPeemFan1 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPeemFan1 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPeemFan2 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPeemFan2 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusPEEMLoopTank 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusPEEMLoopTank 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorCoolValveColdIn 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorCoolValveColdIn 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorCoolValveHotIn 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorCoolValveHotIn 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorCoolValveOut 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorCoolValveOut 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorFan1 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorFan1 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorFan2 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorFan2 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorFan4 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorFan4 3;
+BA_ "GenSigSendType" SG_ 2147485191 StatusRadiatorFan3 7;
+BA_ "GenSigStartValue" SG_ 2147485191 StatusRadiatorFan3 3;
+BA_ "GenSigSendType" SG_ 2147485191 Status_Reserved_F1_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485191 Status_Reserved_F1_B6 15;
+BA_ "GenSigSendType" SG_ 2147485191 Status_Reserved_F1_B7 7;
+BA_ "GenSigStartValue" SG_ 2147485191 Status_Reserved_F1_B7 255;
+BA_ "GenSigSendType" SG_ 2147485192 StatusPEEMInletTemp 7;
+BA_ "GenSigStartValue" SG_ 2147485192 StatusPEEMInletTemp 255;
+BA_ "GenSigSendType" SG_ 2147485192 StatusSDSOutletTemp 7;
+BA_ "GenSigStartValue" SG_ 2147485192 StatusSDSOutletTemp 255;
+BA_ "GenSigSendType" SG_ 2147485192 Status_Reserved_F2_B2 7;
+BA_ "GenSigStartValue" SG_ 2147485192 Status_Reserved_F2_B2 255;
+BA_ "GenSigSendType" SG_ 2147485192 Status_Reserved_F2_B3 7;
+BA_ "GenSigStartValue" SG_ 2147485192 Status_Reserved_F2_B3 255;
+BA_ "GenSigSendType" SG_ 2147485192 Status_Reserved_F2_B4 7;
+BA_ "GenSigStartValue" SG_ 2147485192 Status_Reserved_F2_B4 255;
+BA_ "GenSigSendType" SG_ 2147485192 Status_Reserved_F2_B5 7;
+BA_ "GenSigStartValue" SG_ 2147485192 Status_Reserved_F2_B5 255;
+BA_ "GenSigSendType" SG_ 2147485192 Status_Reserved_F2_B6 7;
+BA_ "GenSigStartValue" SG_ 2147485192 Status_Reserved_F2_B6 255;
+BA_ "GenSigSendType" SG_ 2147485192 StatusPassengerCabinAirTemp 7;
+BA_ "GenSigStartValue" SG_ 2147485192 StatusPassengerCabinAirTemp 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempBattInlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempBattOutlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempInverterOutlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempPEEMInlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempPEEMOutlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempRadiatorOutlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempSDSInlet 255;
+BA_ "GenSigStartValue" SG_ 2147485193 CoolantTempSDSOutlet 255;
+BA_ "GenSigStartValue" SG_ 2147485194 AirTreatedTemp1 255;
+BA_ "GenSigStartValue" SG_ 2147485194 AirTreatedTemp2 255;
+BA_ "GenSigSendType" SG_ 2147485440 IChLimSho 7;
+BA_ "GenSigSendType" SG_ 2147485440 IDchaLimSho 7;
+BA_ "GenSigSendType" SG_ 2147485440 IChLimLong 7;
+BA_ "GenSigSendType" SG_ 2147485440 IDchaLimLong 7;
+BA_ "GenSigSendType" SG_ 2147485441 UChLimSho 7;
+BA_ "GenSigSendType" SG_ 2147485441 UDchaLimSho 7;
+BA_ "GenSigSendType" SG_ 2147485441 UChLimLong 7;
+BA_ "GenSigSendType" SG_ 2147485441 UDchaLimLong 7;
+BA_ "GenSigSendType" SG_ 2147485442 Soc 7;
+BA_ "GenSigStartValue" SG_ 2147485442 Soc 0;
+BA_ "GenSigSendType" SG_ 2147485442 Soh 7;
+BA_ "GenSigStartValue" SG_ 2147485442 Soh 0;
+BA_ "GenSigSendType" SG_ 2147485442 AvlE 7;
+BA_ "GenSigStartValue" SG_ 2147485442 AvlE 0;
+BA_ "GenSigSendType" SG_ 2147485443 TCellMax 7;
+BA_ "GenSigSendType" SG_ 2147485443 TCellMin 7;
+BA_ "GenSigSendType" SG_ 2147485444 UCellMax 7;
+BA_ "GenSigSendType" SG_ 2147485444 UCellMin 7;
+BA_ "GenSigSendType" SG_ 2147485456 EcuCalVersSwEcuTyp 7;
+BA_ "GenSigSendType" SG_ 2147485456 EcuSwNrSwEcuTyp 7;
+BA_ "GenSigSendType" SG_ 2147485456 CmptbltyIdx 7;
+BA_ "GenSigSendType" SG_ 2147485457 EcuHwNr 7;
+BA_ "GenSigSendType" SG_ 2147485457 EcuHwVers 7;
+BA_ "GenSigSendType" SG_ 2147485457 PackName 7;
+BA_ "GenSigSendType" SG_ 2147485457 EcuTyp 7;
+BA_ "GenSigSendType" SG_ 2147485457 EcuSbTypBms 7;
+BA_ "GenSigSendType" SG_ 2147485457 EcuSbTypVic 7;
+BA_ "GenSigSendType" SG_ 2147485458 EcuSwVersNrMjr 7;
+BA_ "GenSigSendType" SG_ 2147485458 EcuSwVersNrMid 7;
+BA_ "GenSigSendType" SG_ 2147485458 EcuSwVersNrMnr 7;
+BA_ "GenSigSendType" SG_ 2147485459 EcuSwVersNrBuild 7;
+BA_ "GenSigSendType" SG_ 2147485459 EcuSwNrCusVrnt 7;
+BA_ "GenSigSendType" SG_ 2147485459 EcuSwNrSwVrnt 7;
+BA_ "GenSigSendType" SG_ 2147485460 EcuCalVersMjr 7;
+BA_ "GenSigSendType" SG_ 2147485460 EcuCalVersMid 7;
+BA_ "GenSigSendType" SG_ 2147485460 EcuCalVersMnr 7;
+BA_ "GenSigSendType" SG_ 2147485461 EcuCalVersBuild 7;
+BA_ "GenSigSendType" SG_ 2147485461 EcuCalVersCusVrnt 7;
+BA_ "GenSigSendType" SG_ 2147485461 EcuCalVersSwVrnt 7;
+BA_ "GenSigSendType" SG_ 2147485472 ThermSysStrtReq1 7;
+BA_ "GenSigStartValue" SG_ 2147485472 ThermSysStrtReq1 3;
+BA_ "GenSigSendType" SG_ 2147485472 PackNameThermReq1 7;
+BA_ "GenSigStartValue" SG_ 2147485472 PackNameThermReq1 31;
+BA_ "GenSigSendType" SG_ 2147485472 EnaCoolgHeatgBatFlag 7;
+BA_ "GenSigStartValue" SG_ 2147485472 EnaCoolgHeatgBatFlag 3;
+BA_ "GenSigSendType" SG_ 2147485472 TAct 7;
+BA_ "GenSigSendType" SG_ 2147485472 TSetPoint 7;
+BA_ "GenSigSendType" SG_ 2147485473 ThermSysStrtReq2 7;
+BA_ "GenSigSendType" SG_ 2147485473 CoolgHeatgReq 7;
+BA_ "GenSigStartValue" SG_ 2147485473 CoolgHeatgReq 3;
+
+
+VAL_ 10 Checksum_A 0 "Init"; 
+VAL_ 10 MessageCounter_A 0 "Init"; 
+VAL_ 10 PSM_CrashState_GW 0 "NoCrash" 1 "CrashSeverity1" 2 "CrashSeverity2" 3 "CrashSeverity3" 4 "CrashSeverity4" 5 "CrashSeverity5" 6 "CrashSeverity6" 7 "invalid value"; 
+VAL_ 110 Checksum_6E 0 "Init"; 
+VAL_ 110 MessageCounter_6E 0 "Init"; 
+VAL_ 110 BMS_Voltage 4094 "Init" 4095 "Error"; 
+VAL_ 110 BMS_State 0 "Standby" 1 "HVActive" 2 "Balancing" 3 "ExternalCharging" 4 "ExternalChargingHV" 5 "BatteryError" 6 "-" 7 "Initializing"; 
+VAL_ 110 BMS_ContactorState 0 "HVBattCntctr_Open" 1 "HVBattCntctr_Closed" 2 "HVBattCntctr_SwitchingOn" 3 "HVBattCntctr_SwitchingOff" 4 "unused" 5 "unused" 6 "HVBattCntctr_Init" 7 "HVBattCntctr_Failure" 8 "unused" 9 "unused" 10 "unused" 11 "unused" 12 "unused" 13 "unused" 14 "unused" 15 "unused"; 
+VAL_ 111 Checksum_6F 0 "Init"; 
+VAL_ 111 MessageCounter_6F 0 "Init"; 
+VAL_ 111 BMS_UCntct 4094 "Init" 4095 "Error"; 
+VAL_ 120 MessageCounter_78 0 "Init"; 
+VAL_ 120 BMS_MaxChgCurrLongTerm 4095 "Init"; 
+VAL_ 120 BMS_MaxChgCurrShortTerm 4095 "Init"; 
+VAL_ 150 Checksum_96 0 "Init"; 
+VAL_ 150 MessageCounter_96 0 "Init"; 
+VAL_ 150 BMS_MaxChgVoltage 1022 "Init" 1023 "Error"; 
+VAL_ 160 Checksum_A0 0 "Init"; 
+VAL_ 160 MessageCounter_A0 0 "Init"; 
+VAL_ 160 BMS_HVinterlockState 0 "open" 1 "closed"; 
+VAL_ 304 Checksum_130 0 "Init"; 
+VAL_ 304 MessageCounter_130 0 "Init"; 
+VAL_ 304 VCU_VoltageDemandHV 1022 "Init" 1023 "Error"; 
+VAL_ 304 VCU_CurrentLimitHV 2046 "Init" 2047 "Error"; 
+VAL_ 304 VCU_CurrentLimitLV 2046 "Init" 2047 "Error"; 
+VAL_ 304 VCU_VoltageDemandLV 510 "Init" 511 "Error"; 
+VAL_ 304 VCU_ModeRequestDC 0 "Standby" 1 "Buck" 2 "Boost" 3 "unused" 4 "Precharge" 5 "TestPls" 6 "unused" 7 "unused"; 
+VAL_ 304 VCU_stT15DC 0 "T15 off" 1 "T15 on" 2 "init" 3 "error"; 
+VAL_ 304 VCU_stHvDeactvnDC 0 "no deactivation of HV" 1 "HV deactivation" 2 "reserved" 3 "reserved"; 
+VAL_ 544 Checksum_220 0 "Init"; 
+VAL_ 544 MessageCounter_220 0 "Init"; 
+VAL_ 544 DC1_VoltageHV 1022 "Init" 1023 "Failure"; 
+VAL_ 544 DC1_CurrentLV 2046 "Init" 2047 "Failure"; 
+VAL_ 544 DC1_Mode 0 "Standby" 1 "Buck" 2 "Boost" 3 "unused" 4 "Precharge" 5 "TestPls" 6 "Init" 7 "Failure"; 
+VAL_ 544 DC1_CurrentHV 2046 "Init" 2047 "Failure"; 
+VAL_ 544 DC1_Temp 254 "Init" 255 "Error"; 
+VAL_ 544 DC1_VoltageLV 510 "Init" 511 "Failure"; 
+VAL_ 1024 Checksum_400 0 "Init"; 
+VAL_ 1024 MessageCounter_400 0 "Init"; 
+VAL_ 1024 DC1_MaxCurrentHV 0 "Init"; 
+VAL_ 1024 DC1_MaxCurrentLV 1023 "Init"; 
+VAL_ 1024 DC1_SetPointVoltageHV 0 "Init"; 
+VAL_ 1024 DC1_SetPointVoltageLV 0 "Init"; 
+VAL_ 1024 DC1_Utilization 0 "Init"; 
+VAL_ 1040 Checksum_410 0 "Init"; 
+VAL_ 1040 MessageCounter_410 0 "Init"; 
+VAL_ 1040 DC1_bPrecCmpl 0 "not completed" 1 "completed"; 
+VAL_ 1040 DC1_bReqMIL 0 "MIL Off" 1 "MIL On"; 
+VAL_ 1040 DC1_stT30c 0 "T30c off" 1 "T30c on" 2 "init" 3 "error"; 
+VAL_ 1757 DIAG_Downtime_state 0 "not valid/calculated" 1 "valid"; 
+VAL_ 1758 DIAG_VehicleSpeed 255 "Init"; 
+VAL_ 1758 DIAG_OutsideTemperature 254 "Init" 255 "Failure"; 
+VAL_ 1758 DIAG_EnvP_P 254 "not applicable" 255 "Error"; 
+VAL_ 1758 DIAG_AccelPdlPosn 255 "Init"; 
+VAL_ 1758 DIAG_flgPropSysActv 0 "No" 1 "Yes"; 
+VAL_ 1758 DIAG_flgGnrlDenom 0 "No" 1 "Yes"; 
+VAL_ 1758 DIAG_flgGnrlDenomInhbn 0 "No" 1 "Yes"; 
+VAL_ 1758 DIAG_flgColdStrtDenom 0 "No" 1 "Yes"; 
+VAL_ 1758 DIAG_flgColdStrtDenomInhbn 0 "No" 1 "Yes"; 
+VAL_ 1758 DIAG_flgPDTCMinTrip 0 "No" 1 "Yes"; 
+VAL_ 1758 DIAG_flgWarmUpCycle 0 "No" 1 "Yes"; 
+VAL_ 1759 DIAG_AbsThrtlPos 255 "Init"; 
+VAL_ 1759 DIAG_EngLoad 255 "Init"; 
+VAL_ 1759 DIAG_EngCooltT 255 "Init"; 
+VAL_ 1759 DIAG_EngN 65534 "Init" 65535 "Error"; 
+VAL_ 2147483904 SftyOk 0 "No concession" 1 "Concession granted" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147483904 CrashDetnNeg 0 "Crash detected" 1 "No crash detected" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147483936 HvReq 0 "Disconnect" 1 "Emergency disconnect" 16 "Connect for driving" 32 "Connect for AC charging" 48 "Prepare for DC char. (VIB only)" 49 "Connect for DC char. (VIB only)" 50 "Disconnect DC char. (VIB only)" 51 "Connect for DC char. GBT (VIB only)" 255 "Info not available (default)"; 
+VAL_ 2147483936 IslnMeastDisaCmd 0 "Enable" 1 "Disable" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147483952 IPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 IslnPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 CtctrStuckPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 DcChCtctrPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 ThermRunAwPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 CrashPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 LockMemPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 CptTPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 CellUPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483952 CellTPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483953 StsIslnMeast 0 "Enabled" 1 "Disabled" 2 "Inhibited" 7 "Info not available (default)"; 
+VAL_ 2147483953 ThermEveStsCellT 0 "Temperature ok" 1 "Temp. warn. limit exceeded" 2 "Temp. crit. limit exceeded" 3 "Info not available (default)"; 
+VAL_ 2147483953 RPrecOvtempFlag 0 "Precharge possible" 1 "Precharge impossible" 3 "Info not available (default)"; 
+VAL_ 2147483953 DcnctPndFlag 0 "No disconnection anticipated" 1 "Disconnection is imminent" 3 "Info not available (default)"; 
+VAL_ 2147483958 BatSt 0 "Initialising" 1 "Emergeny disconnecting" 2 "Disconnected, not ready" 3 "Disconnected, awaiting HV req." 16 "Connecting" 21 "Connected" 23 "Disconnecting" 37 "Connected for AC charging" 48 "Prepared for DC charging" 53 "Connected for DC charging" 54 "Connected, DC contactors opened" 55 "Connected for DC charging GBT" 62 "In service mode" 63 "Info not available (default)"; 
+VAL_ 2147483958 SftySt 0 "Safety monitoring not ok" 1 "Safety monitoring ok" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147483958 ErrLvl 0 "System is ok" 1 "Minor system failure, performance unaffected" 2 "Limp Home with limited power" 3 "Open contactors with speed limit" 4 "Open contactors with time limit" 5 "Open contactors normal" 6 "Open contactors immediately" 7 "Open contactors immediately and lock"; 
+VAL_ 2147483958 HvilPermsnToCls 0 "Denied due to initialization" 1 "Denied until restart" 2 "Denied permanently" 10 "Granted" 11 "Granted but error" 15 "Info not available (default)"; 
+VAL_ 2147483958 StCtctrPos 0 "Open" 1 "Closed" 2 "Unknown" 3 "Information not available"; 
+VAL_ 2147483958 StCtctrNeg 0 "Open" 1 "Closed" 2 "Unknown" 3 "Information not available"; 
+VAL_ 2147483958 StCtctrPrec 0 "Open" 1 "Closed" 2 "Unknown" 3 "Information not available"; 
+VAL_ 2147483958 EcuSt 0 "Startup" 1 "Run" 2 "Power Latch" 3 "Wait/Com_Latch" 4 "Shutdown" 5 "ComReq" 6 "ReqIdle" 7 "SysChk"; 
+VAL_ 2147485185 CtrlEnPassengerClimate 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485185 CtrlEnPassengerPassengerEcoMode 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485185 CtrlEnPassengerPrecondMode 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B0 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B1 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B2 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B3 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B4 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B5 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B6 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485185 CtrlPassenger_Reserved_B7 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlEnBatteryPreconditioning 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B0 62 "ERROR" 63 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B1 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B2 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B3 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B4 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B5 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B6 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485186 CtrlBattery_Reserved_B7 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlEnPeemCooling 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485187 CtrlPeem_Reserved_B0 62 "ERROR" 63 "SNA"; 
+VAL_ 2147485187 CtrlPeemComponentTempDcdc1 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlPeemComponentTempDcdc2 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlPeemComponentTempPwrMotor 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlPeemComponentTempPwrInvtr 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlPeem_Reserved_B5 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlPeem_Reserved_B6 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485187 CtrlPeem_Reserved_B7 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmtThermalPriority 0 "None" 1 "PassengerClimate" 2 "BatteryThermal" 3 "PeemThermal" 14 "ERROR" 15 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmt_Reserved_B0 14 "ERROR" 15 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmtHvAvailable 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmt_Reserved_B1 62 "ERROR" 63 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmtHvPowerLimit 65534 "ERROR" 65535 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmt_Reserved_B4 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmt_Reserved_B5 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmt_Reserved_B6 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485188 CtrlPowerMgmt_Reserved_B7 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485189 StatusPwTMCReq 65534 "ERROR" 65535 "SNA"; 
+VAL_ 2147485189 StatusPowerMgmt_Reserved_B2 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485189 StatusPowerMgmt_Reserved_B3 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485189 StatusPowerMgmt_Reserved_B4 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485189 StatusPowerMgmt_Reserved_B5 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485189 StatusPowerMgmt_Reserved_B6 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485189 StatusPowerMgmt_Reserved_B7 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485190 StatusAirTreatedTemp1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusAirTreatedTemp2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusBatteryCoolantPump 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusBatteryCoolValveColdIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusAmbientAirTemp 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485190 StatusBatteryCoolValveHotIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusBatteryCoolValveOut 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusBatteryLoopTank 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCabinTemp 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusColdCoolantPump1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusColdCoolantPump2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusColdTank 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantLevelIndication 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempBattInlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempBattOutlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempHyperInletCold 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempHyperInletHot 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempInverterOutlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempPEEMInlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempPEEMOutlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempRadiatorOutlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempSDSInlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolantTempSDSOutlet 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusCoolingPriority 0 "None" 1 "PassengerClimate" 2 "BatteryThermal" 3 "PeemThermal" 14 "ERROR" 15 "SNA"; 
+VAL_ 2147485190 StatusEXTTemp 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusFrontWindshieldDefrostAct 0 "FALSE" 1 "TRUE" 2 "ERROR" 3 "SNA"; 
+VAL_ 2147485190 StatusHotTank 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusHeater 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusHeatpump1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusHeatpump2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusHotCoolantPump1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusHotCoolantPump2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerAQSensor 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerBlower1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerBlower2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerCO2Sensor 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerCoolantValveHotIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerCoolValveColdIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerFlrCoolantValveIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPassengerHumiditySensor 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPeemCoolantPump 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPeemCoolValveIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPeemCoolValveMix 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPeemFan1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPeemFan2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusPEEMLoopTank 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorCoolValveColdIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorCoolValveHotIn 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorCoolValveOut 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorFan1 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorFan2 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorFan4 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 StatusRadiatorFan3 0 "NO_ERROR" 1 "ERROR" 2 "SIGNAL_ERROR" 3 "SNA"; 
+VAL_ 2147485191 Status_Reserved_F1_B6 14 "ERROR" 15 "SNA"; 
+VAL_ 2147485191 Status_Reserved_F1_B7 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 StatusPEEMInletTemp 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 StatusSDSOutletTemp 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 Status_Reserved_F2_B2 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 Status_Reserved_F2_B3 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 Status_Reserved_F2_B4 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 Status_Reserved_F2_B5 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 Status_Reserved_F2_B6 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485192 StatusPassengerCabinAirTemp 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempBattInlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempBattOutlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempInverterOutlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempPEEMInlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempPEEMOutlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempRadiatorOutlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempSDSInlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485193 CoolantTempSDSOutlet 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485194 AirTreatedTemp1 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485194 AirTreatedTemp2 254 "ERROR" 255 "SNA"; 
+VAL_ 2147485456 EcuCalVersSwEcuTyp 0 "Info not available (default)" 1 "BMS" 2 "VIC"; 
+VAL_ 2147485456 EcuSwNrSwEcuTyp 0 "Info not available (default)" 1 "BMS" 2 "VIC"; 
+VAL_ 2147485457 PackName 0 "Pack1_1 or Standalone" 1 "Pack1_2" 2 "Pack1_3" 3 "Pack1_4" 4 "Pack1_5" 5 "Pack1_6" 6 "Pack1_7" 7 "Pack2_1" 8 "Pack2_2" 9 "Pack2_3" 10 "Pack2_4" 11 "Pack2_5" 12 "Pack2_6" 30 "VIC" 31 "Info not available"; 
+VAL_ 2147485457 EcuTyp 0 "BMS" 1 "VIC"; 
+VAL_ 2147485457 EcuSbTypBms 0 "Standalone BMS" 1 "Slave BMS in Multipack System" 2 "Reserved" 3 "Info not available"; 
+VAL_ 2147485457 EcuSbTypVic 0 "1sXp Multipack configuration" 1 "2sXp Multipack configuration" 2 "Reserved" 3 "Info not available"; 
+VAL_ 2147485472 ThermSysStrtReq1 0 "Not active" 1 "Active" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147485472 PackNameThermReq1 0 "Pack1_1 or Standalone" 1 "Pack1_2" 2 "Pack1_3" 3 "Pack1_4" 4 "Pack1_5" 5 "Pack1_6" 6 "Pack1_7" 7 "Pack2_1" 8 "Pack2_2" 9 "Pack2_3" 10 "Pack2_4" 11 "Pack2_5" 12 "Pack2_6" 30 "VIC" 31 "Info not available"; 
+VAL_ 2147485472 EnaCoolgHeatgBatFlag 0 "Deactivate" 1 "Activate" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147485472 TSetPoint 2046 "external pump only"; 
+VAL_ 2147485473 ThermSysStrtReq2 0 "Not active" 1 "Active" 2 "Reserved" 3 "Info not available (default)"; 
+VAL_ 2147485473 CoolgHeatgReq 0 "Deactivate" 1 "Activate" 2 "Reserved" 3 "Info not available (default)"; 
+
+
+
+

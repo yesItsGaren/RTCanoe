@@ -1,0 +1,60 @@
+Encoding: iso-8859-1
+Detected dtd version 18.0.11
+VCANdelaPersistorImpl::GetFileVersion: DTD version '18.0.11' detected
+Detected dtd version 18.0.11
+VCANdelaPersistorImpl::GetFileVersion: DTD version '18.0.11' detected
+Loading 'C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CVS_BLD3_SW3.1_V3.cdd'...
+  dtd version: file 18.0.11, program 20.0.6
+Document supports the languages (en-US)
+Document contains the uptodate languages (en-US)
+Template: Vector UDS
+Migration 20: setting "Unique in Variant" property of String Attribute "qpath://[DATAOBJDEFATTR]ASR_UUID" to "Yes"
+Migration 20: setting "Unique in Variant" property of String Attribute "qpath://[DIAGINSTDEFATTR]ASR_UUID" to "Yes"
+  template data loaded
+Loaded Snapshot records and data
+Loaded Extended data
+Start loading event data model
+  variant 'Base_Variant' loaded
+Document version: CVS_BLD1_SW3.1_V3
+Done loading.
+Editor consistency check of document. This may take a while, please be patient...
+Warning: Text table data type 'Operational Mode' contains 1 entries without any assigned text.
+Warning: The range of data type 'Motor Control Torque Value' intersects with an invalid value range.
+Warning: The range of data type 'Motor Control Speed Value' intersects with an invalid value range.
+Warning: Text table data type 'Operational Mode Command' contains 1 entries without any assigned text.
+Warning: Text table data type 'Operational State Command' contains 1 entries without any assigned text.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Service "Read" in Variant "Base Variant" is not executable in any state of state group "SecurityAccess".  Services and jobs must be at least executable in one state of each state group.
+Inconsistencies detected.
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+Checking service prefixes in base variant "Base_Variant" ... OK
+Non-fatal inconsistencies detected in document regarding editor checks.

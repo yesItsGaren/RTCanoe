@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SDS_Test_Report_Steering_Maneuvers</title>
+    <script type="text/javascript">
+      function showTimestamp(timestamp){top.LogFile.showTimestamp(timestamp);}
+    </script>
+    <script type="text/javascript">
+      var EXPANDED = '[−]';
+      var COLLAPSED = '[+]';
+      var VISIBLE = 'Visible';
+      var HIDDEN = 'Hidden';
+      var NONE = 'none';
+      var BLOCK = '';
+      function getDivId(id) { return 'div_' + id; }
+      function getLinkId(id) { return 'lnk_' + id; }
+      function getTableId(id) { return 'tbl_' + id; }
+      function getTbl2Id(id) { return 'tbl_t' + id; }
+      
+      
+      function switchText(oldText) { return oldText == COLLAPSED ? EXPANDED : COLLAPSED ; }
+      function getStyleFromText(linkText) { return linkText == COLLAPSED ? HIDDEN : VISIBLE; }
+      
+      function getElements(tagName, elementId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        var len = elm.length;
+        for (var i = 0; i < len; i++) 
+        {
+          var id = elm[i].id;
+          if (id && id.indexOf(elementId) == 0)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;
+      }
+      function matchElements(tagName, matchId)
+      {
+        this.elements = [];
+        var index = 0;
+        var elm = document.getElementsByTagName(tagName);
+        for (var i = 0; i < elm.length; i++) 
+        {
+          var id = elm[i].id;
+          var tc = id.replace(/s[0-9]+\./, "");
+          if (tc && tc == matchId)
+          {
+            this.elements[index] = elm[i];
+            index++;
+          }
+        }
+        return this.elements;  
+      }
+      function onoff(elm, style)
+      {
+        if(elm.style.display == NONE)
+        {
+          if(style == null || style == VISIBLE)
+            elm.style.display = BLOCK;
+        }
+        else
+        {
+          if(style == null || style == HIDDEN)
+            elm.style.display = NONE;
+        }
+      }
+      function switchTagStyle(tag, id, style)
+      {
+        var divs = getElements(tag, id);
+        for(var i = 0; i < divs.length; i++)
+          onoff(divs[i], style);
+      }
+      function switchRowStyle(tbl, style)
+      {
+        var rows = tbl.rows.length;
+        for(var rowIndex=0; rowIndex < rows; rowIndex++)
+        {
+          var row = tbl.rows[rowIndex];
+          if (row.id != "on")
+            onoff(row, style);
+        }
+      }
+      function switchTableRowStyle(tableId, style)
+      {
+        var tables = getElements('table', tableId);
+        for(var i = 0; i < tables.length; i++)
+          switchRowStyle(tables[i], style);
+      }
+      function switchLinkText(linkId, newText)
+      {
+        var link = getElements('a', linkId);
+        var len = link.length;
+        for(var i = 0; i < len; i++)
+        {
+          var lnk = link[i];
+          if(newText == null)
+          {
+            var oldText = lnk.text;
+            newText = switchText(oldText)
+          }
+          lnk.text = newText;
+        }
+      }
+      function switchTag(tag, id, text)
+      {
+        var style = getStyleFromText(text);
+        switchTagStyle(tag, id, style);
+      }
+      function switchTable(id)
+      {
+        switchLinkText(getTableId(id));
+        switchTableRowStyle(getTableId(id));
+      }
+      function switchDiv(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+      }      
+      function switchAll(id, linkText)
+      {
+        var text = switchText(linkText);
+        switchLinkText(getLinkId(id), text);
+        switchTag('div', getDivId(id), text);
+        var style = getStyleFromText(text);
+        switchTableRowStyle(getTbl2Id(id), style);
+      }
+      function showTable(id)
+      {
+        var tableId = getTableId(id);
+        switchLinkText(tableId, EXPANDED);
+        switchTableRowStyle(tableId, VISIBLE);
+      }
+      function hideTable(id)
+      {
+        var tableId = getTableId(id);
+        switchTableRowStyle(tableId, HIDDEN);
+        switchLinkText(tableId, COLLAPSED);
+      }
+      function showDiv(id)
+      {
+        switchLinkText(getLinkId(id), EXPANDED);
+        switchTag('div', getDivId(id), EXPANDED);
+      }
+      function showTC(id)
+      {
+        var divId = getDivId(id);
+        var elms = matchElements('div', divId); 
+        if(elms != null && elms.length > 0)
+        {
+          id = elms[0].id.replace(getDivId(''), '');
+          showDiv(id);
+        }
+      }
+      
+    </script>
+    <link rel="stylesheet" type="text/css" href="multipage.css">
+  </head>
+  <body>
+    <a name="TOP"></a>
+    <table class="HeadingTable">
+      <tr>
+        <td>
+          <big class="Heading1">Report: SDS_Test_Report_Steering_Maneuvers</big>
+        </td>
+      </tr>
+    </table>
+    <center>
+      <table class="OverallResultTable">
+        <tr>
+          <td class="NegativeResult">Test failed</td>
+        </tr>
+      </table>
+    </center>
+    <a name="GeneralTestInfo"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">General Test Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">Test Engineer</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Windows Login Name: </td>
+            <td class="CellNoColor">arabk</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Setup</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="CellNoColor">Version: </td>
+            <td class="CellNoColor">CANoe.J1939.CAN.LIN.Ethernet /pro 17.5.5 (SP5)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Configuration: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\SDS_Manuever_Config.cfg</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database Chassis1CAN_DBCV9.1_SWV3.1 on CHASSIS1CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\Chassis1CAN_DBCV9.1_SWV3.1.dbc (2025-03-20 11:08:30)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database Chassis2CAN_DBCV9.2_SWV3.1 on CHASSIS2CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\Chassis2CAN_DBCV9.2_SWV3.1.dbc (2025-03-20 11:10:00)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database DCDCPvtCAN_DBCV9.0_Internal_SWV3.1 on DCDCPvtCAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\DCDCPvtCAN_DBCV9.0_Internal_SWV3.1.dbc (2025-04-22 09:18:48)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database PWTCAN1_DBCV9.3_SWV3.1 on PWT1CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\PWTCAN1_DBCV9.3_SWV3.1.dbc (2025-03-20 11:13:24)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database PWTCAN2_DBCV9.0_Internal_SWV3.1 on PWT2CAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\PWTCAN2_DBCV9.0_Internal_SWV3.1.dbc (2025-04-22 09:18:48)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Database rt3kfull on GNSSCAN: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\rt3kfull.dbc (2025-04-22 09:18:48)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of MK100: </td>
+            <td class="CellNoColor">Base_Variant, en-US, C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CGW1_BLD14_SW3.1_V1.cdd (CGW1_BLD14_SW3.1_V1, 2024-09-08 21:51:44+02:00)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Diagnostic Description of MKC1: </td>
+            <td class="CellNoColor">Base_Variant, en-US, C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CVS_BLD3_SW3.1_V3.cdd (CVS_BLD1_SW3.1_V3, 2024-09-02 19:44:22+02:00)</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module Name: </td>
+            <td class="CellNoColor">SDS_Test_Report_Steering_Maneuvers</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Test Module File: </td>
+            <td class="CellNoColor">C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\CAPL\User_Defined\SDS_Generate_Report.can</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Last modification of Test Module File: </td>
+            <td class="CellNoColor">2025-04-24, 08:52:20</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Windows Computer Name: </td>
+            <td class="CellNoColor">GARENWINTEC</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module J1939_IL: </td>
+            <td class="CellNoColor">J1939 Interaction Layer for CANoe, Version 17.5.5.0, C:\Program Files\Vector CANoe 17\Exec64\J1939_IL.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module CANoeILNLVector: </td>
+            <td class="CellNoColor">CANoe Interaction Layer NL (Vector) Version 3.30.131 (Jun 25 2024 10:27:06) , C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Exec32\CANoe_14_0\Exec64\CANoeILNLVector.dll</td>
+          </tr>
+          <tr>
+            <td class="CellNoColor">Nodelayer Module CANoeILNLDefault: </td>
+            <td class="CellNoColor">CANoe Interaction Layer NL (Default) Version 3.30.113 (Feb 16 2023 15:35:06) , c:\ProgramData\Vector\AddOn Packages\Vector AddOn\vModules\CANoe_14_0\Exec64\CANoeILNLDefault.dll</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Logging and video recordings</div>
+      <div class="Indentation">
+        <table>
+          <th class="TableHeadingCell">Start Time</th>
+          <th class="TableHeadingCell">End Time</th>
+          <th class="TableHeadingCell">Logging/Video File</th>
+          <tr>
+            <td class="NumberCell">Active at test start</td>
+            <td class="NumberCell">Active at test end</td>
+            <td class="NumberCell" style="text-align:left">..\..\..\..\Downloads\SDS_Test_Traces\SDS_test_PenzingDAY4_2025-04-24_08-55-37.blf</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <a name="TestOverview"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">Test Overview</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <table class="DefaultTable">
+        <tr>
+          <td style="padding-right: 0.5em;" class="CellNoColor">Test begin: </td>
+          <td style="padding-right: 0.5em;" class="CellNoColor">2025-04-24 08:55:47</td>
+          <td class="CellNoColor">(logging timestamp    9.903170)</td>
+        </tr>
+        <tr>
+          <td style="padding-right: 0.5em;" class="CellNoColor">Test end: </td>
+          <td style="padding-right: 0.5em;" class="CellNoColor">2025-04-24 08:55:57</td>
+          <td class="CellNoColor" nowrap>(logging timestamp   19.903170)</td>
+        </tr>
+      </table>
+      <div class="Heading4">Statistics</div>
+      <div class="Indentation">
+        <table class="OverviewTable">
+          <tr>
+            <td class="DefineCell">Overall number of test cases </td>
+            <td class="NumberCell" width="60">1</td>
+            <td class="DefaultCell"></td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Executed test cases </td>
+            <td class="NumberCell">1</td>
+            <td class="DefaultCell">100% of all test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Not executed test cases </td>
+            <td class="NumberCell">0</td>
+            <td class="DefaultCell">0% of all test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Test cases passed </td>
+            <td class="NumberCell">0</td>
+            <td class="NumberCell">0% of executed test cases</td>
+          </tr>
+          <tr>
+            <td class="DefineCell">Test cases failed </td>
+            <td class="NumberCellNegativeResult">1</td>
+            <td class="NumberCellNegativeResult">100% of executed test cases</td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading4">Test Case Results</div>
+      <div class="Indentation">
+        <table class="OverviewTable">
+          <tr>
+            <td class="DefineCell">1</td>
+            <td class="DefaultCell"></td>
+            <td class="DefaultCell">
+              <a href="i__-760389472_9.html">TG_003_Steering_0TC</a>
+            </td>
+            <td class="NegativeResultCell">
+              <a href="i__-760389472_9.html#i__-760389472_55">fail</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <a name="TestModuleInfo"></a>
+    <table class="SubHeadingTable">
+      <tr>
+        <td>
+          <div class="Heading2">Test Module Information</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Indentation">
+      <div class="Heading4">Contents</div>
+      <div class="Indentation">
+        <table>
+          <tr>
+            <td class="DefaultCell">1</td>
+            <td class="TestcaseHeadingNegativeResult">
+              <a href="i__-760389472_9.html">TG_003_Steering_0TC</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

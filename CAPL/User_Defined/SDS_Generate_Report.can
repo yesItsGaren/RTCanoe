@@ -1,0 +1,82 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "SteeringManeuver.CAN"
+}
+
+variables
+{
+  const long TG_003_Steering_TC_TIMOUT = 45000;
+  int selectedSteeringManeuver =0;
+}
+
+
+void MainTest()
+{
+  TG_003_Steering_0TC();
+}
+
+void TG_003_Steering_0TC()
+{
+  resetVariables();
+  
+//  EXECUTED_MANEUVER = TG_003_Steering_50_limiter;
+  
+  selectedSteeringManeuver = @sysvar::Steering_Int::SteeringTableVar;
+  
+  switch(selectedSteeringManeuver)
+  {
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_0:
+      EXECUTED_MANEUVER = TG_003_Steering_0;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_10:
+      EXECUTED_MANEUVER = TG_003_Steering_10;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_20:
+      EXECUTED_MANEUVER = TG_003_Steering_20;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_30:
+      EXECUTED_MANEUVER = TG_003_Steering_30;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_40:
+      EXECUTED_MANEUVER = TG_003_Steering_40;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_50:
+      EXECUTED_MANEUVER = TG_003_Steering_50;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_60:
+      EXECUTED_MANEUVER = TG_003_Steering_60;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_004_Steering_Braking_60:
+      EXECUTED_MANEUVER = TG_004_Steering_Braking_60;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_50_limiter:
+      EXECUTED_MANEUVER = TG_003_Steering_50_limiter;
+      break;
+    case sysvar::Steering_Int::SteeringTableVar::TG_003_Steering_0_Smooth:
+      EXECUTED_MANEUVER = TG_003_Steering_0_Smooth;
+      break;
+    default:
+      EXECUTED_MANEUVER = TG_003_Steering_0;
+      break;
+  }
+    
+
+  if(EXECUTED_MANEUVER == TG_003_Steering_50_limiter)
+  {
+    executeManeuverLimiter();
+  }
+  else if(EXECUTED_MANEUVER == TG_003_Steering_0_Smooth)
+  {
+    executeManeuverSmooth();
+  }
+  else
+  { 
+    executeManeuver();
+  }
+  testWaitForTimeout(TG_003_Steering_TC_TIMOUT);
+}
+
+
+
+

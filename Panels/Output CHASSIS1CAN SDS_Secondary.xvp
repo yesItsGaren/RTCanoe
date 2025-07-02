@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="Output CHASSIS1CAN SDS_Secondary" Children="Controls">
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl528" ControlName="GroupBoxControl528" Children="Controls">
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl148" ControlName="PanelButtonControl148" Children="Controls">
+        <Property Name="Name">PanelButtonControl148</Property>
+        <Property Name="Size">171,21</Property>
+        <Property Name="Location">5,36</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message TX CHASSIS1CAN SDS_Secondary SDS_CtrlSteeringWheel_Sec.xvp</Property>
+        <Property Name="Text">SDS_CtrlSteeringWheel_Sec</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl149" ControlName="PanelButtonControl149" Children="Controls">
+        <Property Name="Name">PanelButtonControl149</Property>
+        <Property Name="Size">171,21</Property>
+        <Property Name="Location">5,57</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message TX CHASSIS1CAN SDS_Secondary SDS_Stability_Info_Sec.xvp</Property>
+        <Property Name="Text">SDS_Stability_Info_Sec</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PanelButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=7.1.94.0, Culture=neutral, PublicKeyToken=null" Name="PanelButtonControl150" ControlName="PanelButtonControl150" Children="Controls">
+        <Property Name="Name">PanelButtonControl150</Property>
+        <Property Name="Size">171,21</Property>
+        <Property Name="Location">5,78</Property>
+        <Property Name="ClosePanels">False</Property>
+        <Property Name="PanelList">1;1;Message TX CHASSIS1CAN SDS_Secondary SDS_Status_Sec.xvp</Property>
+        <Property Name="Text">SDS_Status_Sec</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl528</Property>
+      <Property Name="Size">181,104</Property>
+      <Property Name="Location">5,5</Property>
+      <Property Name="UseWindowsStyle">False</Property>
+      <Property Name="BackColor">255,255,255</Property>
+      <Property Name="Text">TX Messages of SDS_Secondary</Property>
+      <Property Name="ForeColor">0,0,0</Property>
+    </Object>
+    <Property Name="Panel">Panel</Property>
+    <Property Name="Size">191,114</Property>
+    <Property Name="BackColor">255,255,255</Property>
+  </Object>
+</Panel>

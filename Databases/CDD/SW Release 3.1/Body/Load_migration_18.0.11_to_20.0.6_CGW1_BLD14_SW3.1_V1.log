@@ -1,0 +1,347 @@
+Encoding: iso-8859-1
+Detected dtd version 18.0.11
+VCANdelaPersistorImpl::GetFileVersion: DTD version '18.0.11' detected
+Detected dtd version 18.0.11
+VCANdelaPersistorImpl::GetFileVersion: DTD version '18.0.11' detected
+Loading 'C:\Users\arabk\Desktop\Holon\HolonGit\ManeuverTests\SDS_Interface\Databases\CDD\SW Release 3.1\Body\CGW1_BLD14_SW3.1_V1.cdd'...
+  dtd version: file 18.0.11, program 20.0.6
+Document supports the languages (en-US)
+Document contains the uptodate languages (en-US)
+Template: Vector UDS
+Migration 20: setting "Unique in Variant" property of String Attribute "qpath://[DATAOBJDEFATTR]ASR_UUID" to "Yes"
+Migration 20: setting "Unique in Variant" property of String Attribute "qpath://[DIAGINSTDEFATTR]ASR_UUID" to "Yes"
+  template data loaded
+Loaded Snapshot records and data
+Loaded Extended data
+Start loading event data model
+  variant 'Base_Variant' loaded
+Document version: CGW1_BLD14_SW3.1_V1
+Done loading.
+Editor consistency check of document. This may take a while, please be patient...
+Warning: Text table data type 'Key Status' contains 1 entries without any assigned text.
+Warning: Text table data type 'Certificate Status' contains 1 entries without any assigned text.
+Warning: Text table data type 'JTAG Status' contains 1 entries without any assigned text.
+Warning: Text table data type 'ETH Switch JTAG  Status' contains 1 entries without any assigned text.
+Warning: Text table data type 'Symmetric Keys Status' contains 1 entries without any assigned text.
+Warning: Text table data type 'Certificate Status (TLS1.2)' contains 1 entries without any assigned text.
+Content of tab page "SecuritySeed" in "qpath:/Base_Variant/SecurityAccess/SecLevel1":
+    Minimum size of data must be 16 bits. Current minimum size of data is 8 bits.
+Content of tab page "SecuritySeed" in "qpath:/Base_Variant/SecurityAccess/SecLevel1":
+    Minimum size of data must be 16 bits. The current (maximum) size of data is 8 bits.
+Content of tab page "SecuritySeed" in "qpath:/Base_Variant/SecurityAccess/SecLevel1":
+    Minimum size of data must be 16 bits. Current minimum size of data is 8 bits.
+Warning: Default value of data object 'qpath:/Base_Variant/Identification_of_Deployable_Unit/Programming_Date/DataRecord/Year' cannot be converted to a physical value.
+Inconsistencies detected.
+ComParamMan: Setting COM parameter 'BusType' to value 'Ethernet' failed. Invalid value!
+ComParamMan: Unidentified ComParam CP_DoIPLogicalGatewayAddress
+ComParamMan: Unidentified ComParam CP_DoIPLogicalEcuAddress
+ComParamMan: Unidentified ComParam CP_DoIPLogicalTesterAddress
+ComParamMan: Unidentified ComParam CP_DoIPLogicalFunctionalAddress
+ComParamMan: Unidentified ComParam CP_DoIPSecondaryLogicalECUResponseAddress
+ComParamMan: Unidentified ComParam CP_P6Max
+ComParamMan: Unidentified ComParam CP_P2Max_Ecu
+ComParamMan: Unidentified ComParam CP_P6Star
+ComParamMan: Unidentified ComParam CP_P2Star_Ecu
+ComParamMan: Unidentified ComParam CP_TesterPresentTime
+ComParamMan: Unidentified ComParam CP_TesterPresentTime_Ecu
+ComParamMan: Unidentified ComParam CP_P3Phys
+ComParamMan: Unidentified ComParam CP_P3Func
+ComParamMan: Unidentified ComParam CP_NetworkTransmissionTime
+ComParamMan: Unidentified ComParam CP_RC78Handling
+ComParamMan: Unidentified ComParam CP_RC78CompletionTimeout
+ComParamMan: Unidentified ComParam CP_RC21Handling
+ComParamMan: Unidentified ComParam CP_RC21RequestTime
+ComParamMan: Unidentified ComParam CP_RC21CompletionTimeout
+ComParamMan: Unidentified ComParam CP_DoIPTlsEcuName
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Trying to insert already existent communication parameter 'UudtCanIdType' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentPhys' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentFunc' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Trying to insert already existent communication parameter 'UudtCanIdType' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentPhys' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentFunc' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Trying to insert already existent communication parameter 'UudtCanIdType' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentPhys' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentFunc' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Trying to insert already existent communication parameter 'UudtCanIdType' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentPhys' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentFunc' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Trying to insert already existent communication parameter 'UudtCanIdType' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentPhys' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentFunc' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Unidentified ComParam UudtCanIdType
+ComParamMan: Trying to insert already existent communication parameter 'UudtCanIdType' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentPhys
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentPhys' into ComParamCollection
+ComParamMan: Unidentified ComParam TesterPresentFunc
+ComParamMan: Trying to insert already existent communication parameter 'TesterPresentFunc' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Setting COM parameter 'BusType' to value 'Ethernet' failed. Invalid value!
+ComParamMan: Unidentified ComParam CP_DoIPLogicalGatewayAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalGatewayAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalEcuAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalEcuAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalTesterAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalTesterAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalFunctionalAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalFunctionalAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPSecondaryLogicalECUResponseAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPSecondaryLogicalECUResponseAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P6Max
+ComParamMan: Trying to insert already existent communication parameter 'CP_P6Max' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P2Max_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_P2Max_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P6Star
+ComParamMan: Trying to insert already existent communication parameter 'CP_P6Star' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P2Star_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_P2Star_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_TesterPresentTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_TesterPresentTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_TesterPresentTime_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_TesterPresentTime_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P3Phys
+ComParamMan: Trying to insert already existent communication parameter 'CP_P3Phys' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P3Func
+ComParamMan: Trying to insert already existent communication parameter 'CP_P3Func' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_NetworkTransmissionTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_NetworkTransmissionTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPTlsEcuName
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPTlsEcuName' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Setting COM parameter 'BusType' to value 'Ethernet' failed. Invalid value!
+ComParamMan: Unidentified ComParam CP_DoIPLogicalGatewayAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalGatewayAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalEcuAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalEcuAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalTesterAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalTesterAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalFunctionalAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalFunctionalAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPSecondaryLogicalECUResponseAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPSecondaryLogicalECUResponseAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P6Max
+ComParamMan: Trying to insert already existent communication parameter 'CP_P6Max' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P2Max_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_P2Max_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P6Star
+ComParamMan: Trying to insert already existent communication parameter 'CP_P6Star' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P2Star_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_P2Star_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_TesterPresentTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_TesterPresentTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_TesterPresentTime_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_TesterPresentTime_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P3Phys
+ComParamMan: Trying to insert already existent communication parameter 'CP_P3Phys' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P3Func
+ComParamMan: Trying to insert already existent communication parameter 'CP_P3Func' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_NetworkTransmissionTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_NetworkTransmissionTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPTlsEcuName
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPTlsEcuName' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+ComParamMan: Setting COM parameter 'BusType' to value 'Ethernet' failed. Invalid value!
+ComParamMan: Unidentified ComParam CP_DoIPLogicalGatewayAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalGatewayAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalEcuAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalEcuAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalTesterAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalTesterAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPLogicalFunctionalAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPLogicalFunctionalAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPSecondaryLogicalECUResponseAddress
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPSecondaryLogicalECUResponseAddress' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P6Max
+ComParamMan: Trying to insert already existent communication parameter 'CP_P6Max' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P2Max_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_P2Max_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P6Star
+ComParamMan: Trying to insert already existent communication parameter 'CP_P6Star' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P2Star_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_P2Star_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_TesterPresentTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_TesterPresentTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_TesterPresentTime_Ecu
+ComParamMan: Trying to insert already existent communication parameter 'CP_TesterPresentTime_Ecu' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P3Phys
+ComParamMan: Trying to insert already existent communication parameter 'CP_P3Phys' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_P3Func
+ComParamMan: Trying to insert already existent communication parameter 'CP_P3Func' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_NetworkTransmissionTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_NetworkTransmissionTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC78Handling
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC78Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC78CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC78CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21Handling
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21Handling' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21RequestTime
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21RequestTime' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_RC21CompletionTimeout
+ComParamMan: Trying to insert already existent communication parameter 'CP_RC21CompletionTimeout' into ComParamCollection
+ComParamMan: Unidentified ComParam CP_DoIPTlsEcuName
+ComParamMan: Trying to insert already existent communication parameter 'CP_DoIPTlsEcuName' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticConnectionRef
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticConnectionRef' into ComParamCollection
+ComParamMan: Unidentified ComParam DiagnosticProtocolPriority
+ComParamMan: Trying to insert already existent communication parameter 'DiagnosticProtocolPriority' into ComParamCollection
+ComParamMan: Unidentified ComParam SendRespPendOnTransToBoot
+ComParamMan: Trying to insert already existent communication parameter 'SendRespPendOnTransToBoot' into ComParamCollection
+Checking service prefixes in base variant "Base_Variant" ... OK
+Non-fatal inconsistencies detected in document regarding editor checks.

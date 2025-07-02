@@ -1,0 +1,255 @@
+variables
+{
+  /* IL Include for CAN Vector IL for non-NM (KL15) nodes
+   *
+   * 
+   *
+   * The simulation node needs to load the components CANoeILNLVector.dll.
+   *
+   * Call ILCAN3_OnInit() in "on preStart()" of the main program!
+   * Call ILCAN3_OnStart() in "on start()" of the main program!
+   *
+   * Version 6.5, (c) 2016 Vector Informatik GmbH, Department for Networks and Distributed Systems
+   */
+
+  dword gILCAN3_DebugFlags              = 0;
+
+  const dword cILCAN3_ILIndDebug      = 0x0001;
+  const dword cILCAN3_ILInitDebug     = 0x0002;
+  const dword cILCAN3_ILControlDebug  = 0x0010;
+  
+  const dword cILCAN3_NSToS = 1000000000;
+
+  // Internally used variables and timers:
+  dword   gILCAN3_BusContext = 0;
+  int     gILCAN3_EnableNode = 1;
+}
+
+/*****************************************************************************
+ * Include Initialization
+ *****************************************************************************/
+
+void ILCAN3_OnInit ()
+{
+  gILCAN3_BusContext = GetBusNameContext(gCAN3BusName);
+  if (gILCAN3_BusContext == 0)
+  {
+    write("[%.6f %NODE_NAME%] ERROR: cannot determine bus context of CAN bus '%s'!", TimeNowNS()/cILCAN3_NSToS, gCAN3BusName);
+  }
+
+  gILCAN3_EnableNode = ((@sysvar::IL_CAN3::NODES::N_%NODE_NAME%::EnableNode == 0) || (@sysvar::IL_CAN3::enable_AllNodes == 0)) ? 0 : 1;
+ 
+  if (strncmp("%NODE_NAME%", "_Gateway", 50) == 0)
+  {
+    gILCAN3_DebugFlags |= cILCAN3_ILIndDebug;
+    gILCAN3_DebugFlags |= cILCAN3_ILInitDebug;
+    gILCAN3_DebugFlags |= cILCAN3_ILControlDebug;
+  }
+
+  if ((@sysvar::IL::Klemme30 == 0) || (@sysvar::IL::Klemme15 == 0) || (gILCAN3_EnableNode == 0))
+  {
+    SetBusContext(gILCAN3_BusContext);
+    ILControlInit(); // disables the automatic IL start
+    if (@sysvar::IL::Klemme30 == 0)
+      ILCAN3_Enable(0);
+  }
+  else
+  {
+    // The IL must be initialized anyway. Otherwise, we cannot set specific operation modes for signals and/or messages.
+    SetBusContext(gILCAN3_BusContext);
+    ILControlInit(); // disables the automatic IL start
+    if (@sysvar::IL::Klemme30 == 0)
+    {
+      ILCAN3_Enable(0);
+    }
+    else
+    {
+      //ILCAN3_Enable(1);
+      ILControlSimulationOn();
+      if (@sysvar::IL::Klemme15 == 1)
+        ILActivateClamp15();
+      else
+        ILDeactivateClamp15();
+    }
+  }
+}
+
+void ILCAN3_OnStart ()
+{
+  if (gILCAN3_DebugFlags & cILCAN3_ILInitDebug)
+  {
+    write("+++++++++ %NODE_NAME%: IL on start()");
+  }
+
+  if ((@sysvar::IL::Klemme15 > 0) && (@sysvar::IL::Klemme30 > 0))
+  {
+    ILCAN3_SetIgnitionState(@sysvar::IL::Klemme15);
+	
+    if (@sysvar::IL::Klemme30 > 0)
+    {
+      ILCAN3_StartStop(1);
+    }
+  }
+}
+
+/*****************************************************************************
+ * IL Control
+ * These functions can be called from the main program or react on
+ * panel controls or the NM status of the controlled node.
+ *****************************************************************************/
+
+void ILCAN3_Enable (int enable)
+{
+  /* void ILCAN3_Enable (int enable);
+   *
+   *  Function enables/disables the cyclic sending of all messages
+   *  that are controlled by the Interaction Layer.
+   */
+  int wasEnabled = -1;
+
+  //if (enable == wasEnabled) return;
+  SetBusContext(gILCAN3_BusContext);
+  if (gILCAN3_DebugFlags & cILCAN3_ILControlDebug)
+  {
+    write("[%.6f %NODE_NAME%] ILCAN3_Enable(%d) called ...", TimeNowNS()/cILCAN3_NSToS, enable);
+  }
+
+  if (enable == 1)
+  {
+    gILCAN3_EnableNode = 1;
+    ILControlSimulationOn();
+    ILCAN3_SetIgnitionState(@sysvar::IL::Klemme15);
+    if (@sysvar::IL::Klemme15)
+      ILCAN3_StartStop(1);
+    ILCAN3_WaitResume(@sysvar::IL::Klemme15);
+    StartSim(gILCAN3_BusContext, 1, 3);
+  }
+  else
+  {
+    StopSim(gILCAN3_BusContext, 1, 3);
+    ILControlSimulationOff();
+    gILCAN3_EnableNode = 0;
+  }
+
+  wasEnabled = enable;
+}
+
+void ILCAN3_StartStop (int dostart)
+{
+  /* void ILCAN3_StartStop (int dostart);
+   *
+   *  Function starts/stops the cyclic sending of all messages
+   *  that are controlled by the Interaction Layer.
+   */
+  int wasStarted = -1;
+
+  //if (dostart == wasStarted) return;
+  if (gILCAN3_EnableNode == 0) return;
+
+  SetBusContext(gILCAN3_BusContext);
+  if (gILCAN3_DebugFlags & cILCAN3_ILControlDebug)
+  {
+    write("[%.6f %NODE_NAME%] ILCAN3_StartStop(%d) called ...", TimeNowNS()/cILCAN3_NSToS, dostart);
+  }
+
+  if (dostart == 1)
+  {
+    ILControlStart();
+    StartSim(gILCAN3_BusContext, 1, 2);
+  }
+  else
+  {
+    StopSim(gILCAN3_BusContext, 1, 2);
+    ILControlStop();
+  }
+
+  wasStarted = dostart;
+}
+
+void ILCAN3_WaitResume (int resume)
+{
+  /* void ILCAN3_WaitResume (int resume);
+   *
+   *  Function resumes/waits the cyclic sending of all messages
+   *  that are controlled by the Interaction Layer.
+   */
+  int wasResumed = -1;
+
+  //if (resume == wasResumed) return;
+  if (gILCAN3_EnableNode == 0) return;
+
+  SetBusContext(gILCAN3_BusContext);
+  if (gILCAN3_DebugFlags & cILCAN3_ILControlDebug)
+  {
+    write("[%.6f %NODE_NAME%] ILCAN3_WaitResume(%d) called ...", TimeNowNS()/cILCAN3_NSToS, resume);
+  }
+
+  if (resume == 1)
+  {
+    ILControlResume();
+    StartSim(gILCAN3_BusContext, 1, 1);
+  }
+  else
+  {
+    StopSim(gILCAN3_BusContext, 1, 1);
+    ILControlWait();
+  }
+
+  wasResumed = resume;
+}
+
+void ILCAN3_SetIgnitionState (int ignition)
+{
+  /* void ILCAN3_SetIgnitionState (int ignition);
+   *
+   *  Function sets the ignition state at the Interaction Layer.
+   */
+  int wasIgnition = -1;
+
+  //if (ignition == wasIgnition) return;
+  SetBusContext(gILCAN3_BusContext);
+  if (gILCAN3_DebugFlags & cILCAN3_ILControlDebug)
+  {
+    write("[%.6f %NODE_NAME%] ILCAN3_SetIgnitionState(%d) called ...", TimeNowNS()/cILCAN3_NSToS, ignition);
+  }
+
+  if (ignition > 0)
+  {
+    ILCAN3_StartStop(1); // start CAN IL
+    ILActivateClamp15();
+  }
+  else
+  {
+    ILDeactivateClamp15();
+    ILCAN3_StartStop(0); // stop CAN IL
+  }
+
+  wasIgnition = ignition;
+}
+
+void ILCAN3_OnEnvKlemme15(int enable)
+{
+  ILCAN3_SetIgnitionState(enable);
+}
+
+void ILCAN3_OnEnvKlemme30(int enable)
+{
+  if(enable != 0)
+  {
+    ILCAN3_Enable(1);
+    if (@sysvar::IL::Klemme15 > 0)
+    {
+    }
+    // Restore ignition state at IL (and toggle if on):
+    ILCAN3_SetIgnitionState(0);
+    ILCAN3_SetIgnitionState(@sysvar::IL::Klemme15);
+  }
+  else
+  {
+    ILCAN3_Enable(0);
+  }
+}
+
+/*****************************************************************************
+ * EOF
+ *****************************************************************************/

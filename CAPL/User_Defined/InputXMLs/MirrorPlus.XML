@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<testmodule title=" Window Lift System Test" version="2.1" 
+    xmlns="http://www.vector-informatik.de/CANoe/TestModule/1.15"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.vector-informatik.de/CANoe/TestModule/1.15 
+      testmodule_1.15.xsd"> 
+  <description>Test the states of the window lift system</description> 
+  <sut> 
+    <info> 
+      <name>Name</name> 
+      <description>Central Locking System</description> 
+    </info> 
+    <info> 
+      <name>Version</name> 
+      <description>0.9 a3</description> 
+    </info> 
+  </sut> 
+  <engineer> 
+    <info> 
+      <name>Test Engineer Name</name> 
+      <description>Garen Arabkirlian</description> 
+    </info> 
+  </engineer> 
+  <testgroup title="Function Tests"> 
+    <testcase ident="TC201" title="Open The Window"> 
+      <description>Initiate window open procedure over CAN bus.</description> 
+      <initialize wait="2000" title="Initialize signals, ensure window closed">
+	   <cansignal name="GearchangeReqPri">2</cansignal> 
+      </initialize> 
+      <statechange wait="3000" title="Open window"> 
+        <in> 
+          <cansignal name="AccelDecelReqPriValidStat">1</cansignal> 
+        </in> 
+        <expected> 
+          <cansignal name="GearchangeReqPri"><ge>2</ge></cansignal> 
+        </expected> 
+      </statechange> 
+    </testcase> 
+  </testgroup> 
+</testmodule> 
